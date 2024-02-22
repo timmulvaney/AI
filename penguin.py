@@ -1,3 +1,6 @@
+# copy of
+# https://www.kaggle.com/code/kishoresgowda/data-analysis-on-penguins-dataset
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -39,8 +42,6 @@ sns.boxplot(x=df.species,y=df.body_mass_g,hue=df.sex)
 # bill_length and bill_depth and species
 #  Clearly three groups of species can be identified.
 #  Each of the species bill_length and bill_depth fall in a certain range.
-
-
 sns.set_style('dark')
 sns.scatterplot(x=df.bill_length_mm,y=df.bill_depth_mm,hue=df.species)
 
