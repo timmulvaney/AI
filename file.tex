@@ -123,7 +123,14 @@ consider a mathematical description if possible. You will be asked to
 submit code and it may be tested to make sure it works and matches
 your report. It will not, however, be marked in and of itself.
 
+\subsection*{knn}
 
+Perhaps use F1-score (there are others!) as the classes are imbalanced in number?
+
+F1-score is a metric that considers both precision and recall. Precision measures the accuracy of positive predictions (TP/(TP+FP)), while recall (also known as sensitivity) measures the fraction of positives that were correctly identified (TP/(TP+FN))
+F1-score is the harmonic mean of precision and recall and is calculated as follows:
+F1=2×(Precision×Recall)/(Precision+Recall​)
+F1-score ranges from 0 to 1, where a higher value indicates better model performance. F1-score is particularly useful when classes are imbalanced because it considers both false positives and false negatives.
 
 
 
