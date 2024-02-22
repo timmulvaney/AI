@@ -15,7 +15,7 @@ df.head()
 df.describe()
 df.info()
 
-# clean the data and remove nulls
+# clean the data and remove missing values
 df.isnull().sum()
 df.dropna(inplace=True)
 
@@ -56,8 +56,8 @@ plt.show()
 #  - Flipper length and body_mass are strongly related - penguins with longer flips, generally weigh more
 #  - Bill depth and bill length are weakly correlated so may work together well for classification
 #  - Other pairs are more strongly correlated so may not aid classification 
-numeric_columns = df.select_dtypes(include=['float64', 'int64']) # select only numeric columns for correlation
-correlation_matrix=numeric_columns.corr()
+numerical_columns = df.select_dtypes(include=['float64', 'int64']) # select only numerical columns for correlation
+correlation_matrix=numerical_columns.corr()
 sns.set_style('dark')
 sns.heatmap(correlation_matrix,annot=True,linecolor='white',linewidths=5,cmap="YlGnBu")
 plt.show()
@@ -67,3 +67,46 @@ plt.show()
 sns.set_style(style='white')
 sns.pairplot(data=df,hue='species',palette=['#6baddf','#01193f','#d2b486'])
 plt.show()
+
+# libraries to split into training/test sets, for knn and for f1 score
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import f1_score
+
+# map categorical species (target) to integers for knn classification 
+df['species'] = df['species'].map({'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2})
+df['island'] = pd.Categorical(df['island']).codes
+df['sex'] = pd.Categorical(df['sex']).codes
+
+# separate features and target
+X = df.drop('species', axis=1)
+y = df['species']
+
+# divide into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# try 1 to 10 nearest neighbours
+for k in range(1,10):
+
+  # initialize kNN classifier
+  knn = KNeighborsClassifier(n_neighbors=k)
+
+  # perform cross-validation
+  cv_scores = cross_val_score(knn, X_train, y_train, cv=5)
+
+  # train the KNN classifier
+  knn.fit(X_train, y_train)
+  
+  # find predicted outputs for the test set
+  y_pred = knn.predict(X_test)
+
+  # calculate the F1-score
+  f1 = f1_score(y_test, y_pred, average='weighted')
+
+  # print cross-validation scores
+  # print("cross-validation values for k =", k, ":", cv_scores)
+  print("mean cross-validation accuracy for k =", k, ":", np.mean(cv_scores))
+  print("f1 score for k =", k, ":", f1)
+
+
+  # need to try different random states for f1????
