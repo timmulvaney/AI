@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+rm $1.bcf
+rm $1.log
+rm $1.run.xml
+rm $1.aux
+rm $1.dvi
+rm $1.bbl
+rm $1.blg
+rm $1.pdf

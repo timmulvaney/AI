@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+latex timmulvaney
+biber timmulvaney
+latex timmulvaney
+latex timmulvaney
+pdflatex timmulvaney

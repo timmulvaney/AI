@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:307> INFO - Logfile is 'timmulvaney.blg'
+[63] biber:322> INFO - === Mon Feb 26, 2024, 20:29:30
+[74] Biber.pm:415> INFO - Reading 'timmulvaney.bcf'
+[128] Biber.pm:943> INFO - Found 1 citekeys in bib section 0
+[139] Biber.pm:4256> INFO - Processing section 0
+[139] Utils.pm:75> INFO - Globbing data source 'file.bib'
+[139] Utils.pm:91> INFO - Globbed data source 'file.bib' to file.bib
+[151] Biber.pm:4455> INFO - Looking for bibtex format file 'file.bib' for section 0
+[153] bibtex.pm:1653> INFO - LaTeX decoding ...
+[155] bibtex.pm:1471> INFO - Found BibTeX data source 'file.bib'
+[185] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[185] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[185] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[186] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[194] bbl.pm:652> INFO - Writing 'timmulvaney.bbl' with encoding 'UTF-8'
+[194] bbl.pm:755> INFO - Output to timmulvaney.bbl
