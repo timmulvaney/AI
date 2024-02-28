@@ -33,6 +33,16 @@ plt.show()
 #  - Gentoo only in Biscoe.
 #  - Chinstrap only in Dream.
 #  - Gentoo and Chinstrap have lengthier bills compared to Adelie
+# Biscoe island is the only island with Gentoo penguins. Since there’s no causal relationship established,
+# we can only infer that flipper length differences over islands may come from the fact that there are
+# differences between species, and certain species tend to live on certain islands. 
+# We would need to conduct controlled experiments to conclude that the island is indeed a confounding variable.
+
+# Gentoo pengiuns can be distingushed from the other species using flipper length (possibly other features too?).   
+# However, we only have examples of Gentoo penguins that live on Biscoe island. So Biscoe island is a cofounding
+# variable. It could be that some local aspect of the island (for example, environmental pressures) have led to the
+# penguins having reduced flipper length that may not be shared by populations of Gentoo pengiuns living elsewhere.
+#
 sns.swarmplot(x=df.island,y=df.bill_length_mm,hue=df.species)
 plt.show()
 
@@ -41,7 +51,11 @@ plt.show()
 #  - Adelie males are generally heavier than chinstrap males
 #  - Chinstrap females are generally heavier than adelie females
 sns.set_style('dark')
+sns.set_context("notebook", font_scale=1.1)
 sns.boxplot(x=df.species,y=df.body_mass_g,hue=df.sex)
+# plt.xlabel("species", weight='bold')
+plt.gca().set_xlabel("species", weight='bold', x=0.7, labelpad=10)  # You can adjust labelpad to change the distance
+plt.ylabel("body mass (g)", weight='bold')
 plt.show()
 
 # bill_length and bill_depth and species
@@ -53,7 +67,7 @@ sns.scatterplot(x=df.bill_length_mm,y=df.bill_depth_mm,hue=df.species)
 plt.show()
 
 # heatmap of features
-#  - Flipper length and body_mass are strongly related - penguins with longer flips, generally weigh more
+#  - Flipper length and body_mass are strongly related - for each species of penguin, those with longer flippers, generally weigh more
 #  - Bill depth and bill length are weakly correlated so may work together well for classification
 #  - Other pairs are more strongly correlated so may not aid classification 
 numerical_columns = df.select_dtypes(include=['float64', 'int64']) # select only numerical columns for correlation
@@ -73,6 +87,8 @@ palette = {'Adelie': '#01193f', 'Chinstrap': '#6baddf', 'Gentoo': '#d2b486'}
 # Plot with specified hue order and palette
 sns.pairplot(data=df, hue='species', hue_order=hue_order, palette=palette)
 
+# For each species, the joint distribution of the pair plots is approximately oval in shape.
+# Where the main axes of the ovals appears ia along a diagonal this indicates a correlation between features
 plt.show()
 
 # libraries to split into training/test sets, for knn and for f1 score
