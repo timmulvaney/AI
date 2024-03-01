@@ -24,7 +24,7 @@ basic(df)
 clean(df)
 
 # show the islands where the penguins live
-islands(df)
+# islands(df)
 
 # show the numbers of the species
 species(df)

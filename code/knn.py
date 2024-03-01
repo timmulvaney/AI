@@ -1,6 +1,6 @@
 from globals import *
 
-def knn():
+def knn(df):
     
   # libraries to split into training/test sets, for knn and for f1 score
   from sklearn.model_selection import cross_val_score, train_test_split
