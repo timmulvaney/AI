@@ -2,6 +2,7 @@ from globals import *
 from basic import *
 from clean import *
 from islands import *
+from island_cofounding import *
 from species import *
 from bill_len import *
 from mass_sex import *
@@ -25,6 +26,9 @@ clean(df)
 
 # show the islands where the penguins live
 islands(df)
+
+# is the island a cofounding factor in altering mass/size of pengiun?
+island_cofounding(df)
 
 # show the numbers of the species
 # species(df)
