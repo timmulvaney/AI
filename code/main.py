@@ -24,22 +24,22 @@ basic(df)
 clean(df)
 
 # show the islands where the penguins live
-# islands(df)
+islands(df)
 
 # show the numbers of the species
-species(df)
+# species(df)
 
 # plot bill length for each species on each island
-bill_len(df)
+# bill_len(df)
 
 # plot mass and sex
 mass_sex(df)
 
 # plot bill length and bill depth
-bill_len_and_depth(df)
+# bill_len_and_depth(df)
 
 # heatmap of numerical features
-heatmap_of_numericals(df)
+# heatmap_of_numericals(df)
 
 # pairwise plot of the numerial variables
 pairwise_numericals(df)
