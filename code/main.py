@@ -11,7 +11,6 @@ from heatmap_of_numericals import *
 from pairwise_numericals import *
 from knn import *
 
-
 # the dataset can be found among these
 # print(sns.get_dataset_names())
 

@@ -38,12 +38,24 @@ def island_cofounding(df):
     # Interpret Shapiro-Wilk test results
     alpha = 0.05
     if shapiro_test_torgersen[1] > alpha and shapiro_test_biscoe[1] > alpha and shapiro_test_dream[1] > alpha:
-        print("The data for all groups follows a normal distribution.")
+      print("The data for all islands follows a normal distribution for variable", var)
     else:
-        print("The data for at least one group does not follow a normal distribution.")
+      print("The data for at least one island does not follow a normal distribution for variable", var)
   
-  # plot distributions 
+
+  # plot distributions for all numerical variables for all islands
   import matplotlib.pyplot as plt
+
+  # Melt the dataframe to have a variable column
+  melted_df = adelie_df.melt(id_vars=['island'], value_vars=numerical_names, var_name='variable', value_name='value')
+
+  # Plot distributions for each numerical variable for each island in a single plot
+  # g = sns.FacetGrid(melted_df, col='variable', hue='island', sharex=False, sharey=False)
+  # g.map(sns.kdeplot, 'value', alpha=0.5, xlabel='Value', ylabel='')  # Set xlabel here
+  # # g.map(sns.kdeplot, 'value', alpha=0.5)
+  # g.set_axis_labels('value..', '')  # Set the x-axis label
+  # g.add_legend()
+  # plt.show()
 
   # Melt the dataframe to have a variable column
   melted_df = adelie_df.melt(id_vars=['island'], value_vars=numerical_names, var_name='variable', value_name='value')
@@ -51,43 +63,46 @@ def island_cofounding(df):
   # Plot distributions for each numerical variable for each island in a single plot
   g = sns.FacetGrid(melted_df, col='variable', hue='island', sharex=False, sharey=False)
   g.map(sns.kdeplot, 'value', alpha=0.5)
+
+  # Use names of variables for x-axis labels 
+  for ax, var_name in zip(g.axes.flat, numerical_names):
+    ax.set_xlabel(var_name) 
+
+  # remove the defult title from each distribution 
+  for ax in g.axes[0]:
+    ax.set_title('')
+
+  # provide a legend and plot
   g.add_legend()
   plt.show()
 
-  # Combine data into a single DataFrame for easier plotting
-  data = pd.DataFrame({
-    'Torgersen': island_torgersen,
-    'Biscoe': island_biscoe,
-    'Dream': island_dream
-  })
 
-  # Plot distributions
-  sns.set(style="whitegrid")
-  plt.figure(figsize=(10, 6))
-  sns.violinplot(data=data, inner="quartile")
-  plt.title("Distribution of Mass for Adélie Penguins on Each Island")
-  plt.ylabel("Mass (g)")
-  plt.xlabel("Island")
-  plt.show()
+  # Do ANOVA test to see if there is statistical difference between islands for each of the numerical values
+  for var in numerical_names:
+    # Filter the dataset to include only Adélie penguins
+    adelie_df = df[df['species'] == 'Adelie']
 
+    # test for ANOVA
+    from scipy.stats import f_oneway
 
+    # Separate the data into groups based on the islands
+    island_torgersen = adelie_df[adelie_df['island'] == 'Torgersen'][var]
+    island_biscoe = adelie_df[adelie_df['island'] == 'Biscoe'][var]
+    island_dream = adelie_df[adelie_df['island'] == 'Dream'][var]
 
-  # Do ANOVA test
-  from scipy.stats import f_oneway
+    # Perform ANOVA test
+    f_statistic, p_value = f_oneway(island_torgersen, island_biscoe, island_dream)
 
-  # Perform ANOVA test
-  f_statistic, p_value = f_oneway(island_torgersen, island_biscoe, island_dream)
+    # Print results
+    print("F-statistic:", f_statistic)
+    print("P-value:", p_value)
 
-  # Print results
-  print("F-statistic:", f_statistic)
-  print("P-value:", p_value)
-
-  # Interpret results
-  print("ANOVA")
-  if p_value < 0.05:  # Assuming 0.05 significance level
-      print("There is a statistically significant difference in mass among the groups.")
-  else:
-      print("There is no statistically significant difference in mass among the groups.")
+    # Interpret results
+    print("ANOVA")
+    if p_value < 0.05:  # Assuming 0.05 significance level
+      print("There is a statistically significant difference in", var, "between the islands.")
+    else:
+      print("There is no statistically significant difference in", var, "between the islands.")
 
 
 
@@ -115,3 +130,20 @@ def island_cofounding(df):
   #     print("There is a statistically significant difference in mass between the groups.")
   # else:
   #     print("There is no statistically significant difference in mass between the groups.")
+      
+
+  # # Combine data into a single DataFrame for easier plotting
+  # data = pd.DataFrame({
+  #   'Torgersen': island_torgersen,
+  #   'Biscoe': island_biscoe,
+  #   'Dream': island_dream
+  # })
+
+  # # Plot distributions
+  # sns.set(style="whitegrid")
+  # plt.figure(figsize=(10, 6))
+  # sns.violinplot(data=data, inner="quartile")
+  # plt.title("Distribution of Mass for Adélie Penguins on Each Island")
+  # plt.ylabel("Mass (g)")
+  # plt.xlabel("Island")
+  # plt.show()
