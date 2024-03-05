@@ -18,6 +18,7 @@ from knn import *
 df=sns.load_dataset('penguins')
 
 # show basic stuff about the penguins
+# put baseline here
 basic(df)
 
 # clean the data and remove missing values
