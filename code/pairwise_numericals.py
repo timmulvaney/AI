@@ -9,9 +9,10 @@ def pairwise_numericals(df):
   hue_order = ['Adelie', 'Chinstrap', 'Gentoo']
   palette = {'Adelie': '#01193f', 'Chinstrap': '#6baddf', 'Gentoo': '#d2b486'}
 
-  # Plot with specified hue order and palette
+  # Plot with specified hue order and palette - ss.pairplot ignores non-numerical features
   sns.pairplot(data=df, hue='species', hue_order=hue_order, palette=palette)
 
   # For each species, the joint distribution of the pair plots is approximately oval in shape.
   # Where the main axes of the ovals appears ia along a diagonal this indicates a correlation between features
   plt.show()
+ 
