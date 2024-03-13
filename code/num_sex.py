@@ -42,7 +42,7 @@ def num_sex(df):
   # Find the means of the physical features by sex and species
   ###
 
-  # get a copy of the dataframe with the missing rows removed
+  # get a copy of the dataframe with rows with missing data removed
   clean_df = df.copy()
   clean_df = df.dropna()
   print(clean_df)
@@ -80,4 +80,4 @@ def num_sex(df):
   print(mean_df)
 
 
-  
+# 

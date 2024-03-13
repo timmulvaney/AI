@@ -68,7 +68,7 @@ def island_cofounding(df):
   for ax, var_name in zip(g.axes.flat, numerical_names):
     ax.set_xlabel(var_name) 
 
-  # remove the defult title from each distribution 
+  # remove the default title from each distribution 
   for ax in g.axes[0]:
     ax.set_title('')
 
