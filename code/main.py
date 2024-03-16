@@ -27,20 +27,20 @@ custom_colors = {'Adelie': 'blue', 'Chinstrap': 'red', 'Gentoo': 'green'}
 # put baseline here
 basic(df)
 
+# clean the data and remove missing values
+clean_df = clean(df)
+
 # plot numerical features against sex
-num_sex(df)
+num_sex(clean_df)
 
 # pairwise plot of the numerial variables
 pairwise_numericals(df, custom_colors)
 
-# clean the data and remove missing values
-clean(df)
-
-# standardize the numerical features
-standardize(df)
+# get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
+stand_df = standardize(df)
 
 # 3D scatter
-ThreeD_Scatter(df, custom_colors)
+ThreeD_Scatter(stand_df, custom_colors)
 
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 

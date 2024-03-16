@@ -1,21 +1,26 @@
 from globals import * 
 from sklearn.preprocessing import StandardScaler
 
-# clean the data and remove missing values
-def standardize(df):
+# standardize the numerical features to have a mean of zero and standard deviation of unity
+def standardize(local_df):
 
-  # get a copy of the dataframe with rows with missing data removed
-  clean_df = df.copy()
-  clean_df = df.dropna()
+  # get a copy of the dataframe 
+  stand_df = local_df.copy()
+
+  # remove rows with missing data
+  # stand_df = stand_df.dropna()
 
   # get a list of the numerical variables
-  numerical_feature_list = clean_df.select_dtypes(include=[np.number]).columns.tolist()
+  numerical_feature_list = stand_df.select_dtypes(include=[np.number]).columns.tolist()
 
   # Instantiate StandardScaler
   scaler = StandardScaler()
 
   # Standardize the selected numerical features
-  df[numerical_feature_list] = scaler.fit_transform(df[numerical_feature_list])
+  stand_df[numerical_feature_list] = scaler.fit_transform(stand_df[numerical_feature_list])
 
   # Display the standardized dataset
-  print(df.head())
+  print(stand_df.head())
+
+  return stand_df
+
