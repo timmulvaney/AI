@@ -61,9 +61,9 @@ def clean(local_df):
 
 
 
-    # species_sex_mode = mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0]
-    # print("row...", mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0])
-    # return species_sex_mode
+  # species_sex_mode = mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0]
+  # print("row...", mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0])
+  # return species_sex_mode
     
   mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species)].values[0]
   mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species), numerical_columns].values[0]
