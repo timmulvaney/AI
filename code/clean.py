@@ -59,6 +59,31 @@ def clean(local_df):
   print("missing_sex_rows_df...", missing_sex_rows_df)
 
 
+<<<<<<< HEAD
+=======
+
+  # species_sex_mode = mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0]
+  # print("row...", mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0])
+  # return species_sex_mode
+    
+  mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species)].values[0]
+  mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species), numerical_columns].values[0]
+  
+  missing_num_vector = missing_sex_rows_df[numerical_columns]
+  print("missing_num_vector", missing_num_vector) 
+
+  
+  sample_data = np.array(stand_clean_df[numerical_columns])
+  # print("sample_data", sample_data) 
+
+
+  pop_mean = np.mean(sample_data, axis=0)
+  covariance_matrix = np.cov(sample_data, rowvar=False)
+
+  print("pop_mean:", pop_mean)
+  print("Covariance matrix:", covariance_matrix)
+          
+>>>>>>> 1c9b2009a57ba54393a7788faf79c4b3f21c927b
   from scipy.stats import multivariate_normal
   from scipy.stats import chi2
 
