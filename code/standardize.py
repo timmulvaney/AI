@@ -7,7 +7,7 @@ def standardize(local_df):
   # get a copy of the dataframe 
   stand_df = local_df.copy()
 
-  # remove rows with missing data
+  # remove rows with missing data - it is assumed that there are none
   # stand_df = stand_df.dropna()
 
   # get a list of the numerical variables
@@ -20,7 +20,7 @@ def standardize(local_df):
   stand_df[numerical_feature_list] = scaler.fit_transform(stand_df[numerical_feature_list])
 
   # Display the standardized dataset
-  print(stand_df.head())
+  # print(stand_df.head())
 
   return stand_df
 
