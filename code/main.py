@@ -34,7 +34,7 @@ clean_df = clean(df)
 num_sex(clean_df)
 
 # pairwise plot of the numerial variables
-pairwise_numericals(df, custom_colors)
+pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)
@@ -46,7 +46,7 @@ ThreeD_Scatter(clean_df, custom_colors)
 #  e.g. not needed for DTs, but it is for linear models and NNs 
 
 # show the species on each of the islands where the penguins live
-islands(df, custom_colors)
+islands(clean_df, custom_colors)
 
 # is the island a cofounding factor in altering mass/size of pengiun?
 # island_cofounding(df)
@@ -64,4 +64,4 @@ islands(df, custom_colors)
         # heatmap_of_numericals(df)
 
 # knn
-knn(df)
+knn(clean_df)
