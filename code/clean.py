@@ -59,98 +59,151 @@ def clean(local_df):
   print("missing_sex_rows_df...", missing_sex_rows_df)
 
 
-<<<<<<< HEAD
-=======
+  from scipy import stats
 
-  # species_sex_mode = mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0]
-  # print("row...", mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0])
-  # return species_sex_mode
-    
-  mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species)].values[0]
-  mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species), numerical_columns].values[0]
-  
-  missing_num_vector = missing_sex_rows_df[numerical_columns]
-  print("missing_num_vector", missing_num_vector) 
+  # use t-test to check the solution is reasonable
+  # here, a two-sample t-test to compare the means of the observed and imputed values. 
+  for index, row_df in missing_sex_rows_df.iterrows():
+    # print("row_df...", row_df)
+    # get the observed values for this species
+    species = row_df['species']
+    male_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Male') & (stand_clean_df['species'] == species), numerical_columns[0]]
+    female_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Female') & (stand_clean_df['species'] == species), numerical_columns[0]]
+    male_imputed = row_df[numerical_columns[0]]
+    female_imputed = row_df[numerical_columns[0]]
+    male_observed_mean = male_observed.mean()   
 
-  
-  sample_data = np.array(stand_clean_df[numerical_columns])
-  # print("sample_data", sample_data) 
+    print("male_observed", male_observed)
+    print("male_imputed", male_imputed)
 
+    print("male_observed_mean", male_observed_mean)
+    print("[male_imputed]", [male_imputed])
 
-  pop_mean = np.mean(sample_data, axis=0)
-  covariance_matrix = np.cov(sample_data, rowvar=False)
-
-  print("pop_mean:", pop_mean)
-  print("Covariance matrix:", covariance_matrix)
-          
->>>>>>> 1c9b2009a57ba54393a7788faf79c4b3f21c927b
-  from scipy.stats import multivariate_normal
-  from scipy.stats import chi2
+    print("female_observed", female_observed)
+    print("female_imputed", female_imputed)
 
 
-  # Function to perform one-sample Hotelling's T^2 test
-  def hotelling_t2_test(sample_data, population_mean):
-    # Ensure that sample_data and population_mean are 2D arrays
-    sample_data = np.atleast_2d(sample_data)
-    population_mean = np.atleast_2d(population_mean)
-    
-    print("Sample data shape:", sample_data.shape)
-    print("Population mean shape:", population_mean.shape)
 
-    # Calculate the dimensions
-    n, p = sample_data.shape
-    
-    print("Sample data:", sample_data)
-    print("Any NaN in sample data:", np.isnan(sample_data).any())
-    print("Any infinite values in sample data:", np.isinf(sample_data).any())
-
-    # Calculate the covariance matrix of the sample data
-    sample_cov = np.cov(sample_data, rowvar=False)
-    
-    # Calculate the T^2 statistic
-    diff = sample_data.mean(axis=0) - population_mean
-    inv_sample_cov = np.linalg.inv(sample_cov)
-    t_squared_statistic = np.dot(np.dot(diff, inv_sample_cov), diff.T)
-    
-    # Calculate the degrees of freedom
-    df = n - 1
-    
-    # Calculate the p-value
-    p_value = 1 - chi2.cdf(t_squared_statistic, df)
-    
-    return p_value
-
-  # Impute missing 'sex' values
-  missing_sex_indices = stand_clean_df[stand_clean_df['sex'].isnull()].index
-
-  for idx in missing_sex_indices:
-    penguin = stand_clean_df.loc[idx]
-    penguin_features = penguin[numerical_columns].values
-    print("penguin_features", penguin_features)
-    species_group = stand_clean_df[stand_clean_df['species'] == penguin['species']]
-    female_mean = species_group[species_group['sex'] == 'Female'][numerical_columns].mean().values
-    male_mean = species_group[species_group['sex'] == 'Male'][numerical_columns].mean().values
-    print("female_mean", female_mean)
-    print("male_mean", male_mean)
-    print("penguin_features", penguin_features)
-
-    # Reshape female_mean and male_mean to 2D arrays
-    female_mean = female_mean.reshape(1, -1)
-    male_mean = male_mean.reshape(1, -1)
-    penguin_features = penguin_features.reshape(1, -1)
-
-    print("female_mean", female_mean)
-    print("male_mean", male_mean)
-    print("penguin_features", penguin_features)
-    
-    # Perform one-sample Hotelling's T^2 test for female and male mean vectors
-    p_value_female = hotelling_t2_test(penguin_features, female_mean)
-    p_value_male = hotelling_t2_test(penguin_features, male_mean)
-    
-    # Assign sex based on the p-value
-    if p_value_female < p_value_male:
-        stand_clean_df.loc[idx, 'sex'] = 'Female'
+    # Perform two-sample t-test for male
+    t_statistic, p_value = stats.ttest_1samp(male_observed, male_imputed)
+    # Check if the p-value is significant
+    if p_value < 0.05:
+      print("Male - There is a significant difference between observed and imputed values.")
     else:
-        stand_clean_df.loc[idx, 'sex'] = 'Male'
+      print("Male - There is no significant difference between observed and imputed values.")
 
-  print(stand_clean_df).head(11)
+    # Perform two-sample t-test for male
+    t_statistic, p_value = stats.ttest_ind(female_observed, female_imputed)
+    # Check if the p-value is significant
+    if p_value < 0.05:
+      print("Female - There is a significant difference between observed and imputed values.")
+    else:
+      print("Female - There is no significant difference between observed and imputed values.")
+
+
+
+  #   MaleMSE = FemaleMSE = 0
+  #   for num in numerical_columns:
+  #     MaleMSE += (mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species), num].values[0] - row_df[num])**2
+  #     FemaleMSE += (mean_values_df.loc[(mean_values_df['sex'] == 'Female') & (mean_values_df['species'] == species), num].values[0] - row_df[num])**2
+  #   print("MSE: Male = ", MaleMSE, "Female =", FemaleMSE)
+  #   if (MaleMSE < FemaleMSE):
+  #     row_df['sex'] = 'Male'
+  #     missing_sex_rows_df.loc[index, 'sex'] = 'Male' 
+  #   else:
+  #     row_df['sex'] = 'Female'
+  #     missing_sex_rows_df.loc[index, 'sex'] = 'Female'
+  #   clean_df.loc[index,'sex'] = row_df['sex']
+
+
+  # # species_sex_mode = mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0]
+  # # print("row...", mean_values_df[mean_values_df['species'] == row['species']]['sex'].iloc[0])
+  # # return species_sex_mode
+    
+  # mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species)].values[0]
+  # mean_vector = mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species), numerical_columns].values[0]
+  
+  # missing_num_vector = missing_sex_rows_df[numerical_columns]
+  # print("missing_num_vector", missing_num_vector) 
+
+  
+  # sample_data = np.array(stand_clean_df[numerical_columns])
+  # # print("sample_data", sample_data) 
+
+
+  # pop_mean = np.mean(sample_data, axis=0)
+  # covariance_matrix = np.cov(sample_data, rowvar=False)
+
+  # print("pop_mean:", pop_mean)
+  # print("Covariance matrix:", covariance_matrix)
+          
+  # from scipy.stats import multivariate_normal
+  # from scipy.stats import chi2
+
+
+  # # Function to perform one-sample Hotelling's T^2 test
+  # def hotelling_t2_test(sample_data, population_mean):
+  #   # Ensure that sample_data and population_mean are 2D arrays
+  #   sample_data = np.atleast_2d(sample_data)
+  #   population_mean = np.atleast_2d(population_mean)
+    
+  #   print("Sample data shape:", sample_data.shape)
+  #   print("Population mean shape:", population_mean.shape)
+
+  #   # Calculate the dimensions
+  #   n, p = sample_data.shape
+    
+  #   print("Sample data:", sample_data)
+  #   print("Any NaN in sample data:", np.isnan(sample_data).any())
+  #   print("Any infinite values in sample data:", np.isinf(sample_data).any())
+
+  #   # Calculate the covariance matrix of the sample data
+  #   sample_cov = np.cov(sample_data, rowvar=False)
+    
+  #   # Calculate the T^2 statistic
+  #   diff = sample_data.mean(axis=0) - population_mean
+  #   inv_sample_cov = np.linalg.inv(sample_cov)
+  #   t_squared_statistic = np.dot(np.dot(diff, inv_sample_cov), diff.T)
+    
+  #   # Calculate the degrees of freedom
+  #   df = n - 1
+    
+  #   # Calculate the p-value
+  #   p_value = 1 - chi2.cdf(t_squared_statistic, df)
+    
+  #   return p_value
+
+  # # Impute missing 'sex' values
+  # missing_sex_indices = stand_clean_df[stand_clean_df['sex'].isnull()].index
+
+  # for idx in missing_sex_indices:
+  #   penguin = stand_clean_df.loc[idx]
+  #   penguin_features = penguin[numerical_columns].values
+  #   print("penguin_features", penguin_features)
+  #   species_group = stand_clean_df[stand_clean_df['species'] == penguin['species']]
+  #   female_mean = species_group[species_group['sex'] == 'Female'][numerical_columns].mean().values
+  #   male_mean = species_group[species_group['sex'] == 'Male'][numerical_columns].mean().values
+  #   print("female_mean", female_mean)
+  #   print("male_mean", male_mean)
+  #   print("penguin_features", penguin_features)
+
+  #   # Reshape female_mean and male_mean to 2D arrays
+  #   female_mean = female_mean.reshape(1, -1)
+  #   male_mean = male_mean.reshape(1, -1)
+  #   penguin_features = penguin_features.reshape(1, -1)
+
+  #   print("female_mean", female_mean)
+  #   print("male_mean", male_mean)
+  #   print("penguin_features", penguin_features)
+    
+  #   # Perform one-sample Hotelling's T^2 test for female and male mean vectors
+  #   p_value_female = hotelling_t2_test(penguin_features, female_mean)
+  #   p_value_male = hotelling_t2_test(penguin_features, male_mean)
+    
+  #   # Assign sex based on the p-value
+  #   if p_value_female < p_value_male:
+  #       stand_clean_df.loc[idx, 'sex'] = 'Female'
+  #   else:
+  #       stand_clean_df.loc[idx, 'sex'] = 'Male'
+
+  # print(stand_clean_df).head(11)
