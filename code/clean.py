@@ -13,7 +13,7 @@ def clean(local_df):
 
   # Remove rows that are missing value in all of the numerical columns
   clean_df = local_df.dropna(subset=local_df.select_dtypes(include='number').columns, how='all')
-  print("clean_df after removing rows that are missing value in all of the numerical columns...")
+  print("clean_df after removing rows that are missing values in all of the numerical columns...")
   print(clean_df.head(11))
 
   # After removal, find and show rows with missing values
@@ -67,38 +67,43 @@ def clean(local_df):
     # print("row_df...", row_df)
     # get the observed values for this species
     species = row_df['species']
-    male_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Male') & (stand_clean_df['species'] == species), numerical_columns[0]]
-    female_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Female') & (stand_clean_df['species'] == species), numerical_columns[0]]
-    male_imputed = row_df[numerical_columns[0]]
-    female_imputed = row_df[numerical_columns[0]]
-    male_observed_mean = male_observed.mean()   
+    for num in numerical_columns:
+      male_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Male') & (stand_clean_df['species'] == species), num]
+      female_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Female') & (stand_clean_df['species'] == species), num]
+      male_imputed = row_df[num]
+      female_imputed = row_df[num]
+      male_observed_mean = male_observed.mean()   
 
-    print("male_observed", male_observed)
-    print("male_imputed", male_imputed)
+      # print("male_observed", male_observed)
+      # print("male_imputed", male_imputed)
 
-    print("male_observed_mean", male_observed_mean)
-    print("[male_imputed]", [male_imputed])
+      # print("male_observed_mean", male_observed_mean)
+      # print("[male_imputed]", [male_imputed])
 
-    print("female_observed", female_observed)
-    print("female_imputed", female_imputed)
+      # print("female_observed", female_observed)
+      # print("female_imputed", female_imputed)
 
 
+      male_observerd_mean = male_observed.mean()
+      female_observerd_mean = female_observed.mean()
 
-    # Perform two-sample t-test for male
-    t_statistic, p_value = stats.ttest_1samp(male_observed, male_imputed)
-    # Check if the p-value is significant
-    if p_value < 0.05:
-      print("Male - There is a significant difference between observed and imputed values.")
-    else:
-      print("Male - There is no significant difference between observed and imputed values.")
+      # Perform two-sample t-test for male
+      t_statistic, p_value = stats.ttest_1samp(male_observed, male_imputed)
+      # Check if the p-value is significant
+      print("num, index, p_value, male_imputed, male_observerd_mean.....", num, index, p_value, male_imputed, male_observerd_mean)
+      if p_value < 0.05:
+        print("Male - There is a significant difference between observed and imputed values.")
+      else:
+        print("Male - **************There is no significant difference between observed and imputed values.")
 
-    # Perform two-sample t-test for male
-    t_statistic, p_value = stats.ttest_ind(female_observed, female_imputed)
-    # Check if the p-value is significant
-    if p_value < 0.05:
-      print("Female - There is a significant difference between observed and imputed values.")
-    else:
-      print("Female - There is no significant difference between observed and imputed values.")
+      # Perform two-sample t-test for male
+      t_statistic, p_value = stats.ttest_1samp(female_observed, female_imputed)
+      print("num, index, p_value, female_imputed, female_observerd_mean....", num, index, p_value, female_imputed, female_observerd_mean)
+      # Check if the p-value is significant
+      if p_value < 0.05:
+        print("Female - There is a significant difference between observed and imputed values.")
+      else:
+        print("Female - **************There is no significant difference between observed and imputed values.")
 
 
 
