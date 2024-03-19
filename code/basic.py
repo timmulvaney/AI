@@ -1,11 +1,15 @@
 from globals import * 
 
 # show some stuff about the penguins
-def basic(df):
-  df.columns
-  df.head()
-  df.describe()
-  df.info()
+def basic(local_df):
+  local_df.columns
+  local_df.head()
+  local_df.describe()
+  local_df.info()
+
+  # show the number of each species
+  print("Number of each species:", local_df['species'].value_counts() )
+
 
 # baseline here? 
 

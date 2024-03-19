@@ -2,8 +2,6 @@ from globals import *
 
 def pairwise_numericals(df, custom_colors):
 
-
-
   # Multiple Bivariate distribution
   # Linear relationships can be seen in most of the plots 
   sns.set_style(style='white')
