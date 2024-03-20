@@ -7,14 +7,14 @@ from globals import *
 # characteristics of the Adelie penguis are similar on the three island they has been indentified in the 
 # dataset then this reduces the liklihood that the island is a cofounding factor for Gentoo and Chinstrap.
 
-def island_cofounding(df):
+def island_cofounding(local_df):
 
   # get the variable names for the numerical variables
-  numerical_names = df.select_dtypes(include=['number']).columns.tolist()
+  numerical_names = local_df.select_dtypes(include=['number']).columns.tolist()
 
   for var in numerical_names:
     # Filter the dataset to include only Adélie penguins
-    adelie_df = df[df['species'] == 'Adelie']
+    adelie_df = local_df[local_df['species'] == 'Adelie']
 
     # test for normal distribution
     from scipy.stats import shapiro
@@ -80,7 +80,7 @@ def island_cofounding(df):
   # Do ANOVA test to see if there is statistical difference between islands for each of the numerical values
   for var in numerical_names:
     # Filter the dataset to include only Adélie penguins
-    adelie_df = df[df['species'] == 'Adelie']
+    adelie_df = local_df[local_df['species'] == 'Adelie']
 
     # test for ANOVA
     from scipy.stats import f_oneway
@@ -110,7 +110,7 @@ def island_cofounding(df):
   # from scipy.stats import ttest_ind
 
   # # Filter the dataset to include only Adélie penguins
-  # adelie_df = df[df['species'] == 'Adelie']
+  # adelie_df = local_df[local_df['species'] == 'Adelie']
 
   # # Separate the data into groups based on the islands
   # island_a_mass = adelie_df[adelie_df['island'] == 'Torgersen']['body_mass_g']

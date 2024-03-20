@@ -1,7 +1,7 @@
 from globals import * 
 
 # show the bill length of the species
-def bill_len(df):
+def bill_len(local_df):
   # bill length, island and species
   #  - Adelie lives in all the three islands.
   #  - Gentoo only in Biscoe.
@@ -17,5 +17,5 @@ def bill_len(df):
   # variable. It could be that some local aspect of the island (for example, environmental pressures) have led to the
   # penguins having reduced flipper length that may not be shared by populations of Gentoo pengiuns living elsewhere.
   #
-  sns.swarmplot(x=df.island,y=df.bill_length_mm,hue=df.species)
+  sns.swarmplot(x=local_df.island,y=local_df.bill_length_mm,hue=local_df.species)
   plt.show()

@@ -26,6 +26,5 @@ def species(local_df, custom_colors):
   plt.ylabel('Count')
   plt.title('Number of Each Species')
 
-
   plt.show()
 

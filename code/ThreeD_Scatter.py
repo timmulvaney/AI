@@ -3,11 +3,11 @@ from globals import *
 # needed for dictionary
 import ast 
 
-def ThreeD_Scatter(df, custom_colors):
+def ThreeD_Scatter(local_df, custom_colors):
 
   # get a copy of the dataframe with rows with missing data removed
-  clean_df = df.copy()
-  clean_df = df.dropna()
+  clean_df = local_df.copy()
+  clean_df = clean_df.dropna()
 
   # Define variables for the scatter plot
   x = 'flipper_length_mm'
