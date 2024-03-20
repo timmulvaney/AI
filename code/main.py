@@ -58,7 +58,7 @@ species(clean_df, custom_colors)
 # stand_df = standardize(df)
 
 # 3D scatter
-# ThreeD_Scatter(clean_df, custom_colors)
+ThreeD_Scatter(clean_df, custom_colors)
 
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 
