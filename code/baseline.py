@@ -31,11 +31,12 @@ def baseline(local_df):
 
   # logistic regression baseline calculations
  
-  # the sum of the accuracies from all the ogistic regression tests
+  # the sum of the accuracies from all the logistic regression tests
   lg_accuracy = 0
 
-  # the number of separate tests using ogistic regression classification (lg_max > 0)
+  # the number of separate tests using logistic regression classification (lg_max > 0)
   lg_max = 10
+
 
   # do random forest classiciation for rf_max random states (random_state=0 is avoided as its pseudo random, not fixed)
   for random_state in range (1,lg_max+1):
