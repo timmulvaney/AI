@@ -10,23 +10,23 @@ def knn(local_df):
   from sklearn.metrics import f1_score
 
   # get a local copy of the df to manipulate
-  df_copy = local_df.copy()
+  copy_df = local_df.copy()
 
   # map categorical species (target) to integers for knn classification 
-  df_copy['species'] = df_copy['species'].map({'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2})
-  df_copy['island'] = pd.Categorical(df_copy['island']).codes
-  df_copy['sex'] = pd.Categorical(df_copy['sex']).codes
-  df_copy.drop(columns=['island'], inplace =True)
-  # df_copy.drop(columns=['sex'], inplace =True)
-  # df_copy.drop(columns=['bill_length_mm'], inplace =True)
-  # df_copy.drop(columns=['bill_depth_mm'], inplace =True)
-  # df_copy.drop(columns=['flipper_length_mm'], inplace =True)
-  df_copy.drop(columns=['body_mass_g'], inplace =True)
+  copy_df['species'] = copy_df['species'].map({'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2})
+  copy_df['island'] = pd.Categorical(copy_df['island']).codes
+  copy_df['sex'] = pd.Categorical(copy_df['sex']).codes
+  copy_df.drop(columns=['island'], inplace =True)
+  # copy_df.drop(columns=['sex'], inplace =True)
+  # copy_df.drop(columns=['bill_length_mm'], inplace =True)
+  # copy_df.drop(columns=['bill_depth_mm'], inplace =True)
+  # copy_df.drop(columns=['flipper_length_mm'], inplace =True)
+  copy_df.drop(columns=['body_mass_g'], inplace =True)
 
 
   # separate features and target
-  X = df_copy.drop('species', axis=1)
-  y = df_copy['species']
+  X = copy_df.drop('species', axis=1)
+  y = copy_df['species']
 
   # divide into training and testing sets
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
