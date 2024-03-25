@@ -88,7 +88,6 @@ def ThreeD_Scatter(local_df, custom_colors):
   accuracy = accuracy_score(y_test, y_pred)
   print(f'Accuracy: {accuracy}')
 
-
   # drop the specified unneeded species
   plotted_df = plotted_df[plotted_df['species'] != 'Gentoo']
   plotted_df = plotted_df[plotted_df['island'] == 'Dream']
@@ -104,7 +103,6 @@ def ThreeD_Scatter(local_df, custom_colors):
   # svn_df.drop(columns=['bill_depth_mm'], inplace =True)
   # svn_df.drop(columns=['flipper_length_mm'], inplace =True)
   # svn_df.drop(columns=['body_mass_g'], inplace =True)
-
 
   # Create the scatter plot  
   plt.figure(figsize=(10, 7))
