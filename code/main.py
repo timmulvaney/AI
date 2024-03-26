@@ -1,6 +1,7 @@
 from globals import *
 from basic import basic
 from clean import clean
+from baseline import baseline
 from logistic_regression import logistic_regression
 from species import species
 from num_sex import num_sex
@@ -12,7 +13,6 @@ from ThreeD_Scatter import ThreeD_Scatter
 from bill_len import bill_len
 from bill_len_and_depth import bill_len_and_depth
 from heatmap_of_numericals import heatmap_of_numericals
-
 from random_forest import random_forest
 from knn import knn
 
@@ -28,11 +28,15 @@ custom_colors = {'Adelie': 'blue', 'Chinstrap': 'red', 'Gentoo': 'green'}
 # show basic stuff about the penguins
 basic(df)
 
+# 
 # consider balanced/unbalanced
 #  probs just argue that this is okay now
 
 # clean the data and remove missing values
 clean_df = clean(df)
+
+# baseline classification for the penguins
+baseline(clean_df)
 
 # show the numbers of the species
 # species(clean_df, custom_colors)
@@ -44,19 +48,19 @@ clean_df = clean(df)
 # num_sex(clean_df)
 
 # show the species on each of the islands where the penguins live
-# islands(clean_df, custom_colors)
+islands(clean_df, custom_colors)
 
 # is the island a cofounding factor in altering mass/size of pengiun?
 # island_cofounding(clean_df)
 
 # pairwise plot of the numerial variables
-# pairwise_numericals(clean_df, custom_colors)
+pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)
 
 # 3D scatter + unusual and interesting? 
-ThreeD_Scatter(clean_df, custom_colors)
+# ThreeD_Scatter(clean_df, custom_colors)
 
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 
@@ -71,7 +75,7 @@ ThreeD_Scatter(clean_df, custom_colors)
         # heatmap_of_numericals(df)
 
 # knn analysis
-# knn(clean_df)
+knn(clean_df)
 
 # random forest analysis
 # random_forest(clean_df)

@@ -8,6 +8,7 @@ def knn(local_df):
   from sklearn.model_selection import cross_val_score, train_test_split
   from sklearn.neighbors import KNeighborsClassifier
   from sklearn.metrics import f1_score
+  from sklearn.metrics import confusion_matrix
 
   # get a local copy of the df to manipulate
   copy_df = local_df.copy()
@@ -72,7 +73,7 @@ def knn(local_df):
   knn_accuracy = 0
 
   # the number of separate tests using random forest classification (knn_max > 0)
-  knn_max = 100
+  knn_max = 10
 
   # do logistic regression for knn_max random states (random_state=0 is avoided as its pseudo random, not fixed)
   # ADD grid search
@@ -113,3 +114,7 @@ def knn(local_df):
 
   # overall accuracy for evaluating the model
   print(f"knn accuracy: {100*knn_accuracy/knn_max:.2f}%")
+
+  cm = confusion_matrix(y_test, y_pred)
+  print("Predicted on x, True on y: 'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2")
+  print(cm)
