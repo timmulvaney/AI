@@ -71,7 +71,7 @@ ThreeD_Scatter(clean_df, custom_colors)
         # heatmap_of_numericals(df)
 
 # knn analysis
-knn(clean_df)
+# knn(clean_df)
 
 # random forest analysis
 # random_forest(clean_df)

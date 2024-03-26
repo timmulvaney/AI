@@ -92,35 +92,33 @@ def ThreeD_Scatter(local_df, custom_colors):
   plt.title('3D Scatter Plot of Penguin Morphological Measurements')
   plt.show()
 
-
-
-  # define variables for the scatter plot
-  x = 'bill_length_mm'
-  # y = 'flipper_length_mm'
-  y = 'bill_depth_mm'   # -------- this best???
-  # y = 'body_mass_g'
-  size='sex'
-
+  # get a copy of the df we can modify
   svn_df = plotted_df.copy()
+
+  # define whether the plot is to be produced for Male, Female or Both sexes - comment out all but one
+  # sex_plot = "male"
+  sex_plot = "female"
+  # sex_plot = "both male and female"
+  if (sex_plot == "male"):
+    svn_df = svn_df[svn_df['sex'] != 'Female']
+  if (sex_plot == "female"):
+    svn_df = svn_df[svn_df['sex'] != 'Male']
+
+   # what is in and what is out of the analysis and plotting
   svn_df = svn_df[svn_df['species'] != 'Gentoo']
   # svn_df['species'] = svn_df['species'].map({'Adelie': 0, 'Chinstrap': 1})
   svn_df.drop(columns=['island'], inplace =True)
-  # svn_df.drop(columns=['sex'], inplace =True)
-  svn_df = svn_df[svn_df['sex'] != 'Male']
+  # svn_df.drop(columns=['sex'], inplace =True) 
   svn_df['sex'] = svn_df['sex'].map({'Male': 0, 'Female': 1})
   # svn_df.drop(columns=['bill_length_mm'], inplace =True)
   # svn_df.drop(columns=['bill_depth_mm'], inplace =True)
   svn_df.drop(columns=['flipper_length_mm'], inplace =True)
   svn_df.drop(columns=['body_mass_g'], inplace =True)
 
-  # Create the scatter plot  
-  plt.figure(figsize=(10, 7))
-  sns.scatterplot(data=svn_df, x=x, y=y, size=size, hue='species', sizes =(150,40), palette=custom_colors, alpha=0.8)
- 
-  # use svn to separate targets
+   # use svn to separate targets
   X_in = svn_df.drop('species', axis=1)
   y_in = svn_df['species']
-  X_train, X_test, y_train, y_test = train_test_split(X_in, y_in, test_size=0.2, random_state=4)
+  X_train, X_test, y_train, y_test = train_test_split(X_in, y_in, test_size=0.2, random_state=10)
   clf = svm.SVC(kernel='linear')
   clf.fit(X_train, y_train)
 
@@ -129,14 +127,34 @@ def ThreeD_Scatter(local_df, custom_colors):
   b = clf.intercept_[0]
   slope = -w[0]/w[1]
   intercept = -b/w[1]
-  x_line = [40,44]   # 
-  # x_line = plt.xlim()
-  y_line = [slope*x_line[0] + intercept, slope*x_line[1] + intercept]
-
-  # draw the line 
-  print("y_line", y_line)
+  
+  # create the scatter plot  
+  plt.figure(figsize=(10, 7))
+  x = 'bill_length_mm'
+  y = 'bill_depth_mm'   # -------- this best???
+  size='sex'
+  if ((sex_plot == "male") or (sex_plot == "female")):
+    sns.scatterplot(data=svn_df, x=x, y=y, hue='species', s = 150, palette=custom_colors, alpha=0.8)
+    print("svn_df")
+    print(svn_df)
+  else:
+    temp_df = plotted_df[plotted_df['species'] != 'Gentoo']
+    sns.scatterplot(data=temp_df, x=x, y=y, size=size, hue='species', sizes =(150,40), palette=custom_colors, alpha=0.8)
+    print("temp_df")
+    print(temp_df)
+  # sns.scatterplot(data=svn_df, x=x, y=y, hue='species', s = 150, palette=custom_colors, alpha=0.8)
+  
+  # add  the svm line 
+  y_line = [min(X_train['bill_depth_mm'].tolist()), max(X_train['bill_depth_mm'].tolist())]
+  x_line = [(y_line[0] - intercept)/slope, (y_line[1] - intercept)/slope]
   plt.plot(x_line, y_line, color='black', label='Line')
-
+ 
+  # add labels and title before plotting
+  plt.xlabel('Bill Length (mm)')
+  plt.ylabel('Bill Depth (mm)')
+  plt.title(f'Scatter Plot of Penguin Measurements for {sex_plot} Adelie and Chinstrap species')
+  plt.show()
+ 
   # Standardize features by removing the mean and scaling to unit variance
   scaler = StandardScaler()
   X_train = scaler.fit_transform(X_train)
@@ -146,7 +164,7 @@ def ThreeD_Scatter(local_df, custom_colors):
   svm_accuracy = 0
 
   # number of random states to try
-  svm_max = 100
+  svm_max = 10
   
   # train and find accuracy for svn_max random states
   for random_state in range (1,svm_max+1):
@@ -173,8 +191,4 @@ def ThreeD_Scatter(local_df, custom_colors):
   # overall accuracy for evaluating the model
   print(f"svm accuracy: {100*svm_accuracy/svm_max:.2f}%")
 
-  # add labels and title before plotting
-  plt.xlabel('Bill Length (mm)')
-  plt.ylabel('Bill Depth (mm)')
-  plt.title('3D Scatter Plot of Penguin Morphological Measurements')
-  plt.show()
+
