@@ -23,14 +23,14 @@ from knn import knn
 df=sns.load_dataset('penguins')
 
 # define custom colors
-custom_colors = {'Adelie': 'blue', 'Chinstrap': 'red', 'Gentoo': 'green'}
+custom_colors = {'Adelie': 'darkorange', 'Chinstrap': 'mediumorchid', 'Gentoo': 'mediumseagreen'}
 
 # show basic stuff about the penguins
 basic(df)
 
 # 
 # consider balanced/unbalanced
-#  probs just argue that this is okay now
+# probs just argue that this is okay now
 
 # clean the data and remove missing values
 clean_df = clean(df)
@@ -40,9 +40,6 @@ baseline(clean_df)
 
 # show the numbers of the species
 # species(clean_df, custom_colors)
-
-# put baseline here
-# is this just majority 
 
 # plot numerical features against sex
 # num_sex(clean_df)
