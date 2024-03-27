@@ -15,6 +15,10 @@ from bill_len_and_depth import bill_len_and_depth
 from heatmap_of_numericals import heatmap_of_numericals
 from random_forest import random_forest
 from knn import knn
+from my_kmeans import my_kmeans
+
+
+# control the operation of the 
 
 # the dataset can be found among these
 # print(sns.get_dataset_names())
@@ -29,7 +33,7 @@ custom_colors = {'Adelie': 'darkorange', 'Chinstrap': 'mediumorchid', 'Gentoo': 
 basic(df)
 
 # consider balanced/unbalanced
-# probs just argue that this is okay now
+# probs just argue that this is not a problem
 
 # clean the data and remove missing values
 clean_df = clean(df)
@@ -44,19 +48,19 @@ baseline(clean_df)
 # num_sex(clean_df)
 
 # show the species on each of the islands where the penguins live
-islands(clean_df, custom_colors)
+# islands(clean_df, custom_colors)
 
 # is the island a cofounding factor in altering mass/size of pengiun?
-# island_cofounding(clean_df)
+# island_confounding(clean_df)
 
 # pairwise plot of the numerial variables
-pairwise_numericals(clean_df, custom_colors)
+# pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)
 
 # 3D scatter + unusual and interesting? 
-surprising(clean_df, custom_colors)
+# surprising(clean_df, custom_colors)
 
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 
@@ -71,10 +75,13 @@ surprising(clean_df, custom_colors)
         # heatmap_of_numericals(df)
 
 # knn analysis
-knn(clean_df)
+# knn(clean_df)
 
 # random forest analysis
 # random_forest(clean_df)
+
+# k means
+# in separate jupyter notebook
 
 # logistic regressions analysis
 # logistic_regression(clean_df)
