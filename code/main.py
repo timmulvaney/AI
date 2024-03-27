@@ -6,10 +6,10 @@ from logistic_regression import logistic_regression
 from species import species
 from num_sex import num_sex
 from islands import islands
-from island_cofounding import island_cofounding
+from island_confounding import island_confounding
 from pairwise_numericals import pairwise_numericals
 from standardize import standardize
-from ThreeD_Scatter import ThreeD_Scatter
+from surprising import surprising
 from bill_len import bill_len
 from bill_len_and_depth import bill_len_and_depth
 from heatmap_of_numericals import heatmap_of_numericals
@@ -28,7 +28,6 @@ custom_colors = {'Adelie': 'darkorange', 'Chinstrap': 'mediumorchid', 'Gentoo': 
 # show basic stuff about the penguins
 basic(df)
 
-# 
 # consider balanced/unbalanced
 # probs just argue that this is okay now
 
@@ -57,7 +56,7 @@ pairwise_numericals(clean_df, custom_colors)
 # stand_df = standardize(df)
 
 # 3D scatter + unusual and interesting? 
-# ThreeD_Scatter(clean_df, custom_colors)
+surprising(clean_df, custom_colors)
 
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 

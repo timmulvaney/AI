@@ -3,7 +3,7 @@ from globals import *
 # needed for dictionary
 import ast 
 
-def ThreeD_Scatter(local_df, custom_colors):
+def surprising(local_df, custom_colors):
 
   # get a copy of the passed dataframe
   plotted_df = local_df.copy()

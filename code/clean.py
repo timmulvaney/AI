@@ -28,10 +28,13 @@ def clean(local_df):
 
   # Define and populate a df that holds the mean of numerical features for each species and sex
   numerical_columns = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']
-  numerical_penguins_df = stand_clean_df[numerical_columns + ['species', 'sex']]
+  # numerical_penguins_df = stand_clean_df[numerical_columns + ['species', 'sex']]
+  numerical_penguins_df = clean_df[numerical_columns + ['species', 'sex']]
   mean_values_df = numerical_penguins_df.groupby(['species', 'sex']).mean().reset_index()
   print("the mean of numerical features for each species and sex...")
   print(mean_values_df)
+
+
 
   # Create a df from stand_clean_df that only has the rows with missing values
   missing_sex_rows_df = stand_clean_df[pd.isnull(stand_clean_df['sex'])]
@@ -122,5 +125,8 @@ def clean(local_df):
   
   print("clean_df after all cleaning...")
   print(clean_df.head(11))
+
+  # show the number of each species after cleaning
+  print("Number of each species:", clean_df['species'].value_counts() )
 
   return(clean_df)

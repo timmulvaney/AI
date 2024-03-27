@@ -7,7 +7,7 @@ from globals import *
 # characteristics of the Adelie penguis are similar on the three island they has been indentified in the 
 # dataset then this reduces the liklihood that the island is a cofounding factor for Gentoo and Chinstrap.
 
-def island_cofounding(local_df):
+def island_confounding(local_df):
 
   # get the variable names for the numerical variables
   numerical_names = local_df.select_dtypes(include=['number']).columns.tolist()
