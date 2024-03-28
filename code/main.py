@@ -1,6 +1,7 @@
 from globals import *
 from basic import basic
-from clean import clean
+# from clean import clean
+from clean1 import clean
 from baseline import baseline
 from logistic_regression import logistic_regression
 from species import species
@@ -15,10 +16,9 @@ from bill_len_and_depth import bill_len_and_depth
 from heatmap_of_numericals import heatmap_of_numericals
 from random_forest import random_forest
 from knn import knn
-from my_kmeans import my_kmeans
 
 
-# control the operation of the 
+# control the operation of the program
 
 # the dataset can be found among these
 # print(sns.get_dataset_names())
@@ -45,7 +45,7 @@ baseline(clean_df)
 # species(clean_df, custom_colors)
 
 # plot numerical features against sex
-# num_sex(clean_df)
+num_sex(clean_df)
 
 # show the species on each of the islands where the penguins live
 # islands(clean_df, custom_colors)
@@ -54,7 +54,7 @@ baseline(clean_df)
 # island_confounding(clean_df)
 
 # pairwise plot of the numerial variables
-# pairwise_numericals(clean_df, custom_colors)
+pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)

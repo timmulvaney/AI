@@ -28,8 +28,8 @@ def clean(local_df):
 
   # Define and populate a df that holds the mean of numerical features for each species and sex
   numerical_columns = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']
-  # numerical_penguins_df = stand_clean_df[numerical_columns + ['species', 'sex']]
-  numerical_penguins_df = clean_df[numerical_columns + ['species', 'sex']]
+  numerical_penguins_df = stand_clean_df[numerical_columns + ['species', 'sex']]
+  # numerical_penguins_df = clean_df[numerical_columns + ['species', 'sex']]
   mean_values_df = numerical_penguins_df.groupby(['species', 'sex']).mean().reset_index()
   print("the mean of numerical features for each species and sex...")
   print(mean_values_df)
