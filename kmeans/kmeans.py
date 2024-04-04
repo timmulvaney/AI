@@ -25,6 +25,8 @@ print(df.head())
 # %%
 # Get a dataframe of features
 features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
+features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']]
+# features_unscaled = df[['bill_length_mm', 'bill_depth_mm']]
 labels = df['species']
 
 # Initialise the StandardScaler and scale features
@@ -151,7 +153,7 @@ import numpy as np
 # Assuming df is your original DataFrame and already loaded
 
 # Get a DataFrame of features and the labels
-features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
+# use previous values.... features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
 labels = df['species']
 
 # Initialise the StandardScaler and scale features
@@ -220,15 +222,6 @@ for n_clusters in param_grid['n_clusters']:
                     
                     labels_predicted_val = kmm.predict(features_val)
 
-                    # # Convert labels_predicted_val to 1D array
-                    # print(labels_predicted_val.shape)
-                    # print(labels_predicted_val)
-                    # print("\n\n")
-                    # print(labels_val_encoded.shape)
-                    # print(labels_val_encoded)
-                    # print("\n\n")
-
-    
                     mapped_labels_val = map_cluster_labels_to_true_labels(labels_predicted_val, labels_val_encoded)
                     
                     # added to make this a 1D array as needed by adjusted_rand_score
@@ -240,6 +233,7 @@ for n_clusters in param_grid['n_clusters']:
                 
                 if avg_acc > best_avg_score:
                     best_avg_score = avg_acc
+                    print("best_avg_score so far:", best_avg_score)
                     best_params = {'n_clusters': n_clusters, 'init': init, 'n_init': n_init, 'max_iter': max_iter}
 
 
@@ -248,30 +242,51 @@ for n_clusters in param_grid['n_clusters']:
 # Return accuracy of model on test dataset
 
 # %%
-# Fit the model with the best parameters on the training + validation set
-kmeans_best = KMeans(**best_params, random_state=42)   # n_init set in best_params
-kmeans_best.fit(features_train_val)
+                    
+# the number of separate tests using random forest classification (knn_max > 0)
+kmeans_max = 10
 
-# Predict on the test set and evaluate
-labels_predicted_test = kmeans_best.predict(features_test)
-mapped_labels_test = map_cluster_labels_to_true_labels(labels_predicted_test, labels_test_encoded)
+# the sum of the accuracies from all the random forest tests
+kmeans_accuracy = 0
 
-# Calculate metrics for the test set
-silhouette_test = silhouette_score(features_test, labels_predicted_test)
-
-# added to make this a 1D array as needed by adjusted_rand_score
-mapped_labels_test = mapped_labels_test.ravel() 
-
-ari_test = adjusted_rand_score(labels_test_encoded, mapped_labels_test)
-f1_test = f1_score(labels_test_encoded, mapped_labels_test, average='macro')
-accuracy_test = accuracy_score(labels_test_encoded, mapped_labels_test)
-
-# Output the best parameters and test set metrics
+# Output the best parameters
 print(f"Best parameters: {best_params}")
-print(f"Test Set Silhouette Score: {silhouette_test}")
-print(f"Test Set ARI: {ari_test}")
-print(f"Test Set F1 Score: {f1_test}")
-print(f"Test Set Accuracy: {accuracy_test}")
+
+# train and find accuracy for kmeans_max random states
+for random_state in range (1,kmeans_max+1):
+
+  # Fit the model with the best parameters on the training + validation set
+  kmeans_best = KMeans(**best_params, random_state=random_state)   # n_init set in best_params
+  kmeans_best.fit(features_train_val)
+
+  # Predict on the test set and evaluate
+  labels_predicted_test = kmeans_best.predict(features_test)
+  mapped_labels_test = map_cluster_labels_to_true_labels(labels_predicted_test, labels_test_encoded)
+
+  # Calculate metrics for the test set
+  silhouette_test = silhouette_score(features_test, labels_predicted_test)
+
+  # added to make this a 1D array as needed by adjusted_rand_score
+  mapped_labels_test = mapped_labels_test.ravel() 
+
+  ari_test = adjusted_rand_score(labels_test_encoded, mapped_labels_test)
+  f1_test = f1_score(labels_test_encoded, mapped_labels_test, average='macro')
+  accuracy_test = accuracy_score(labels_test_encoded, mapped_labels_test)
+  print("random state:", random_state, "labels_test_encoded\n", labels_test_encoded, "mapped_labels_test:\n", mapped_labels_test)
+
+  # Output test set metrics
+  print("Test random state:", random_state)
+  print(f"Test Set Silhouette Score: {silhouette_test}")
+  print(f"Test Set ARI: {ari_test}")
+  print(f"Test Set F1 Score: {f1_test}")
+  print(f"Test Set Accuracy: {accuracy_test}")
+
+  # keep the sum of the accuracies so far
+  kmeans_accuracy += accuracy_test
+
+# overall accuracy for evaluating the model
+print(f"knn accuracy for all random states: {100*kmeans_accuracy/kmeans_max:.2f}%")
+
 
 # %% [markdown]
 # Do a plot of cluster areas
