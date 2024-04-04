@@ -1,7 +1,7 @@
 from globals import *
 from basic import basic
 # from clean import clean
-from clean1 import clean
+from clean import clean
 from baseline import baseline
 from logistic_regression import logistic_regression
 from species import species
@@ -38,6 +38,10 @@ basic(df)
 # clean the data and remove missing values
 clean_df = clean(df)
 
+# Specify the file path and save the CSV file
+# output_file = 'penguin_cleaned.csv'
+# clean_df.to_csv(output_file, index=False)  # Set index=False to exclude the DataFrame index from the output
+
 # baseline classification for the penguins
 baseline(clean_df)
 
@@ -45,7 +49,7 @@ baseline(clean_df)
 # species(clean_df, custom_colors)
 
 # plot numerical features against sex
-num_sex(clean_df)
+# num_sex(clean_df)
 
 # show the species on each of the islands where the penguins live
 # islands(clean_df, custom_colors)
@@ -59,23 +63,20 @@ pairwise_numericals(clean_df, custom_colors)
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)
 
-# 3D scatter + unusual and interesting? 
-# surprising(clean_df, custom_colors)
-
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 
 
-        # plot bill length for each species on each island
-        # bill_len(df)
+# plot bill length for each species on each island
+# bill_len(df)
 
-        # plot bill length and bill depth
-        # bill_len_and_depth(df)
+# plot bill length and bill depth
+# bill_len_and_depth(df)
 
-        # heatmap of numerical features
-        # heatmap_of_numericals(df)
+# heatmap of numerical features
+# heatmap_of_numericals(df)
 
 # knn analysis
-# knn(clean_df)
+knn(clean_df)
 
 # random forest analysis
 # random_forest(clean_df)
@@ -83,5 +84,8 @@ pairwise_numericals(clean_df, custom_colors)
 # k means
 # in separate jupyter notebook
 
-# logistic regressions analysis
+# unusual and interesting mix of visualization and classification? 
+surprising(clean_df, custom_colors)
+
+# logistic regression analysis
 # logistic_regression(clean_df)

@@ -17,18 +17,16 @@ def knn(local_df):
   copy_df['species'] = copy_df['species'].map({'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2})
   copy_df['island'] = pd.Categorical(copy_df['island']).codes
   copy_df['sex'] = pd.Categorical(copy_df['sex']).codes
-  copy_df.drop(columns=['island'], inplace =True)
+  # copy_df.drop(columns=['island'], inplace =True)
   # copy_df.drop(columns=['sex'], inplace =True)
   # copy_df.drop(columns=['bill_length_mm'], inplace =True)
   # copy_df.drop(columns=['bill_depth_mm'], inplace =True)
   # copy_df.drop(columns=['flipper_length_mm'], inplace =True)
-  copy_df.drop(columns=['body_mass_g'], inplace =True)
-
+  # copy_df.drop(columns=['body_mass_g'], inplace =True)
 
   # separate features and target
   X = copy_df.drop('species', axis=1)
   y = copy_df['species']
-
 
   # divide into training and testing sets
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

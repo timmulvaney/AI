@@ -31,95 +31,118 @@ def clean(local_df):
   numerical_penguins_df = stand_clean_df[numerical_columns + ['species', 'sex']]
   # numerical_penguins_df = clean_df[numerical_columns + ['species', 'sex']]
   mean_values_df = numerical_penguins_df.groupby(['species', 'sex']).mean().reset_index()
-  print("the mean of numerical features for each species and sex...")
-  print(mean_values_df)
 
+  # Calculate the count of instances within each group
+  group_counts = numerical_penguins_df.groupby(['species', 'sex']).size().reset_index(name='instance_count')
+  print("group counts")
+  print(group_counts)
 
+  # Merge the count information into the mean_values_df
+  # mean_values_df = pd.merge(mean_values_df, group_counts, on=['species', 'sex'])
+  # print(mean_values_df['instance_count'])
+
+# Create a dictionary to map old column names to new column names
+  new_column_names = {
+    'bill_length_mm': 'bill_length_mean',
+    'bill_depth_mm': 'bill_depth_mean',
+    'flipper_length_mm': 'flipper_length_mean',
+    'body_mass_g' : 'body_mass_mean'
+  }
+  # Rename columns using the rename() method
+  mean_values_df = mean_values_df.rename(columns=new_column_names)
+
+  std_values_df = numerical_penguins_df.groupby(['species', 'sex']).std().reset_index()
+  new_column_names = {
+    'bill_length_mm': 'bill_length_stdev',
+    'bill_depth_mm': 'bill_depth_stdev',
+    'flipper_length_mm': 'flipper_length_stdev',
+    'body_mass_g' : 'body_mass_stdev'
+  }
+  std_values_df = std_values_df.rename(columns=new_column_names)
+
+  stats_df = pd.merge(group_counts, mean_values_df, on=['species', 'sex'])
+  stats_df = pd.merge(stats_df, std_values_df, on=['species', 'sex'])
+
+  print("stats_df - the stats for the numerical features for each species and sex...")
+  print(stats_df)
+
+  # # Copy specific columns from df_source to df_destination
+  # columns_to_copy = ['bill_length_stdev', 'bill_depth_stdev', 'flipper_length_stdev', 'body_mass_stdev']
+  # # mean_values_df[columns_to_copy] = std_values_df[columns_to_copy]
+  # mean_values_df['instance_count'] = group_counts['instance_count']
+
+  # print("the mean of numerical features for each species and sex...")
+  # print(mean_values_df)
+  # print("the standard deviation of numerical features for each species and sex...")
+  # print(std_values_df)
 
   # Create a df from stand_clean_df that only has the rows with missing values
   missing_sex_rows_df = stand_clean_df[pd.isnull(stand_clean_df['sex'])]
   # print("missing_sex_rows_df...", missing_sex_rows_df)
 
-  # # Impute missing 'sex' values using the mean_values
-  # for index, row_df in missing_sex_rows_df.iterrows():
-  #   # print("row_df...", row_df)
-  #   species = row_df['species']
-  #   MaleMSE = FemaleMSE = 0
-  #   for num in numerical_columns:
-  #     MaleMSE += (mean_values_df.loc[(mean_values_df['sex'] == 'Male') & (mean_values_df['species'] == species), num].values[0] - row_df[num])**2
-  #     FemaleMSE += (mean_values_df.loc[(mean_values_df['sex'] == 'Female') & (mean_values_df['species'] == species), num].values[0] - row_df[num])**2
-  #   MaleMSE = MaleMSE / len(numerical_columns)
-  #   FemaleMSE = FemaleMSE / len(numerical_columns)   
-  #   print("MSE: Male = ", MaleMSE, "Female =", FemaleMSE)
-  #   if (MaleMSE < FemaleMSE):
-  #     row_df['sex'] = 'Male'
-  #     missing_sex_rows_df.loc[index, 'sex'] = 'Male' 
-  #   else:
-  #     row_df['sex'] = 'Female'
-  #     missing_sex_rows_df.loc[index, 'sex'] = 'Female'
-  #   clean_df.loc[index,'sex'] = row_df['sex']
-
-  # # these should be correctly updated to include the inputed sex   
-  # print("modified clean_df...", clean_df.head(11))
-  # print("missing_sex_rows_df...", missing_sex_rows_df)
-
   from scipy import stats
+  from scipy.stats import norm
 
+  mean_columns = ['bill_length_mean', 'bill_depth_mean', 'flipper_length_mean', 'body_mass_mean']
+  stdev_columns = ['bill_length_stdev', 'bill_depth_stdev', 'flipper_length_stdev', 'body_mass_stdev']
+  
   # use t-test to check the solution is reasonable, here a two-sample t-test to compare the means of the observed and imputed values. 
-  print("results of t-test to assess the hypothesis that rows with a missing sex value are male or female")
-  for index, row_df in missing_sex_rows_df.iterrows():
-    # print("row_df...", row_df)
+  print("results of Z-test to assess the hypothesis that rows with a missing sex value are not male or not female")
+  for index, row_df in missing_sex_rows_df.iterrows():  # each row in the list of samples that are missing values 
+
+    print("Missing value:", index)
+
+    print("row_df...", row_df)
     # get the observed values for this species
     species = row_df['species']
     # print ("\n*********************************************************")
     MaleCount = FemaleCount = 0
-    for num in numerical_columns:
-      male_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Male') & (stand_clean_df['species'] == species), num]
-      female_observed = stand_clean_df.loc[(stand_clean_df['sex'] == 'Female') & (stand_clean_df['species'] == species), num]
-      male_imputed = row_df[num]
-      female_imputed = row_df[num]
-      male_observed_mean = male_observed.mean()   
 
-      # print("male_observed", male_observed)
-      # print("male_imputed", male_imputed)
+    for col in range(len(mean_columns)):
+      print("pop", stats_df.loc[(stats_df['sex'] == 'Male') & (stats_df['species'] == species), 'bill_length_mean'].values[0])
+      male_mean_pop = stats_df.loc[(stats_df['sex'] == 'Male') & (stats_df['species'] == species), mean_columns[col]].values[0]
+      female_mean_pop = stats_df.loc[(stats_df['sex'] == 'Female') & (stats_df['species'] == species), mean_columns[col]].values[0]
+      male_stdev_pop = stats_df.loc[(stats_df['sex'] == 'Male') & (stats_df['species'] == species), stdev_columns[col]].values[0]
+      female_stdev_pop = stats_df.loc[(stats_df['sex'] == 'Female') & (stats_df['species'] == species), stdev_columns[col]].values[0]
+      male_instances = stats_df.loc[(stats_df['sex'] == 'Male') & (stats_df['species'] == species), 'instance_count'].values[0]
+      female_instances = stats_df.loc[(stats_df['sex'] == 'Female') & (stats_df['species'] == species), 'instance_count'].values[0]
 
-      # print("male_observed_mean", male_observed_mean)
-      # print("[male_imputed]", [male_imputed])
+      male_missing = row_df[numerical_columns[col]]
+      female_missing = row_df[numerical_columns[col]]
 
-      # print("female_observed", female_observed)
-      # print("female_imputed", female_imputed)
+      Z_score_male = (male_missing - male_mean_pop)/(male_stdev_pop/np.sqrt(male_instances))
+      Z_score_female = (female_missing - female_mean_pop)/(female_stdev_pop/np.sqrt(female_instances))
+      
+      # Calculate p-value (two-tailed test)
+      p_value_male = 2 * (1 - norm.cdf(np.abs(Z_score_male)))
+      p_value_female = 2 * (1 - norm.cdf(np.abs(Z_score_female)))
 
-      male_observerd_mean = male_observed.mean()
-      female_observerd_mean = female_observed.mean()
+      print("  Male, pop mean:", male_mean_pop, ", std dev:", male_stdev_pop, ", instances:", male_instances, ", missing value:", male_missing, ", Z-score" , Z_score_male, ", p-value: ", p_value_male)
+      print("Female, pop mean:", female_mean_pop, ", std dev:", female_stdev_pop, ", instances:", female_instances, ", missing value:", female_missing, ", Z-score" , Z_score_female, ", p-value: ", p_value_female)
 
-      # Perform two-sample t-test for male
-      t_statistic, p_value = stats.ttest_1samp(male_observed, male_imputed)
-      # Check if the p-value is significant
-      # print("num, index, p_value, male_imputed, male_observerd_mean.....", num, index, p_value, male_imputed, male_observerd_mean)
-      if p_value >= 0.0005:
-        MaleCount+=1
-      #   print("Male - **************There is no significant difference between observed and imputed values.")
-      # else:
-      #   print("Male - There is a significant difference between observed and imputed values.")
+      # Set significance level
+      alpha = 0.05
 
-      # Perform two-sample t-test for female
-      t_statistic, p_value = stats.ttest_1samp(female_observed, female_imputed)
-      # print("num, index, p_value, female_imputed, female_observerd_mean....", num, index, p_value, female_imputed, female_observerd_mean)
-      # Check if the p-value is significant
-      if p_value >= 0.0005:
-        FemaleCount+=1 
-      #   print("Female - **************There is no significant difference between observed and imputed values.")
-      # else:
-      #   print("Female - There is a significant difference between observed and imputed values.")
+      # Make decisions
+      if p_value_male < alpha:
+        print("Male - Reject null hypothesis: Sample does not belong to population.")
+      else:
+        MaleCount += 1
+        print("Male - Fail to reject null hypothesis: Sample belongs to population.")
+      if p_value_female < alpha:
+        print("Female - Reject null hypothesis: Sample does not belong to population.")
+      else:
+        FemaleCount += 1
+        print("Female - Fail to reject null hypothesis: Sample belongs to population.")
 
     if ((MaleCount > 0) & (FemaleCount == 0)):
-      print(f"{index}, t-test hypothesis for the data means is met - intuite this is male.................")
+      print(f"{index}, Z-test hypothesis is met - intuite this is male.......................................................................'male....................")
       clean_df.at[index, 'sex'] = 'Male'
     elif ((MaleCount == 0) & (FemaleCount > 0)):
-      print(f"{index}, t-test hypothesis for the data means is met - intuite this is female................")
+      print(f"{index}, Z-test hypothesis is met - intuite this is female......................................................................female..........")
       clean_df.at[index, 'sex'] = 'Female'
     else:
-      print(f"{index}, t-test hypothesis satisfied neither for male or female..........delete this example")
+      print(f"{index}, Z-test hypothesis not satisfied neither for male or female.............................................................delete this example")
       clean_df = clean_df.drop(index)
 
   
@@ -127,6 +150,11 @@ def clean(local_df):
   print(clean_df.head(11))
 
   # show the number of each species after cleaning
-  print("Number of each species:", clean_df['species'].value_counts() )
+  print("Number of each species:", clean_df['species'].value_counts())
+
+  # Group by 'species' and 'sex', then count the occurrences of each combination
+  species_by_sex_count = clean_df.groupby(['species', 'sex']).size()
+  print("Number of each species by sex:")
+  print(species_by_sex_count)
 
   return(clean_df)

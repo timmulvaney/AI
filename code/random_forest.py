@@ -17,12 +17,12 @@ def random_forest(local_df):
   df_copy['species'] = label_encoder.fit_transform(df_copy['species'])
   df_copy['island'] = label_encoder.fit_transform(df_copy['island'])
   df_copy['sex'] = label_encoder.fit_transform(df_copy['sex'])
-  df_copy.drop(columns=['island'], inplace =True)
+  # df_copy.drop(columns=['island'], inplace =True)
   # df_copy.drop(columns=['sex'], inplace =True)
   # df_copy.drop(columns=['bill_length_mm'], inplace =True)
   # df_copy.drop(columns=['bill_depth_mm'], inplace =True)
   # df_copy.drop(columns=['flipper_length_mm'], inplace =True)
-  df_copy.drop(columns=['body_mass_g'], inplace =True)
+  # df_copy.drop(columns=['body_mass_g'], inplace =True)
   
   # separate features and target
   X = df_copy.drop('species', axis=1)
