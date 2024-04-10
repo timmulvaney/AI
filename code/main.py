@@ -43,7 +43,7 @@ clean_df = clean(df)
 # clean_df.to_csv(output_file, index=False)  # Set index=False to exclude the DataFrame index from the output
 
 # baseline classification for the penguins
-baseline(clean_df)
+# baseline(clean_df)
 
 # show the numbers of the species
 # species(clean_df, custom_colors)
@@ -58,7 +58,7 @@ baseline(clean_df)
 # island_confounding(clean_df)
 
 # pairwise plot of the numerial variables
-pairwise_numericals(clean_df, custom_colors)
+# pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)
@@ -76,7 +76,7 @@ pairwise_numericals(clean_df, custom_colors)
 # heatmap_of_numericals(df)
 
 # knn analysis
-knn(clean_df)
+# knn(clean_df)
 
 # random forest analysis
 # random_forest(clean_df)

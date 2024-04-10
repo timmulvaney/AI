@@ -110,10 +110,25 @@ def surprising(local_df, custom_colors):
   svn_df.drop(columns=['island'], inplace =True)
   # svn_df.drop(columns=['sex'], inplace =True) 
   svn_df['sex'] = svn_df['sex'].map({'Male': 0, 'Female': 1})
-  # svn_df.drop(columns=['bill_length_mm'], inplace =True)
-  # svn_df.drop(columns=['bill_depth_mm'], inplace =True)
-  svn_df.drop(columns=['flipper_length_mm'], inplace =True)
-  svn_df.drop(columns=['body_mass_g'], inplace =True)
+
+  # choose two of the nmerical features
+  numerical_columns = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']
+  x = 'bill_length_mm'
+  x_label = 'Bill length (mm)'
+  y = 'bill_depth_mm'
+  y_label = 'Bill depth (mm)'
+  # y = 'flipper_length_mm'
+  # y_label = 'Flipper length (mm)'
+  # y = 'body_mass_g'
+  # y_label = 'Body mass (g)'
+
+  for num_col in numerical_columns:
+    if ((num_col != x) and (num_col != y)):
+      svn_df.drop(columns=[num_col], inplace =True)  
+  # # svn_df.drop(columns=['bill_length_mm'], inplace =True)
+  # # svn_df.drop(columns=['bill_depth_mm'], inplace =True)
+  # svn_df.drop(columns=['flipper_length_mm'], inplace =True)
+  # svn_df.drop(columns=['body_mass_g'], inplace =True)
 
    # use svn to separate targets
   X_in = svn_df.drop('species', axis=1)
@@ -130,8 +145,8 @@ def surprising(local_df, custom_colors):
   
   # create the scatter plot  
   plt.figure(figsize=(10, 7))
-  x = 'bill_length_mm'
-  y = 'bill_depth_mm'   # -------- this best???
+  # x = 'bill_length_mm'
+  # y = 'bill_depth_mm'   # -------- this best???
   size='sex'
   if ((sex_plot == "male") or (sex_plot == "female")):
     sns.scatterplot(data=svn_df, x=x, y=y, hue='species', s = 150, palette=custom_colors, alpha=0.8)
@@ -139,19 +154,19 @@ def surprising(local_df, custom_colors):
     print(svn_df)
   else:
     temp_df = plotted_df[plotted_df['species'] != 'Gentoo']
-    sns.scatterplot(data=temp_df, x=x, y=y, size=size, hue='species', sizes =(150,40), palette=custom_colors, alpha=0.8)
+    sns.scatterplot(data=temp_df, x=x, y=y, size=size, hue='species', sizes =(40,150), palette=custom_colors, alpha=0.8)
     print("temp_df")
     print(temp_df)
   # sns.scatterplot(data=svn_df, x=x, y=y, hue='species', s = 150, palette=custom_colors, alpha=0.8)
   
-  # add  the svm line 
-  y_line = [min(X_train['bill_depth_mm'].tolist()), max(X_train['bill_depth_mm'].tolist())]
+  # add the svm line 
+  y_line = [min(X_train[y].tolist()), max(X_train[y].tolist())]
   x_line = [(y_line[0] - intercept)/slope, (y_line[1] - intercept)/slope]
   plt.plot(x_line, y_line, color='black', label='Line')
  
   # add labels and title before plotting
-  plt.xlabel('Bill Length (mm)')
-  plt.ylabel('Bill Depth (mm)')
+  plt.xlabel(x_label)
+  plt.ylabel(y_label)
   plt.title(f'Scatter Plot of Penguin Measurements for {sex_plot} Adelie and Chinstrap species')
   plt.show()
  
