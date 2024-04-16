@@ -10,11 +10,11 @@ def islands(local_df, custom_colors):
   for p in ax.patches:
     if p.get_height() > 0:  # Check if the height is greater than 0
       ax.annotate(str(p.get_height()), (p.get_x() + p.get_width() / 2., p.get_height()),
-                ha='center', va='center', xytext=(0, 5), textcoords='offset points', fontsize = 12)
+                ha='center', va='center', xytext=(0, 5), textcoords='offset points', fontsize = 14)
 
   plt.figsize=(1,1)  
-  plt.xlabel(" ", fontsize = 12)
-  plt.ylabel("Number of species", fontsize = 12)
+  plt.xlabel(" ", fontsize = 14)
+  plt.ylabel("Number of species", fontsize = 14)
   plt.title("Species distribution for each island", fontsize = 14)
 
   # modify tick marks

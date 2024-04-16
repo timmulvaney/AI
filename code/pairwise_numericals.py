@@ -63,10 +63,10 @@ def pairwise_numericals(local_df, custom_colors):
   # to change the legends location
   handles = g._legend_data.values()
   labels = g._legend_data.keys()
-  g.fig.legend(handles=handles, labels=labels, title='species', loc='upper center', ncol=1)
-  # g.fig.legend(handles=handles, labels=labels, loc='lower center', ncol=3)
-  # g.fig.legend(handles=handles, labels=labels, loc='upper left', ncol=1)
-  g.fig.subplots_adjust(top=0.92, bottom=0.08)
+  g.figure.legend(handles=handles, labels=labels, title='species', loc='upper center', ncol=1)
+  # g.figure.legend(handles=handles, labels=labels, loc='lower center', ncol=3)
+  # g.figure.legend(handles=handles, labels=labels, loc='upper left', ncol=1)
+  g.figure.subplots_adjust(top=0.92, bottom=0.08)
   plt.show()
  
 
