@@ -58,7 +58,7 @@ clean_df = clean(df)
 # island_confounding(clean_df)
 
 # pairwise plot of the numerial variables
-# pairwise_numericals(clean_df, custom_colors)
+pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)

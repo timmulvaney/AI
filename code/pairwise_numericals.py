@@ -34,7 +34,7 @@ def pairwise_numericals(local_df, custom_colors):
   hue_order = ['Adelie', 'Chinstrap', 'Gentoo']
 
   # Plot with specified hue order and palette - ss.pairplot ignores non-numerical features
-  g = sns.pairplot(data=local_df, hue='species', hue_order=hue_order, palette=custom_colors, corner=True) #, height=6, aspect=8/6)
+  g = sns.pairplot(data=local_df, hue='species', hue_order=hue_order, palette=custom_colors) #, corner=True) #, height=6, aspect=8/6)
   g._legend.remove()
 
   # Change the axis labels
@@ -47,6 +47,19 @@ def pairwise_numericals(local_df, custom_colors):
   for ax, label in zip(g.axes[:,0], axis_labels):
     ax.set_ylabel(label, fontsize=14)  # Set y-axis label
 
+  custom_ticks = {
+    0: [30,40,50,60],
+    1: [14,16,18,20],  # Custom tick marks for the first subplot
+    2: [180,200,220],          # Custom tick marks for the second subplot
+    3: [3000,4000,5000,6000],          # Custom tick marks for the third subplot
+  }
+
+  # Override default tick marks for each subplot
+  for i, ax in enumerate(g.axes.flatten()):
+    if ax is not None and i in custom_ticks:
+      ax.set_xticks(custom_ticks[i])
+      ax.set_yticks(custom_ticks[i])
+
   # to change the legends location
   handles = g._legend_data.values()
   labels = g._legend_data.keys()
@@ -55,7 +68,7 @@ def pairwise_numericals(local_df, custom_colors):
   # g.fig.legend(handles=handles, labels=labels, loc='upper left', ncol=1)
   g.fig.subplots_adjust(top=0.92, bottom=0.08)
   plt.show()
-
+ 
 
 
   # # Set the font size globally
