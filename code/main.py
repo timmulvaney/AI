@@ -49,7 +49,7 @@ clean_df = clean(df)
 # species(clean_df, custom_colors)
 
 # plot numerical features against sex
-# num_sex(clean_df)
+num_sex(clean_df, custom_colors)
 
 # show the species on each of the islands where the penguins live
 # islands(clean_df, custom_colors)
@@ -58,7 +58,7 @@ clean_df = clean(df)
 # island_confounding(clean_df)
 
 # pairwise plot of the numerial variables
-# pairwise_numericals(clean_df, custom_colors)
+pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
 # stand_df = standardize(df)
