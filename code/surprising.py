@@ -26,17 +26,16 @@ def surprising(local_df, custom_colors):
   # Adjust legend font properties to make titles bold
   boldfont = FontProperties()
   boldfont.set_weight('bold')
-  boldfont.set_size(14)
+  boldfont.set_size(18)
   normfont = FontProperties()
-  normfont.set_size(14)
+  normfont.set_size(18)
 
   legend = plt.legend()
   for i, text in enumerate(legend.get_texts()):
-    if ((i==0) or (i==4)):
-      text.set_font_properties(boldfont)
+    if text.get_text() in ["species", "sex", "island"]:
+      text.set_font_properties(boldfont)       
     else:
-      text.set_font_properties(normfont)    
-      
+      text.set_font_properties(normfont)      
 
   # train svm module
   from sklearn import svm
@@ -108,9 +107,9 @@ def surprising(local_df, custom_colors):
   print(f'Accuracy: {accuracy}')
 
   # add labels and title before plotting
-  plt.xlabel('bill depth (mm)', fontsize=16)
+  plt.xlabel('bill depth (mm)', fontsize=20)
   plt.xticks(fontsize=15)
-  plt.ylabel('flipper length (mm)', fontsize=16)
+  plt.ylabel('flipper length (mm)', fontsize=20)
   plt.yticks(fontsize=15)
   plt.title('Penguin Morphological Measurements', fontsize=18)
 
@@ -135,7 +134,7 @@ def surprising(local_df, custom_colors):
   if (sex_plot == "female"):
     svn_df = svn_df[svn_df['sex'] != 'Male']
 
-  # if single sex, we include the island (and drop sexes), for both sexes we need to keep the sexes (and drop the island)
+  # if single sex, we include the island (and drop sexes), for combined sexes we need to keep the sexes (and drop the island)
   svn_df['species'] = svn_df['species'].map({'Adelie': 0, 'Chinstrap': 1})
   if ((sex_plot == "male") or (sex_plot == "female")):
     svn_df['island'] = svn_df['island'].map({'Biscoe': 0, 'Dream': 1, 'Torgersen': 2})
@@ -155,7 +154,7 @@ def surprising(local_df, custom_colors):
   # y = 'body_mass_g'
   # y_label = 'body mass (g)'
 
-  # frop the columns we don't need
+  # drop the columns we don't need
   for num_col in numerical_columns:
     if ((num_col != x) and (num_col != y)):
       svn_df.drop(columns=[num_col], inplace =True)  
@@ -165,6 +164,8 @@ def surprising(local_df, custom_colors):
     X_in = svn_df.drop(columns = ['species','island'], axis=1)
   else:
     X_in = svn_df.drop('species', axis=1)
+
+  # X_in = svn_df.drop(['species','island'], axis=1)
 
   # the target is the species
   y_in = svn_df['species']
@@ -189,8 +190,8 @@ def surprising(local_df, custom_colors):
     size='island'
     temp_df = plotted_df[plotted_df['species'] != 'Gentoo']
     g = sns.scatterplot(data=temp_df, x=x, y=y, size=size, hue='species', sizes=(40,150), palette=custom_colors, alpha=0.8)
-    print("svn_df")
-    print(svn_df)
+    print("temp_df")
+    print(temp_df)
   else:
     size='sex'
     temp_df = plotted_df[plotted_df['species'] != 'Gentoo']
@@ -205,13 +206,16 @@ def surprising(local_df, custom_colors):
   # Adjust legend font properties to make titles bold
   boldfont = FontProperties()
   boldfont.set_weight('bold')
-  boldfont.set_size(14)
+  boldfont.set_size(18)
   normfont = FontProperties()
-  normfont.set_size(14)
+  normfont.set_size(18)
 
   legend = plt.legend()
   for i, text in enumerate(legend.get_texts()):
-    text.set_font_properties(normfont)    
+    if text.get_text() in ["species", "sex", "island"]:
+      text.set_font_properties(boldfont)       
+    else:
+      text.set_font_properties(normfont)    
       
   # add the svm line 
   y_line = [min(X_train[y].tolist()), max(X_train[y].tolist())]
@@ -224,9 +228,9 @@ def surprising(local_df, custom_colors):
   # plt.title(f'Physical differences of {sex_plot} Adelie and Chinstrap species')
   # plt.show()
 
-  plt.xlabel(x_label, fontsize=16)
+  plt.xlabel(x_label, fontsize=20)
   plt.xticks(fontsize=15)
-  plt.ylabel(y_label, fontsize=16)
+  plt.ylabel(y_label, fontsize=20)
   plt.yticks(fontsize=15)
   plt.title(f'Physical differences of {sex_plot} Adelie and Chinstrap species')
   plt.show()

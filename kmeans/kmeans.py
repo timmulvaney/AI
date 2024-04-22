@@ -13,6 +13,8 @@ import pandas as pd
 
 # %%
 df = pd.read_csv('penguin_cleaned.csv')
+# df = df[df['sex'] != 'Male']
+# df = df[df['sex'] != 'Female']
 
 # Remove rows where 'sex' is NaN
 #df_with_nan.drop(columns=['Unnamed: 0'], inplace=True)
@@ -52,6 +54,7 @@ kmm.fit(features_train)
 custom_palette = {
     'Adelie': 'darkorange',
     'Chinstrap': 'mediumorchid',
+  
     'Gentoo': 'mediumseagreen'
 }
 
