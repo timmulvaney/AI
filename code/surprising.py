@@ -124,7 +124,7 @@ def surprising(local_df, custom_colors):
   svn_df = svn_df[svn_df['species'] != 'Gentoo']
 
   # define whether the plot is to be produced for Male, Female or Both sexes - comment out all but one
-  # sex_plot = "male"
+  sex_plot = "male"
   sex_plot = "female"
   # sex_plot = "both male and female"
 
@@ -136,12 +136,12 @@ def surprising(local_df, custom_colors):
 
   # if single sex, we include the island (and drop sexes), for combined sexes we need to keep the sexes (and drop the island)
   svn_df['species'] = svn_df['species'].map({'Adelie': 0, 'Chinstrap': 1})
-  if ((sex_plot == "male") or (sex_plot == "female")):
-    svn_df['island'] = svn_df['island'].map({'Biscoe': 0, 'Dream': 1, 'Torgersen': 2})
-    svn_df.drop(columns=['sex'], inplace =True) 
-  else:
-    svn_df['sex'] = svn_df['sex'].map({'Male': 0, 'Female': 1})
-    svn_df.drop(columns=['island'], inplace =True) 
+  svn_df['island'] = svn_df['island'].map({'Biscoe': 0, 'Dream': 1, 'Torgersen': 2})
+  svn_df['sex'] = svn_df['sex'].map({'Male': 0, 'Female': 1})
+  # if ((sex_plot == "male") or (sex_plot == "female")):
+  #   svn_df.drop(columns=['sex'], inplace =True) 
+  # # else:
+  # #   svn_df.drop(columns=['island'], inplace =True) 
 
   # choose two of the numerical features and drop the rest
   numerical_columns = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']
@@ -161,11 +161,11 @@ def surprising(local_df, custom_colors):
 
   # drop the species from the training data (keep for target) and drop island from training for single sex
   if ((sex_plot == "male") or (sex_plot == "female")):
-    X_in = svn_df.drop(columns = ['species','island'], axis=1)
+    X_in = svn_df.drop(columns = ['species', 'island', 'sex'], axis=1)
+    # X_in = svn_df.drop('species', axis=1)
   else:
-    X_in = svn_df.drop('species', axis=1)
-
-  # X_in = svn_df.drop(['species','island'], axis=1)
+    X_in = svn_df.drop(columns = ['species', 'island', 'sex'], axis=1)
+    # X_in = svn_df.drop('species', axis=1)
 
   # the target is the species
   y_in = svn_df['species']
@@ -174,6 +174,8 @@ def surprising(local_df, custom_colors):
   X_train, X_test, y_train, y_test = train_test_split(X_in, y_in, test_size=0.2, random_state=10)
   clf = svm.SVC(kernel='linear')
   clf.fit(X_train, y_train)
+  print(X_in)
+  print(y_in)
 
   # get the coefficients and parameters of the separating hyperplane
   w = clf.coef_[0]
@@ -190,14 +192,14 @@ def surprising(local_df, custom_colors):
     size='island'
     temp_df = plotted_df[plotted_df['species'] != 'Gentoo']
     g = sns.scatterplot(data=temp_df, x=x, y=y, size=size, hue='species', sizes=(40,150), palette=custom_colors, alpha=0.8)
-    print("temp_df")
-    print(temp_df)
+    # print("temp_df")
+    # print(temp_df)
   else:
     size='sex'
     temp_df = plotted_df[plotted_df['species'] != 'Gentoo']
     g = sns.scatterplot(data=temp_df, x=x, y=y, size=size, hue='species', sizes=(40,150), palette=custom_colors, alpha=0.8)
-    print("temp_df")
-    print(temp_df)
+    # print("temp_df")
+    # print(temp_df)
   
   # adjust legend
   g.legend().remove()
@@ -236,23 +238,58 @@ def surprising(local_df, custom_colors):
   plt.show()
 
  
-  # Standardize features by removing the mean and scaling to unit variance
-  scaler = StandardScaler()
-  X_train = scaler.fit_transform(X_train)
-  X_test = scaler.transform(X_test)
+
+
+
+  # input data for training
+  X_all = temp_df.drop(columns = ['island'], axis=1)
+  # X_all['species'] = X_all['species'].map({'Adelie': 0, 'Chinstrap': 1})
+  # X_all['island'] = X_all['island'].map({'Biscoe': 0, 'Dream': 1, 'Torgersen': 2})
+
+
+  # drop the columns we don't need
+  for num_col in numerical_columns:
+    if ((num_col != x) and (num_col != y)):
+      X_all.drop(columns=[num_col], inplace =True) 
+  # if single sex, keep the one we want
+  X_all['sex'] = X_all['sex'].map({'Male': 0, 'Female': 1})
+  if (sex_plot == "male"):
+    X_all = X_all[X_all['sex'] != 1]
+  elif (sex_plot == "female"):
+    X_all = X_all[X_all['sex'] != 0]
+
+
+
+
+  X_in = X_all.drop('species', axis=1)
+  print(sex_plot)
+  print(X_in)
+  # the target is the species
+  y_in = X_all['species']
+  print(y_in)
+
+  # # Standardize features by removing the mean and scaling to unit variance
+  # scaler = StandardScaler()
+  # X_train = scaler.fit_transform(X_train)
+  # X_test = scaler.transform(X_test)
   
-  # the sum of the accuracies from all the logistic regressiont tests
+  # the sum of the accuracies from all the logistic regression tests
   svm_accuracy = 0
 
   # number of random states to try
-  svm_max = 10
+  svm_max = 100
   
   # train and find accuracy for svn_max random states
   for random_state in range (1,svm_max+1):
     
     # divide into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X_in, y_in, test_size=0.2, random_state=random_state)
-    
+
+    # Standardize features by removing the mean and scaling to unit variance
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+
     # Initialize SVM classifier
     svm_classifier = SVC(kernel='linear', C=1.0, random_state=random_state)
 
