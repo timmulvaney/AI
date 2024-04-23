@@ -17,12 +17,13 @@ def random_forest(local_df):
   df_copy['species'] = label_encoder.fit_transform(df_copy['species'])
   df_copy['island'] = label_encoder.fit_transform(df_copy['island'])
   df_copy['sex'] = label_encoder.fit_transform(df_copy['sex'])
-  # df_copy.drop(columns=['island'], inplace =True)
+
+  df_copy.drop(columns=['island'], inplace =True)
   # df_copy.drop(columns=['sex'], inplace =True)
   # df_copy.drop(columns=['bill_length_mm'], inplace =True)
   # df_copy.drop(columns=['bill_depth_mm'], inplace =True)
   # df_copy.drop(columns=['flipper_length_mm'], inplace =True)
-  # df_copy.drop(columns=['body_mass_g'], inplace =True)
+  df_copy.drop(columns=['body_mass_g'], inplace =True)
   
   # separate features and target
   X = df_copy.drop('species', axis=1)
@@ -79,10 +80,11 @@ def random_forest(local_df):
   
   # parameter grid to search
   param_grid = {
-    'n_estimators': [50, 100, 200],  # Number of trees in the forest
+    'n_estimators': [10, 25, 50],  # Number of trees in the forest
     'max_depth': [None, 10, 20],  # Maximum depth of the trees
     'min_samples_split': [2, 5, 10],  # Minimum number of samples required to split a node
-    'min_samples_leaf': [1, 2, 4]  # Minimum number of samples required at each leaf node
+    'min_samples_leaf': [1, 2, 4],  # Minimum number of samples required at each leaf node
+    'criterion': ['gini', 'entropy']  # function to measure quality of split
   }
 
   for random_state in range (1,rf_max+1):

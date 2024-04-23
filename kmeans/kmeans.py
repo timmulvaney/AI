@@ -28,6 +28,7 @@ print(df.head())
 # Get a dataframe of features
 features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
 features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']]
+
 # features_unscaled = df[['bill_length_mm', 'bill_depth_mm']]
 labels = df['species']
 
@@ -233,7 +234,8 @@ for n_clusters in param_grid['n_clusters']:
                     accuracy_scores.append(adjusted_rand_score(labels_val_encoded, mapped_labels_val))
                     
                 avg_acc = np.mean(accuracy_scores)
-                
+                print(avg_acc, 'n_clusters', n_clusters, 'init', init, 'n_init', n_init, 'max_iter', max_iter)
+
                 if avg_acc > best_avg_score:
                     best_avg_score = avg_acc
                     print("best_avg_score so far:", best_avg_score)

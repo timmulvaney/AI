@@ -17,12 +17,13 @@ def knn(local_df):
   copy_df['species'] = copy_df['species'].map({'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2})
   copy_df['island'] = pd.Categorical(copy_df['island']).codes
   copy_df['sex'] = pd.Categorical(copy_df['sex']).codes
+  
   # copy_df.drop(columns=['island'], inplace =True)
   # copy_df.drop(columns=['sex'], inplace =True)
   # copy_df.drop(columns=['bill_length_mm'], inplace =True)
   # copy_df.drop(columns=['bill_depth_mm'], inplace =True)
-  # copy_df.drop(columns=['flipper_length_mm'], inplace =True)
-  # copy_df.drop(columns=['body_mass_g'], inplace =True)
+  copy_df.drop(columns=['flipper_length_mm'], inplace =True)
+  copy_df.drop(columns=['body_mass_g'], inplace =True)
 
   # separate features and target
   X = copy_df.drop('species', axis=1)
@@ -71,7 +72,7 @@ def knn(local_df):
   knn_accuracy = 0
 
   # the number of separate tests using random forest classification (knn_max > 0)
-  knn_max = 10
+  knn_max = 100
 
   # do logistic regression for knn_max random states (random_state=0 is avoided as its pseudo random, not fixed)
   # ADD grid search
@@ -79,9 +80,9 @@ def knn(local_df):
   
   # parameter grid to search
   param_grid = {
-    'n_neighbors': [3, 4, 5, 6, 7, 9],  # Number of neighbors to consider
+    'n_neighbors': [1, 2, 3, 4, 5, 6, 8, 10],  # Number of neighbors to consider
     'weights': ['uniform', 'distance'],  # Weight function used in prediction
-    'p': [1, 2]  # Power parameter for the Minkowski distance metric
+    'metric': ['manhattan', 'euclidean']  # Power parameter for the Minkowski distance metric
   }
 
 
