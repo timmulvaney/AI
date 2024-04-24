@@ -464,6 +464,3 @@ def plot_silhouette_diagrams(X, range_n_clusters):
 
 # Plot silhouette diagrams for k=2,3,4,5 in a 2 by 2 layout
 plot_silhouette_diagrams(features_train_2d, [2, 3, 4, 5])
-
-
-

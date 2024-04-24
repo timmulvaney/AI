@@ -1,4 +1,7 @@
 from globals import * 
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.svm import SVC
+
 
 # needed for dictionary
 import ast 
@@ -279,6 +282,13 @@ def surprising(local_df, custom_colors):
   # number of random states to try
   svm_max = 100
   
+  # Define the parameter grid
+  param_grid = {
+    'C': [0.1, 1, 10, 100],  # Regularization parameter
+    'gamma': [1, 0.1, 0.01, 0.001],  # Kernel coefficient
+    'kernel': ['rbf', 'linear', 'poly']  # Kernel type
+  }
+
   # train and find accuracy for svn_max random states
   for random_state in range (1,svm_max+1):
     
@@ -290,21 +300,33 @@ def surprising(local_df, custom_colors):
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
+    # Create the SVM model
+    svm = SVC()
+
     # Initialize SVM classifier
-    svm_classifier = SVC(kernel='linear', C=1.0, random_state=random_state)
+    svm_classifier = GridSearchCV(svm, param_grid, cv=5)
+    # svm_classifier = SVC(kernel='linear', C=1.0, random_state=random_state)
 
     # Train the SVM classifier
     svm_classifier.fit(X_train, y_train)
 
     # Predict the classes for test data
-    y_pred = svm_classifier.predict(X_test)
+    # y_pred = svm_classifier.predict(X_test)
+
+    # Print the best parameters found
+    print("Best parameters:", svm_classifier.best_params_)
+    
+    # Evaluate the model on the test set
+    accuracy = svm_classifier.score(X_test, y_test)
+    print("Test accuracy:", accuracy)
 
     # Calculate accuracy
-    test_accuracy = accuracy_score(y_test, y_pred)
-    print(f"Test Accuracy on random set {random_state}: {test_accuracy}")
+    # test_accuracy = accuracy_score(y_test, y_pred)
+    # print(f"Test Accuracy on random set {random_state}: {test_accuracy}")
  
     # keep the sum of the accuracies so far
-    svm_accuracy += accuracy_score(y_test, y_pred)
+    # svm_accuracy += accuracy_score(y_test, y_pred)
+    svm_accuracy += accuracy
 
   # overall accuracy for evaluating the model
   print(f"svm accuracy: {100*svm_accuracy/svm_max:.2f}%")
