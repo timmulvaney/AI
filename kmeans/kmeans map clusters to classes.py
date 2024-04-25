@@ -12,7 +12,9 @@ custom_colors = {'Adelie': 'darkorange', 'Chinstrap': 'mediumorchid', 'Gentoo': 
 hue_order = ['Adelie', 'Chinstrap', 'Gentoo']
 
 # load my claened Palmer Penguins dataset
-df = pd.read_csv('penguin_cleaned.csv')
+# df = pd.read_csv('penguin_cleaned.csv')
+df = pd.read_csv('penguin_cleaned_male.csv')
+# df = pd.read_csv('penguin_cleaned_female.csv')
 
 # Select features
 X = df[['bill_length_mm', 'bill_depth_mm']].values  # Convert to NumPy array

@@ -16,6 +16,16 @@ df = pd.read_csv('penguin_cleaned.csv')
 # df = df[df['sex'] != 'Male']
 # df = df[df['sex'] != 'Female']
 
+# create all Male version of dataframe
+male = df[df['sex'] != 'Female']
+male.to_csv('penguin_cleaned_male.csv', index = False)
+# df = male
+
+# create all Gemale version of dataframe
+female = df[df['sex'] != 'Male']
+female.to_csv('penguin_cleaned_female.csv', index = False)
+df = female
+
 # Remove rows where 'sex' is NaN
 #df_with_nan.drop(columns=['Unnamed: 0'], inplace=True)
 #df = df_with_nan.dropna(subset=['sex'])
@@ -248,7 +258,7 @@ for n_clusters in param_grid['n_clusters']:
 
 # %%
                     
-# the number of separate tests using random forest classification (knn_max > 0)
+# the number of separate tests using random forest classification (kmeans_max > 0)
 kmeans_max = 10
 
 # the sum of the accuracies from all the random forest tests
@@ -290,7 +300,7 @@ for random_state in range (1,kmeans_max+1):
   kmeans_accuracy += accuracy_test
 
 # overall accuracy for evaluating the model
-print(f"knn accuracy for all random states: {100*kmeans_accuracy/kmeans_max:.2f}%")
+print(f"kmeans accuracy for all random states: {100*kmeans_accuracy/kmeans_max:.2f}%")
 
 
 # %% [markdown]
