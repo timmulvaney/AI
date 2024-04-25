@@ -52,7 +52,7 @@ clean_df = clean(df)
 # num_sex(clean_df, custom_colors)
 
 # show the species on each of the islands where the penguins live
-# islands(clean_df, custom_colors)
+islands(clean_df, custom_colors)
 
 # is the island a cofounding factor in altering mass/size of pengiun?
 # island_confounding(clean_df)

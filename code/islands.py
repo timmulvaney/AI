@@ -14,7 +14,7 @@ def islands(local_df, custom_colors):
 
   plt.figsize=(1,1)  
   plt.xlabel(" ", fontsize = 14)
-  plt.ylabel("Number of species", fontsize = 14)
+  plt.ylabel("number of species", fontsize = 14)
   plt.title("Species distribution for each island", fontsize = 14)
 
   # modify tick marks

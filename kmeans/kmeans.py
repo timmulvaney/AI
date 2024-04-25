@@ -37,7 +37,7 @@ print(df.head())
 # %%
 # Get a dataframe of features
 features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
-features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']]
+# features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']]
 
 # features_unscaled = df[['bill_length_mm', 'bill_depth_mm']]
 labels = df['species']

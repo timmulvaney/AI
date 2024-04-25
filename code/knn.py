@@ -92,6 +92,9 @@ def knn(local_df):
     # divide into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=random_state)
 
+
+
+
     # choose a model
     model = KNeighborsClassifier()
 

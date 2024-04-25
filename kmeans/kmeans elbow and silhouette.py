@@ -65,8 +65,8 @@ fig, axs = plt.subplots(1, 2, figsize=(14, 6))
 for species, color in custom_palette.items():
     points = features_train[labels_train == species]
     axs[0].scatter(points[:, 0], points[:, 1], c=color, label=f'{species}')
-axs[0].set_xlabel('Bill Length (scaled)')
-axs[0].set_ylabel('Bill Depth (scaled)')
+axs[0].set_xlabel('bill length (scaled)')
+axs[0].set_ylabel('bill depth (scaled)')
 axs[0].set_title('Training Set Clusters')
 axs[0].legend()
 
@@ -137,8 +137,8 @@ for k in range(1, K+1):
 # Plot elbow plot
 plt.figure(figsize=(10,6))
 plt.plot(range(1, K+1), inertias, 'bx-')
-plt.xlabel('k (Number of clusters)')
-plt.ylabel('Sum of squared distances (Inertia)')
+plt.xlabel('k (number of clusters)')
+plt.ylabel('sum of squared distances (inertia)')
 plt.title('Elbow Method For Optimal k')
 plt.show()
 temp_inertias = inertias
@@ -378,9 +378,9 @@ print(inertias)
 # Plot elbow plot
 plt.figure(figsize=(10,6))
 plt.plot(range(1, K+1), temp_inertias, 'bx-')
-plt.xlabel('k (Number of clusters)')
-plt.ylabel('Sum of squared distances (Inertia)')
-plt.title('Elbow Method For Optimal k')
+plt.xlabel('k (number of clusters)')
+plt.ylabel('sum of squared distances (inertia)')
+plt.title('elbow Method For Optimal k')
 plt.show()
 
 
@@ -399,8 +399,8 @@ for k in k_values:
 plt.figure(figsize=(8, 6))
 plt.plot(k_values, silhouette_scores, marker='o')
 plt.title('Silhouette Scores for Various Numbers of Clusters')
-plt.xlabel('Number of Clusters, k')
-plt.ylabel('Silhouette Score')
+plt.xlabel('number of clusters, k')
+plt.ylabel('silhouette score')
 plt.xticks(k_values)
 plt.grid(True)
 plt.show()
@@ -420,15 +420,15 @@ fig, ax1 = plt.subplots()
 ax1.plot(x1, y1, 'b-', marker='o')
 ax1.tick_params(axis='y', labelsize=16, colors='blue')
 ax1.tick_params(axis='x', labelsize=16)
-ax1.set_xlabel('Number of clusters (k)', fontsize=20)
-ax1.set_ylabel('Elbow method intertia', color='b', fontsize=20)
+ax1.set_xlabel('number of clusters (k)', fontsize=20)
+ax1.set_ylabel('elbow method intertia', color='b', fontsize=20)
 
 
 # Create secondary y-axis and plot y2 data
 ax2 = ax1.twinx()
 ax2.plot(x2, y2, 'g-', marker='o')
 ax2.tick_params(axis='y', labelsize=16, colors='green')
-ax2.set_ylabel('Silhouette scores', color='g', fontsize=20)
+ax2.set_ylabel('silhouette scores', color='g', fontsize=20)
 
 plt.show()
 
@@ -496,8 +496,8 @@ def plot_silhouette_diagrams(X, range_n_clusters):
             y_lower = y_upper + 10  # 10 for the 0 samples
         
         ax.set_title(f"Silhouette analysis for KMeans clustering on sample data with n_clusters = {n_clusters}")
-        ax.set_xlabel("The silhouette coefficient values")
-        ax.set_ylabel("Cluster label")
+        ax.set_xlabel("the silhouette coefficient values")
+        ax.set_ylabel("cluster label")
         
         # The vertical line for average silhouette score of all the values
         ax.axvline(x=silhouette_avg, color="red", linestyle="--")
