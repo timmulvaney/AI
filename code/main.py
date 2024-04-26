@@ -52,7 +52,7 @@ clean_df = clean(df)
 # num_sex(clean_df, custom_colors)
 
 # show the species on each of the islands where the penguins live
-islands(clean_df, custom_colors)
+# islands(clean_df, custom_colors)
 
 # is the island a cofounding factor in altering mass/size of pengiun?
 # island_confounding(clean_df)
@@ -76,7 +76,7 @@ islands(clean_df, custom_colors)
 # heatmap_of_numericals(df)
 
 # knn analysis
-# knn(clean_df)
+knn(clean_df)
 
 # random forest analysis
 # random_forest(clean_df)
@@ -85,7 +85,7 @@ islands(clean_df, custom_colors)
 # in separate jupyter notebook
 
 # unusual and interesting mix of visualization and classification? 
-surprising(clean_df, custom_colors)
+# surprising(clean_df, custom_colors)
 
 # logistic regression analysis
 # logistic_regression(clean_df)

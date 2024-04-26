@@ -1,15 +1,17 @@
 from globals import *
 
+# sklean libraries for knn and training
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import f1_score
+from sklearn.metrics import confusion_matrix
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split, GridSearchCV
 
+# set the data frame here!
 def knn(local_df):
     
-  # libraries to split into training/test sets, for knn and for f1 score
-  from sklearn.model_selection import cross_val_score, train_test_split
-  from sklearn.neighbors import KNeighborsClassifier
-  from sklearn.metrics import f1_score
-  from sklearn.metrics import confusion_matrix
-
   # get a local copy of the df to manipulate
   copy_df = local_df.copy()
 
@@ -18,73 +20,50 @@ def knn(local_df):
   copy_df['island'] = pd.Categorical(copy_df['island']).codes
   copy_df['sex'] = pd.Categorical(copy_df['sex']).codes
   
+  # comment out the following if the corresponding feature is to be dropped
   # copy_df.drop(columns=['island'], inplace =True)
   # copy_df.drop(columns=['sex'], inplace =True)
   # copy_df.drop(columns=['bill_length_mm'], inplace =True)
   # copy_df.drop(columns=['bill_depth_mm'], inplace =True)
-  copy_df.drop(columns=['flipper_length_mm'], inplace =True)
-  copy_df.drop(columns=['body_mass_g'], inplace =True)
+  # copy_df.drop(columns=['flipper_length_mm'], inplace =True)
+  # copy_df.drop(columns=['body_mass_g'], inplace =True)
 
   # separate features and target
   X = copy_df.drop('species', axis=1)
   y = copy_df['species']
-
-  # divide into training and testing sets
-  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-  # try 1 to 10 nearest neighbours
-  for k in range(1,10):
-
-    # initialize kNN classifier
-    knn = KNeighborsClassifier(n_neighbors=k)
-
-    # perform cross-validation
-    cv_scores = cross_val_score(knn, X_train, y_train, cv=5)
-
-    # train the KNN classifier
-    knn.fit(X_train, y_train)
-    
-    # find predicted outputs for the test set
-    y_pred = knn.predict(X_test)
-
-    # calculate the F1-score
-    f1 = f1_score(y_test, y_pred, average='weighted')
-
-    # print cross-validation scores
-    # print("cross-validation values for k =", k, ":", cv_scores)
-    print("mean cross-validation accuracy for k =", k, ":", np.mean(cv_scores))
-    print("f1 score for k =", k, ":", f1)
-
-    # Evaluate the accuracy of the model
-    accuracy = accuracy_score(y_test, y_pred)
-    print(f'Accuracy for k={k}: {accuracy}')
-
-
-  # lots of hyperparams to play with 
-  # need to try different random states for f1????
-  # accuracy????
-    
-  # 
-  # knn grid search for metaparemters
-
-    
-  # the sum of the accuracies from all the random forest tests
-  knn_accuracy = 0
-
-  # the number of separate tests using random forest classification (knn_max > 0)
-  knn_max = 100
-
-  # do logistic regression for knn_max random states (random_state=0 is avoided as its pseudo random, not fixed)
-  # ADD grid search
-  from sklearn.model_selection import train_test_split, GridSearchCV
   
-  # parameter grid to search
-  param_grid = {
+  # parameter grid of metaparameters to search
+  param_grid_train = {
     'n_neighbors': [1, 2, 3, 4, 5, 6, 8, 10],  # Number of neighbors to consider
     'weights': ['uniform', 'distance'],  # Weight function used in prediction
     'metric': ['manhattan', 'euclidean']  # Power parameter for the Minkowski distance metric
   }
 
+  # find best metaparameters
+  train_knn(param_grid_train, X, y)
+
+  # use best set of metaparameters to get the test set result
+  param_grid_test = {
+    'n_neighbors': [1],  # Number of neighbors to consider
+    'weights': ['uniform'],  # Weight function used in prediction
+    'metric': ['manhattan']  # Power parameter for the Minkowski distance metric
+  }
+  
+  train_knn(param_grid_test, X, y)
+
+
+
+# perform the knn training and testing
+def train_knn(param_grid, X, y):
+
+  # the sum of the accuracies from all the knn tests
+  knn_accuracy = 0
+
+  # the number of separate tests using random forest classification (knn_max > 0)
+  knn_max = 100
+
+  # initialize counts of best parameters
+  best_params_count = {}
 
   # train and find accuracy for knn_max random states
   for random_state in range (1,knn_max+1):
@@ -92,20 +71,28 @@ def knn(local_df):
     # divide into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=random_state)
 
+    # standardize features by removing the mean and scaling to unit variance using training data
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)  # apply standardization to test data
 
-
-
-    # choose a model
+    # knn model
     model = KNeighborsClassifier()
 
-    # grid search with cross-validation
+    # grid search with cross-validation, cv is the number of folds
     grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=5)
     grid_search.fit(X_train, y_train)
 
-    # Print the best parameters found
+    # print the best parameters found for this training/validation data
     print("Best Parameters:", grid_search.best_params_)
 
-    # Evaluate the best model on test data
+    # make hashable
+    best_params_tuple = tuple(sorted(grid_search.best_params_.items()))
+    
+    # increment the count for the current best parameters
+    best_params_count[best_params_tuple] = best_params_count.get(best_params_tuple, 0) + 1
+
+    # details for test data of best model
     best_model = grid_search.best_estimator_
     y_pred = best_model.predict(X_test)
     test_accuracy = accuracy_score(y_test, y_pred)
@@ -114,9 +101,9 @@ def knn(local_df):
     # keep the sum of the accuracies so far
     knn_accuracy += accuracy_score(y_test, y_pred)
 
-  # overall accuracy for evaluating the model
-  print(f"knn accuracy: {100*knn_accuracy/knn_max:.2f}%")
+  # print count of best parameters
+  for params, count in best_params_count.items():
+    print("Parameters:", dict(params), "Count:", count)
 
-  cm = confusion_matrix(y_test, y_pred)
-  print("Predicted on x, True on y: 'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2")
-  print(cm)
+  # overall accuracy for the model
+  print(f"knn accuracy: {100*knn_accuracy/knn_max:.2f}%")
