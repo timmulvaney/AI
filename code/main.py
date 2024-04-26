@@ -76,10 +76,10 @@ clean_df = clean(df)
 # heatmap_of_numericals(df)
 
 # knn analysis
-knn(clean_df)
+# knn(clean_df)
 
 # random forest analysis
-# random_forest(clean_df)
+random_forest(clean_df)
 
 # k means
 # in separate jupyter notebook

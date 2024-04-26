@@ -9,7 +9,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
 
-# set the data frame here!
+# perform knn training and test using the dataframe passed
 def knn(local_df):
     
   # get a local copy of the df to manipulate
@@ -42,13 +42,14 @@ def knn(local_df):
   # find best metaparameters
   train_knn(param_grid_train, X, y)
 
-  # use best set of metaparameters to get the test set result
+  # this is the set of best parameters - this needs to be filled in manually at present
   param_grid_test = {
     'n_neighbors': [1],  # Number of neighbors to consider
     'weights': ['uniform'],  # Weight function used in prediction
     'metric': ['manhattan']  # Power parameter for the Minkowski distance metric
   }
   
+  # use best set of metaparameters to get the test set result - this needs to be filled in manually at present
   train_knn(param_grid_test, X, y)
 
 
@@ -105,5 +106,5 @@ def train_knn(param_grid, X, y):
   for params, count in best_params_count.items():
     print("Parameters:", dict(params), "Count:", count)
 
-  # overall accuracy for the model
+  # overall accuracy for evaluating the model
   print(f"knn accuracy: {100*knn_accuracy/knn_max:.2f}%")
