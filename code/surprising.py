@@ -129,7 +129,7 @@ def surprising(local_df, custom_colors):
   # define whether the plot is to be produced for Male, Female or Both sexes - comment out all but one
   sex_plot = "male"
   sex_plot = "female"
-  # sex_plot = "both male and female"
+  sex_plot = "both male and female"
 
   # if single sex, keep the one we want
   if (sex_plot == "male"):

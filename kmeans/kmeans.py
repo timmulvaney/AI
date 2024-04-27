@@ -19,12 +19,12 @@ df = pd.read_csv('penguin_cleaned.csv')
 # create all Male version of dataframe
 male = df[df['sex'] != 'Female']
 male.to_csv('penguin_cleaned_male.csv', index = False)
-# df = male
+#df = male
 
 # create all Gemale version of dataframe
 female = df[df['sex'] != 'Male']
 female.to_csv('penguin_cleaned_female.csv', index = False)
-df = female
+# df = female
 
 # Remove rows where 'sex' is NaN
 #df_with_nan.drop(columns=['Unnamed: 0'], inplace=True)
@@ -37,24 +37,38 @@ print(df.head())
 # %%
 # Get a dataframe of features
 features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
-# features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']]
-
+features_unscaled = df[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']]
 # features_unscaled = df[['bill_length_mm', 'bill_depth_mm']]
 labels = df['species']
 
+
 # Initialise the StandardScaler and scale features
-scaler = StandardScaler()
-features = scaler.fit_transform(features_unscaled)
+# scaler = StandardScaler()
+# features = scaler.fit_transform(features_unscaled)
+
+# # Split the scaled data
+# features_train, features_test, labels_train, labels_test = train_test_split(
+#     features, 
+#     labels, 
+#     test_size=0.2, 
+#     random_state=42
+# )
 
 # Split the scaled data
 features_train, features_test, labels_train, labels_test = train_test_split(
-    features, 
+    features_unscaled, 
     labels, 
     test_size=0.2, 
     random_state=42
 )
 
-# Fit KMeans on the training set
+scaler = StandardScaler()
+X_train = scaler.fit_transform(features_train)
+X_test = scaler.transform(features_test)
+features_train = X_train
+features_test = X_test
+
+# fit kmeans on the training set
 kmm = KMeans(n_clusters=3, random_state=42, n_init='auto')   # added n_init='auto' to avoid warning
 kmm.fit(features_train)
 
@@ -65,16 +79,15 @@ kmm.fit(features_train)
 custom_palette = {
     'Adelie': 'darkorange',
     'Chinstrap': 'mediumorchid',
-  
     'Gentoo': 'mediumseagreen'
 }
 
-# Plotting both training and test set clusters side by side
+# plot both training and test set clusters side by side
 fig, axs = plt.subplots(1, 2, figsize=(14, 6))
 
 # Training set
 for species, color in custom_palette.items():
-    points = features_train[labels_train == species]
+    points = X_train[labels_train == species]
     axs[0].scatter(points[:, 0], points[:, 1], c=color, label=f'{species}')
 axs[0].set_xlabel('Bill Length (scaled)')
 axs[0].set_ylabel('Bill Depth (scaled)')
@@ -83,7 +96,7 @@ axs[0].legend()
 
 # Test set
 for species, color in custom_palette.items():
-    points = features_test[labels_test == species]
+    points = X_test[labels_test == species]
     axs[1].scatter(points[:, 0], points[:, 1], c=color, label=f'{species}')
 axs[1].set_xlabel('Bill Length (scaled)')
 axs[1].set_ylabel('Bill Depth (scaled)')
@@ -142,7 +155,7 @@ inertias = []
 K = 15 # 15 clusters
 for k in range(1, K+1):
     kmm = KMeans(n_clusters=k,  n_init='auto')   # added n_init='auto' to avoid warning
-    kmm.fit(features)
+    kmm.fit(X_train)
     inertias.append(kmm.inertia_)
 
 # Plot elbow plot
@@ -200,8 +213,8 @@ labels_test_encoded = le.transform(labels_test)
 param_grid = {
     'n_clusters': range(2, 10),  # Number of clusters
     'init': ['k-means++', 'random'],  # Initialisation method for centroids
-    'n_init': [5, 10, 20],  # The number of times KMeans is run with different centroid seeds
-    'max_iter': [10, 20, 50]  # Max number of iterations the algorithm will run
+    'n_init': [2, 5, 10, 20],  # The number of times KMeans is run with different centroid seeds
+    'max_iter': [5, 10, 20, 50]  # Max number of iterations the algorithm will run
 }
 
 # List of random states to consider for additional robustness in finding the best init
