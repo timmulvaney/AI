@@ -2,6 +2,9 @@ from globals import *
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
 
+from sklearn import __version__
+
+print(__version__)
 
 # needed for dictionary
 import ast 
