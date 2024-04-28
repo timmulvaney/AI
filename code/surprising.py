@@ -33,7 +33,7 @@ def surprising(local_df, custom_colors):
   normfont = FontProperties()
   normfont.set_size(18)
 
-  legend = plt.legend()
+  legend = plt.legend(facecolor='white')
   for i, text in enumerate(legend.get_texts()):
     if text.get_text() in ["species", "sex", "island"]:
       text.set_font_properties(boldfont)       
@@ -89,23 +89,26 @@ def surprising(local_df, custom_colors):
   # x_line = [180,240]
   # y_line = [slope*x_line[0] + intercept, slope*x_line[1] + intercept]
   print("y_line", y_line)
-  plt.plot(x_line, y_line, color='black', label='Line')
+  plt.plot(x_line, y_line, color='black', label='decision boundary')
+  label_x = x_line[0] + (x_line[1] - x_line[0]) / 16
+  label_y = y_line[0] + (y_line[1] - y_line[0]) / 16
+  plt.text(label_x, label_y+2, 'SVM decision boundary', color='black', fontsize=18, rotation=np.arctan(4.3/slope)*180/np.pi)
 
-  # Standardize features by removing the mean and scaling to unit variance
+  # standardize features by removing the mean and scaling to unit variance for the traiing set
   scaler = StandardScaler()
   X_train = scaler.fit_transform(X_train)
   X_test = scaler.transform(X_test)
 
-  # Initialize SVM classifier
+  # initialize SVM 
   svm_classifier = SVC(kernel='linear', C=1.0, random_state=42)
 
-  # Train the SVM classifier
+  # train the SVM classifier
   svm_classifier.fit(X_train, y_train)
 
-  # Predict the classes for test data
+  # predict the classes for test data
   y_pred = svm_classifier.predict(X_test)
 
-  # Calculate accuracy
+  # calculate accuracy
   accuracy = accuracy_score(y_test, y_pred)
   print(f'Accuracy: {accuracy}')
 
@@ -225,7 +228,12 @@ def surprising(local_df, custom_colors):
   # add the svm line 
   y_line = [min(X_train[y].tolist()), max(X_train[y].tolist())]
   x_line = [(y_line[0] - intercept)/slope, (y_line[1] - intercept)/slope]
-  plt.plot(x_line, y_line, color='black', label='Line')
+  plt.plot(x_line, y_line, color='black', label='decision boundary')
+  label_x = x_line[0] + (x_line[1] - x_line[0])
+  label_y = y_line[0] + (y_line[1] - y_line[0])
+  plt.text(label_x+0.25, label_y-0.25, 'SVM decision boundary', color='black', fontsize=18, rotation=0) # np.arctan(4.3/slope)*180/np.pi)
+
+
  
   # add labels and title before plotting
   # plt.xlabel(x_label)
