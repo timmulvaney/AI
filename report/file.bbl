@@ -1,0 +1,66 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{PM}{report}{}
+      \name{author}{3}{}{%
+        {{hash=fbcffad3ec613b82d5e19028a516fbdc}{%
+           family={Horst},
+           familyi={H\bibinitperiod},
+           given={Allison\bibnamedelima Marie},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=370325e34513cbd04ffa886168b36b26}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Alison\bibnamedelima Presmanes},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=d80aca42ed31bba223a96d2f82df5bf2}{%
+           family={Gorman},
+           familyi={G\bibinitperiod},
+           given={Kristen\bibnamedelima B},
+           giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{fullhash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{bibnamehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{authorbibnamehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{authornamehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{authorfullhash}{112243af1b71a19ca303ea62f13f3449}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{R package version 0.1.0}
+      \field{title}{palmerpenguins: Palmer Archipelago (Antarctica) penguin data}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.5281/zenodo.3960218
+      \endverb
+      \verb{urlraw}
+      \verb https://allisonhorst.github.io/palmerpenguins/
+      \endverb
+      \verb{url}
+      \verb https://allisonhorst.github.io/palmerpenguins/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
