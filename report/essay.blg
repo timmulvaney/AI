@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:307> INFO - Logfile is 'essay.blg'
+[63] biber:322> INFO - === Tue Apr 30, 2024, 18:20:03
+[74] Biber.pm:415> INFO - Reading 'essay.bcf'
+[129] Biber.pm:943> INFO - Found 1 citekeys in bib section 0
+[141] Biber.pm:4256> INFO - Processing section 0
+[141] Utils.pm:75> INFO - Globbing data source 'file.bib'
+[141] Utils.pm:91> INFO - Globbed data source 'file.bib' to file.bib
+[150] Biber.pm:4455> INFO - Looking for bibtex format file 'file.bib' for section 0
+[151] bibtex.pm:1653> INFO - LaTeX decoding ...
+[162] bibtex.pm:1471> INFO - Found BibTeX data source 'file.bib'
+[189] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[189] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[189] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[189] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[194] bbl.pm:652> INFO - Writing 'essay.bbl' with encoding 'UTF-8'
+[195] bbl.pm:755> INFO - Output to essay.bbl
