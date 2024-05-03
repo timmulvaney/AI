@@ -1,5 +1,17 @@
-[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
-[0] Config.pm:307> INFO - Logfile is 'report.blg'
-[61] biber:322> INFO - === Tue Apr 30, 2024, 22:42:04
-[172] Utils.pm:309> ERROR - Cannot find 'report.bcf'!
-[172] Biber.pm:132> INFO - ERRORS: 1
+[1] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[1] Config.pm:307> INFO - Logfile is 'report.blg'
+[148] biber:322> INFO - === Fri May  3, 2024, 22:52:25
+[162] Biber.pm:415> INFO - Reading 'report.bcf'
+[231] Biber.pm:943> INFO - Found 1 citekeys in bib section 0
+[245] Biber.pm:4256> INFO - Processing section 0
+[246] Utils.pm:75> INFO - Globbing data source 'report.bib'
+[246] Utils.pm:91> INFO - Globbed data source 'report.bib' to report.bib
+[256] Biber.pm:4455> INFO - Looking for bibtex format file 'report.bib' for section 0
+[257] bibtex.pm:1653> INFO - LaTeX decoding ...
+[271] bibtex.pm:1471> INFO - Found BibTeX data source 'report.bib'
+[304] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[304] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[304] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[304] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[310] bbl.pm:652> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[311] bbl.pm:755> INFO - Output to report.bbl
