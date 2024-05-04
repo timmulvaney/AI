@@ -18,7 +18,7 @@
 
 
 \refsection{0}
-  \datalist[entry]{nty/global//global/global}
+  \datalist[entry]{none/global//global/global}
     \entry{PM}{report}{}
       \name{author}{3}{}{%
         {{hash=fbcffad3ec613b82d5e19028a516fbdc}{%
@@ -43,8 +43,8 @@
       \strng{authorbibnamehash}{112243af1b71a19ca303ea62f13f3449}
       \strng{authornamehash}{112243af1b71a19ca303ea62f13f3449}
       \strng{authorfullhash}{112243af1b71a19ca303ea62f13f3449}
-      \field{sortinit}{H}
-      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{R package version 0.1.0}
@@ -59,6 +59,379 @@
       \verb{url}
       \verb https://allisonhorst.github.io/palmerpenguins/
       \endverb
+    \endentry
+    \entry{shapiro1965analysis}{article}{}
+      \name{author}{2}{}{%
+        {{hash=caf206d66b314b912c0d88a0eb22a338}{%
+           family={Shapiro},
+           familyi={S\bibinitperiod},
+           given={Samuel\bibnamedelima S},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=8200befcf64f857666244e8fc1588ba2}{%
+           family={Wilk},
+           familyi={W\bibinitperiod},
+           given={Maurice\bibnamedelima B},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{fullhash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{bibnamehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{authorbibnamehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{authornamehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{authorfullhash}{80bdc1c3797ed9789b94ba2248974c46}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biometrika}
+      \field{number}{3/4}
+      \field{title}{An analysis of variance test for normality (complete samples)}
+      \field{volume}{52}
+      \field{year}{1965}
+      \field{pages}{591\bibrangedash 611}
+      \range{pages}{21}
+    \endentry
+    \entry{freedman2007statistics}{book}{}
+      \name{author}{3}{}{%
+        {{hash=7396ccf082b609137d9256e7354f6228}{%
+           family={Freedman},
+           familyi={F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cdec4cb2cdaa2e414896a88c7f7b9b41}{%
+           family={Pisani},
+           familyi={P\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=769d0dfff57bc7932d72a5575819934b}{%
+           family={Purves},
+           familyi={P\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {W. W. Norton \& Company}%
+      }
+      \strng{namehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{fullhash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{bibnamehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{authorbibnamehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{authornamehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{authorfullhash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0393929720}
+      \field{title}{Statistics}
+      \field{year}{2007}
+    \endentry
+    \entry{hastie2009elements}{book}{}
+      \name{author}{3}{}{%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=971cf69058b64a94326dea0f2a8bbcce}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authornamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0387848570}
+      \field{title}{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}
+      \field{year}{2009}
+    \endentry
+    \entry{he2009learning}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bb5eb80bb4dc903dbeef6eb15c0155e5}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Haibo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=19b8b7adc1376a6a3a66c3a5f24c61c9}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Yunqian},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{fullhash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{bibnamehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{authorbibnamehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{authornamehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{authorfullhash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Knowledge and Data Engineering, IEEE Transactions on}
+      \field{number}{9}
+      \field{title}{Learning from imbalanced data}
+      \field{volume}{21}
+      \field{year}{2009}
+      \field{pages}{1263\bibrangedash 1284}
+      \range{pages}{22}
+    \endentry
+    \entry{python311}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c7b5508dc5e59a2846d22617276cc27c}{%
+           family={{Python Software Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{fullhash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{bibnamehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{authorbibnamehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{authornamehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{authorfullhash}{c7b5508dc5e59a2846d22617276cc27c}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.python.org/3.11/}}
+      \field{title}{Python 3.11 Documentation}
+      \field{year}{2022}
+    \endentry
+    \entry{scikit-learn}{software}{}
+      \name{author}{1}{}{%
+        {{hash=64288955ec1628b061254b56453e17a4}{%
+           family={{scikit-learn contributors}},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{64288955ec1628b061254b56453e17a4}
+      \strng{fullhash}{64288955ec1628b061254b56453e17a4}
+      \strng{bibnamehash}{64288955ec1628b061254b56453e17a4}
+      \strng{authorbibnamehash}{64288955ec1628b061254b56453e17a4}
+      \strng{authornamehash}{64288955ec1628b061254b56453e17a4}
+      \strng{authorfullhash}{64288955ec1628b061254b56453e17a4}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{scikit-learn: Machine Learning in Python}}
+      \field{version}{1.2.2}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://scikit-learn.org
+      \endverb
+      \verb{url}
+      \verb https://scikit-learn.org
+      \endverb
+    \endentry
+    \entry{ubuntu}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=aacfea8cb27c1b8d0dd136a1aca2f0a4}{%
+           family={{Canonical Ltd.}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London, UK}%
+      }
+      \list{organization}{1}{%
+        {Canonical Ltd.}%
+      }
+      \strng{namehash}{aacfea8cb27c1b8d0dd136a1aca2f0a4}
+      \strng{fullhash}{aacfea8cb27c1b8d0dd136a1aca2f0a4}
+      \strng{bibnamehash}{aacfea8cb27c1b8d0dd136a1aca2f0a4}
+      \strng{authorbibnamehash}{aacfea8cb27c1b8d0dd136a1aca2f0a4}
+      \strng{authornamehash}{aacfea8cb27c1b8d0dd136a1aca2f0a4}
+      \strng{authorfullhash}{aacfea8cb27c1b8d0dd136a1aca2f0a4}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Ubuntu} 20.04.1 LTS}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://releases.ubuntu.com/20.04/
+      \endverb
+      \verb{url}
+      \verb https://releases.ubuntu.com/20.04/
+      \endverb
+    \endentry
+    \entry{TimAIRepo}{software}{}
+      \name{author}{1}{}{%
+        {{hash=2f371a64a8cb2e0ae4d19a293edcd68c}{%
+           family={Mulvaney},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{fullhash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{bibnamehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{authorbibnamehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{authornamehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{authorfullhash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AI coursework repository}}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/timmulvaney/AI
+      \endverb
+      \verb{url}
+      \verb https://github.com/timmulvaney/AI
+      \endverb
+    \endentry
+    \entry{bishop2006pattern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Pattern Recognition and Machine Learning}
+      \field{year}{2006}
+    \endentry
+    \entry{breiman2001random}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=132b7100417675d55d5d4d8b244f7a34}{%
+           family={Breiman},
+           familyi={B\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ea9492aa5759b3542d9fe2f1d62b3412}{%
+           family={Cutler},
+           familyi={C\bibinitperiod},
+           given={Adele},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{fullhash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{bibnamehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{authorbibnamehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{authornamehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{authorfullhash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Machine Learning}
+      \field{number}{1}
+      \field{title}{Random Forests}
+      \field{volume}{45}
+      \field{year}{2001}
+      \field{pages}{5\bibrangedash 32}
+      \range{pages}{28}
+    \endentry
+    \entry{tan2005introduction}{book}{}
+      \name{author}{3}{}{%
+        {{hash=86a8d7a88b3690035ad60e47af41a2af}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Pang-Ning},
+           giveni={P\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=b9765658c356344d0b65e62185a7fbda}{%
+           family={Steinbach},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=efb90d78e35ff61d3bc639f5c6f3d822}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Vipin},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Addison Wesley}%
+      }
+      \strng{namehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{fullhash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{bibnamehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{authorbibnamehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{authornamehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{authorfullhash}{c6671104b89c6a346045bc95dabb5434}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Data Mining}
+      \field{year}{2005}
+    \endentry
+    \entry{james2013introduction}{book}{}
+      \name{author}{4}{}{%
+        {{hash=df184c5fa522ac8a515ec4de13aef234}{%
+           family={James},
+           familyi={J\bibinitperiod},
+           given={Gareth},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1ab16961e0de50711fa6bd9425f9b4a6}{%
+           family={Witten},
+           familyi={W\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{fullhash}{da61646157a6be769f34984f5cb603b0}
+      \strng{bibnamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{authorbibnamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{authornamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{authorfullhash}{da61646157a6be769f34984f5cb603b0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Introduction to Statistical Learning: with Applications in R}
+      \field{year}{2013}
     \endentry
   \enddatalist
 \endrefsection

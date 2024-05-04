@@ -4,7 +4,6 @@
 \usepackage{amsmath}
 \usepackage{wrapfig} % for wrapping text around figures and tables
 \usepackage{graphicx}
-\usepackage{multirow}
 \usepackage{fancyhdr}
 \usepackage{booktabs} % for better table rules
 \usepackage{caption} % to customize caption format
@@ -112,6 +111,9 @@ The importance of imbalance depends on the analysis method applied.
 It is known that all the methods adopted in the current work are generally little affected by imbalanced data \cite{he2009learning} 
 and so no modifications were made to reduce imbalance.
 
+\vspace{\baselineskip}
+\subsection*{Visualization of the dataset}
+
 \begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
   \centering
   \vspace{-0.5\baselineskip} % Remove space before the table
@@ -122,113 +124,14 @@ and so no modifications were made to reduce imbalance.
   \label{fig:islands}
 \end{wrapfigure}
 
-\vspace{\baselineskip}
-\subsection*{Visualization of the dataset}
-
-Figure~\ref{fig:islands} shows the species distribution across the three islands in the study. 
+Figure Figure~\ref{fig:islands} shows the species distribution across the three islands in the study. 
 Chinstrap and Gentoo penguins are found only on one island, so island is a potential confounding factor, 
 possibly affecting physical characteristics due to environmental factors (such as predators or food supply). 
 A Shapiro-Wilk test was used to confirm that the numerical features of the Adelie penguins (that are found on 
 all the islands) are normally distributed and an ANOVA test confirmed that their physical characteristics are not significantly influenced by the island inhabited. 
 Consequently, it was considered unlikely that the island is a confounding factor in the dataset.
 
-\begin{wrapfigure}{r}{0.6\textwidth} % {alignment}{width}
-  \centering
-  \vspace{-0.3\baselineskip} % Remove space before the table
-  \includegraphics[width=0.58\textwidth]{pairwise.png} % Adjust the width as needed
-  \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{All numerical features show a significant statistical difference between the male and female measurements, as seen in the body mass boxplot above. Shown are median values, Q1 and Q3 quartiles, as well as outliers that are outside the range Q1-1.5IQR to Q3+1.5IQR, where IQR=Q3-Q1.}
-  \vspace{-0.5\baselineskip} % Remove space before title
-  \label{fig:pairwise}
-\end{wrapfigure}
 
-Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
-It can be seen that bill depth in combination with either flipper length or body mass 
-yields a separable cluster of Gentoo penguins (shown in green) allowing them to be identified. 
-No pairwise combination of numerical features completely separates Adelie (orange) from Chinstrap (purple) clusters, 
-but good separation is provided in the distributions involving bill length, 
-making this a candidate feature for distinguishing between these species.  
-
-Figure~\ref{fig:sex} above shows there is a difference in the body masses of the male and female samples for each of the three species. 
-Differences between the sexes for the other three numerical physical characteristics in the dataset were also apparent. 
-Since narrower distributions are apparent if the sex of the species is considered rather than just the species itself, 
-including sex is likely to provide a finer grained distinction for species classification 
-and this knowledge can be used to improve performance, as discussed in the analysis section below. 
-
-\vspace{\baselineskip}
-\subsection*{Implementation}
-
-All code was written in Python 3.11 \cite{python311} using ‘Scikit-Learn’ libraries \cite{scikit-learn} running under Ubuntu Linux \cite{ubuntu}. 
-The code is available in a Gitub repository \cite{TimAIRepo}. Predicting the penguin species from the given features is a classification problem. 
-Results are obtained from a baseline method, two convention classification approaches, 
-namely k-Nearest Neighbour (knn) \cite{bishop2006pattern} and random forest \cite{breiman2001random}, 
-unsupervised k-means (following cluster labelling) \cite{tan2005introduction} and a novel combined visualization and analysis (CVA) approach 
-introduced here that uses insights from visualizations combined with two-dimensional linear Support Vector Machines (SVMs) classification.
-
-\begin{wraptable}{r}{0.5\textwidth} % {alignment}{width}
-  \small
-  \begin{center}
-  \vspace{-1.5\baselineskip} % Remove space before the table
-  \setlength{\abovecaptionskip}{5pt}
-  \setlength{\belowcaptionskip}{5pt}
-  \fontsize{10}{10}\selectfont % Change font size here
-  \begin{tabular}{l|l|l}
-  Method & Metaparameters & Values considered\\
-  \hline
-  \multirow{3}{*}{knn} & number of nearest neighbours             & k	1, 2, 3, 4, 5, 6, 8, 10 \\
-                        & weight function for prediction	          & uniform, distance \\
-                        & distance metric for computing neighbours	& Manhattan, Euclidean \\
-  \hline
-  \multirow{5}{*}{random forest} & number of trees in the forest	          & 5, 10, 15, 20, 25 \\
-                                  & maximum depth of trees	                  & no maximum, 10, 20 \\
-                                  & minimum number of samples to split node	& 2, 5, 10 \\
-                                  & minimum number of samples at leaf node   & 1, 2, 4 \\
-                                  & function to measure quality of split     & gini, entropy \\
-  \hline
-  \multirow{4}{*}{k-means} & number of clusters k                          & 2, 3, 4, 5, 6, 7, 8, 9, 10 \\
-                            & centroid initialization method                & k-means++, random \\
-                            & number of runs with different centroid seeds	 & 2, 5, 10, 20 \\
-                            & maximum number of iterations                  & 5, 10, 20, 50 \\
-  \hline
-  \multirow{3}{*}{CVA} & regularization parameter (C) & 0.1, 1, 10, 100 \\
-                        & kernel coefficient (gamma)   & 1, 0.1, 0.01, 0.001 \\
-                        & kernel type                  & rbf, linear, polynomial \\
-  \hline
-  \end{tabular}
-  \vspace{-1.5\baselineskip} % Remove space before title
-  \end{center} 
-  \caption{Metaparameters considered in training the methods. 
-  The values shown in bold are those that most consistently produced results of 
-  best accuracy during validation and so were selected for generating results}
-  \vspace{-1\baselineskip} % Remove space after the table
-  \label{tab:metaparameters}
-\end{wraptable} 
-
-
-
-
-
-
-For all the methods implemented, 20\% of the dataset was kept for a test set. 
-To reduce the potential for overfitting, the classification methods (all but k-means) were trained using ‘holdout validation’, 
-where the remaining 80\% of the dataset was used in a five-fold cross-validation configuration \cite{james2013introduction}. For all methods, 
-the Scikit-Learn function GridSearchCV was employed to tune metaparameters \cite{scikit-learn}. 
-Table~\ref{tab:metaparameters} shows the values selected for the metaparameter grid for each of the AI methods 
-and those values that gave best performance were selected to obtain the accuracy results from the test set. 
-Scikit-Learn includes pseudo-random procedures for selecting validation and test set values and 100 of these were used 
-both when selecting metaparameters and when deriving accuracy results.
-
-Table 3. Mean classification accuracy from 100 test sets each generated by a pseudo random approach and using the parameters identified in Table 2 
-Method	Accuracy
-baseline, most numerous species	43.49%
-kNN, all features	99.24%
-kNN, no island	99.46%
-random forest, all features	98.57%
-random forest, no island, flipper length or body mass	98.59%
-k-means, all numerical features 	97.06%
-k-means, separate clusters for each sex 	98.23%
-CVA using bill depth, flipper length, bill length	98.56%
-CVA using bill depth, flipper length, bill length, sex	98.78%
 
 
 You can write in \textbf{bold}, or \textsl{italics} or \texttt{true
