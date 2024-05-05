@@ -10,6 +10,7 @@
 \usepackage{caption} % to customize caption format
 \usepackage{linegoal} % for determining the remaining width of the line
 \usepackage[backend=biber, sorting=none]{biblatex}
+\usepackage{subcaption}
 
 % reference file
 \addbibresource{report.bib}
@@ -155,7 +156,6 @@ Since narrower distributions are apparent if the sex of the species is considere
 including sex is likely to provide a finer grained distinction for species classification 
 and this knowledge can be used to improve performance, as discussed in the analysis section below. 
 
-\vspace{\baselineskip}
 \subsection*{Implementation}
 
 All code was written in Python 3.11 \cite{python311} using ‘Scikit-Learn’ libraries \cite{scikit-learn} running under Ubuntu Linux \cite{ubuntu}. 
@@ -165,7 +165,7 @@ namely k-Nearest Neighbour (knn) \cite{bishop2006pattern} and random forest \cit
 unsupervised k-means (following cluster labelling) \cite{tan2005introduction} and a novel combined visualization and analysis (CVA) approach 
 introduced here that uses insights from visualizations combined with two-dimensional linear Support Vector Machines (SVMs) classification.
 
-\begin{wraptable}{r}{0.5\textwidth} % {alignment}{width}
+\begin{wraptable}{r}{0.7\textwidth} % {alignment}{width}
   \small
   \begin{center}
   \vspace{-1.5\baselineskip} % Remove space before the table
@@ -175,24 +175,24 @@ introduced here that uses insights from visualizations combined with two-dimensi
   \begin{tabular}{l|l|l}
   Method & Metaparameters & Values considered\\
   \hline
-  \multirow{3}{*}{knn} & number of nearest neighbours             & k	1, 2, 3, 4, 5, 6, 8, 10 \\
-                        & weight function for prediction	          & uniform, distance \\
-                        & distance metric for computing neighbours	& Manhattan, Euclidean \\
+  \multirow{3}{*}{knn} & number of nearest neighbours k	  & {\normalsize\textbf{1}}, 2, 3, 4, 5, 6, 8, 10 \\
+                        & weight function for prediction	& {\normalsize\textbf{uniform}}, distance \\
+                        & distance metric for neighbours	& {\normalsize\textbf{Manhattan}}, Euclidean \\
   \hline
-  \multirow{5}{*}{random forest} & number of trees in the forest	          & 5, 10, 15, 20, 25 \\
-                                  & maximum depth of trees	                  & no maximum, 10, 20 \\
-                                  & minimum number of samples to split node	& 2, 5, 10 \\
-                                  & minimum number of samples at leaf node   & 1, 2, 4 \\
-                                  & function to measure quality of split     & gini, entropy \\
+  \multirow{5}{*}{random forest} & number of trees in the forest	 & 5, {\normalsize\textbf{10}}, 15, 20, 25 \\
+                                  & maximum depth of trees	       & {\normalsize\textbf{no maximum}}, 10, 20 \\
+                                  & minimum samples to split node	 & {\normalsize\textbf{2}}, 5, 10 \\
+                                  & minimum samples at leaf node   & {\normalsize\textbf{1}}, 2, 4 \\
+                                  & function for quality of split  & {\normalsize\textbf{gini}}, entropy \\
   \hline
-  \multirow{4}{*}{k-means} & number of clusters k                          & 2, 3, 4, 5, 6, 7, 8, 9, 10 \\
-                            & centroid initialization method                & k-means++, random \\
-                            & number of runs with different centroid seeds	 & 2, 5, 10, 20 \\
-                            & maximum number of iterations                  & 5, 10, 20, 50 \\
+  \multirow{4}{*}{k-means} & number of clusters k                & 2, {\normalsize\textbf{3}}, 4, 5, 6, 7, 8, 9, 10 \\
+                            & centroid initialization method     & {\normalsize\textbf{k-means++}}, random \\
+                            & number of runs for centroid seeds	 & 2, {\normalsize\textbf{5}}, 10, 20 \\
+                            & maximum number of iterations       & 5, {\normalsize\textbf{10}}, 20, 50 \\
   \hline
-  \multirow{3}{*}{CVA} & regularization parameter (C) & 0.1, 1, 10, 100 \\
-                        & kernel coefficient (gamma)   & 1, 0.1, 0.01, 0.001 \\
-                        & kernel type                  & rbf, linear, polynomial \\
+  \multirow{3}{*}{CVA} & regularization parameter (C)  & 0.1, 1, {\normalsize\textbf{10}}, 100 \\
+                        & kernel coefficient (gamma)   & {\normalsize\textbf{1}}, 0.1, 0.01, 0.001 \\
+                        & kernel type                  & rbf, {\normalsize\textbf{linear}}, polynomial \\
   \hline
   \end{tabular}
   \vspace{-1.5\baselineskip} % Remove space before title
@@ -205,10 +205,6 @@ introduced here that uses insights from visualizations combined with two-dimensi
 \end{wraptable} 
 
 
-
-
-
-
 For all the methods implemented, 20\% of the dataset was kept for a test set. 
 To reduce the potential for overfitting, the classification methods (all but k-means) were trained using ‘holdout validation’, 
 where the remaining 80\% of the dataset was used in a five-fold cross-validation configuration \cite{james2013introduction}. For all methods, 
@@ -218,18 +214,125 @@ and those values that gave best performance were selected to obtain the accuracy
 Scikit-Learn includes pseudo-random procedures for selecting validation and test set values and 100 of these were used 
 both when selecting metaparameters and when deriving accuracy results.
 
-Table 3. Mean classification accuracy from 100 test sets each generated by a pseudo random approach and using the parameters identified in Table 2 
-Method	Accuracy
-baseline, most numerous species	43.49%
-kNN, all features	99.24%
-kNN, no island	99.46%
-random forest, all features	98.57%
-random forest, no island, flipper length or body mass	98.59%
-k-means, all numerical features 	97.06%
-k-means, separate clusters for each sex 	98.23%
-CVA using bill depth, flipper length, bill length	98.56%
-CVA using bill depth, flipper length, bill length, sex	98.78%
+\subsection*{Results and analysis}
 
+\begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
+  \small
+  \begin{center}
+  \vspace{-1.5\baselineskip} % Remove space before the table
+  \setlength{\abovecaptionskip}{5pt}
+  \setlength{\belowcaptionskip}{5pt}
+  \fontsize{10}{10}\selectfont % Change font size here
+  \begin{tabular}{l|l}
+  Method & Accuracy\\
+  \hline
+  baseline, most numerous species & 43.49\% \\
+  \hline
+  kNN, all features	& 99.24\% \\
+  kNN, no island &	99.46\% \\
+  \hline
+  random forest, all features	& 98.57\% \\
+  random forest, no island, flipper length or body mass	& 98.57\% \\
+  \hline
+  k-means, all numerical features & 97.06\% \\
+  k-means, separate clusters for each sex & 98.23\% \\
+  \hline
+  CVA using bill depth, flipper length, bill length	& 98.56\% \\
+  CVA using bill depth, flipper length, bill length, sex &98.78\% \\
+  \hline
+  \end{tabular}
+  \vspace{-1.5\baselineskip} % Remove space before title
+  \end{center} 
+  \caption{Mean classification accuracy from 100 test sets each generated by a pseudo random approach 
+  and using the parameters identified in Table~\ref{tab:metaparameters}}
+  \vspace{-1\baselineskip} % Remove space after the table
+  \label{tab:results}
+\end{wraptable} 
+
+The results in Table~\ref{tab:results} include a baseline that is used to demonstrate performance improvements achieved by the AI methods being considered. 
+If the performance cannot be improved significantly compared to the baseline, 
+this may indicate that the method is not suitable or that the problem itself is particularly intractable. 
+In classification, the baseline method is often simply to select the most frequent class in the observations and, 
+in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/338).
+
+\textbf{Classification method 1 - knn}  
+The performance of knn was found to be improved by omitting features from training. 
+An exhaustive search involving omitting all combinations of features in turn determined that the best accuracy was obtained 
+when island was omitted and this occurred when k=3. It appears that island was not providing any additional information 
+and the higher value of k implies better generalization may have been achieved.
+
+\textbf{Classification method 2 - Random forest}  
+Including all of the features in the analysis provided an accuracy marginally better 
+than could be achieved using knn when its features were carefully selected. 
+No performance improvement was found by using fewer features, indicating that, for the Palmer penguin dataset at least, 
+it requires considerably less implementation effort to achieve good performance using a random forest than it does using knn. 
+A marginal improvement in performance was apparent when island, flipper length or body mass were not included in training.
+
+\begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
+  \centering
+  \vspace{-0.5\baselineskip} % Remove space before the table
+  \includegraphics[width=0.48\textwidth]{kmeansvalue.png} % Adjust the width as needed
+  \vspace{-0.5\baselineskip} % Remove space before title
+  \caption{To estimate k for k-means, the elbow method uses the change in slope of ‘inertia’ (here k=3) and the silhouette method uses the score closest to 1 (here k=2)}
+  \vspace{-0.5\baselineskip} % Remove space before title
+  \label{fig:kmeansvalue}
+\end{wrapfigure}
+
+\textbf{Unsupervised method - k-means}  
+Although an unsupervised clustering method, 
+k-means can be used for classification by matching clusters with classes. 
+Only numerical features were included in the k-means analysis as it is not able to deal 
+with unordered categorical data either directly or by labelling. 
+The number of clusters (k) was selected using both the elbow and silhouette methods, 
+giving values of k=3 and k=2 respectively, as shown in Figure~\ref{fig:kmeansvalue}. 
+However, in practice it was found that accuracy improved significantly when k > 3 
+and this was probably due to the fact that, for smaller values of k, 
+clusters were not always formed for all three species. 
+Figure~\ref{fig:kmeansmap} illustrates the mapping of classes to clusters using two feature dimensions. 
+No improvement in accuracy was obtained by reducing the number of features, 
+but, in an additional experiment, separate sets of k-means clusters were created for each sex 
+and this led to a small improvement in accuracy. 
+
+\begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
+  \centering
+  \vspace{-0.5\baselineskip} % Remove space before the table
+  \includegraphics[width=0.48\textwidth]{kmeansmap.png} % Adjust the width as needed
+  \vspace{-0.5\baselineskip} % Remove space before title
+  \caption{k-means clusters mapped to species according to majority voting. Assignments to classes are shown by polygon colours (here k=10 and colouring limited to 50 samples).}
+  \vspace{-0.5\baselineskip} % Remove space before title
+  \label{fig:kmeansmap}
+\end{wrapfigure}
+
+\textbf{A novel combined visualization and analysis (CVA) approach}  
+This work introduces the CVA approach that involves using visualizations of pairwise combinations of numerical data 
+to identify a short sequence of two-dimensional linear classifiers based on SVMs. 
+CVA requires greater manual effort to gain a deeper understanding of the nature of the dataset 
+and this is in contrast with `black box' classification approaches that are often applied with limited knowledge 
+of the method adopted and little underlying insight into the nature of the data. 
+The drawbacks of the CVA approach are that it is not generally applicable as it may not always be feasible 
+or possible to extract the necessary insights from visualizations, 
+and that the approach will become more difficult to apply as the number of features is increased. 
+In application to the Penguin data, it was found to be able to produce results of accuracy almost as good as conventional approaches.
+
+The figure is Figure~\ref{fig:entire_figure}
+
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1.05\textwidth]{sup_fliplen_billdepth.png} % Adjust the width as needed
+    \caption{Caption for part (a)}
+    \label{fig:part_a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=1.05\textwidth]{sup_billlen_billdepth.png} % Adjust the width as needed
+    \caption{Caption for part (b)}
+    \label{fig:part_b}
+  \end{subfigure}
+  \caption{Overall caption for the entire figure}
+  \label{fig:entire_figure}
+\end{figure}
 
 You can write in \textbf{bold}, or \textsl{italics} or \texttt{true
   type}, often the latter is used for specific commands or libraries in a
