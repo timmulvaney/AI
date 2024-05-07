@@ -14,6 +14,7 @@ from surprising import surprising
 from bill_len import bill_len
 from bill_len_and_depth import bill_len_and_depth
 from heatmap_of_numericals import heatmap_of_numericals
+from feature_importance import feature_importance
 from random_forest import random_forest
 from knn import knn
 
@@ -58,10 +59,10 @@ clean_df = clean(df)
 # island_confounding(clean_df)
 
 # pairwise plot of the numerial variables
-pairwise_numericals(clean_df, custom_colors)
+# pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
-# stand_df = standardize(df)
+stand_df = standardize(clean_df)
 
 # one hot encoding - only needed for methods that can only be numerical  
 #  e.g. not needed for DTs, but it is for linear models and NNs 
@@ -73,7 +74,10 @@ pairwise_numericals(clean_df, custom_colors)
 # bill_len_and_depth(df)
 
 # heatmap of numerical features
-# heatmap_of_numericals(df)
+# heatmap_of_numericals(clean_df)
+
+# determine feature importance
+feature_importance(stand_df)
 
 # knn analysis
 # knn(clean_df)
