@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.21)  6 MAY 2024 22:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.21)  7 MAY 2024 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -630,19 +630,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (1.80016pt too wide) in paragraph at lines 51--63
+Overfull \hbox (21.72063pt too wide) in paragraph at lines 51--64
  [] 
- []
-
-
-Underfull \hbox (badness 1242) in paragraph at lines 69--75
-\OT1/cmr/m/n/12 records of the phys-i-cal at-tributes of three
  []
 
 <sex.png, id=1, 427.1157pt x 307.8702pt>
 File: sex.png Graphic file (type png)
 <use sex.png>
-Package pdftex.def Info: sex.png  used on input line 82.
+Package pdftex.def Info: sex.png  used on input line 83.
 (pdftex.def)             Requested size: 240.23016pt x 173.16246pt.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -650,77 +645,77 @@ Package pdftex.def Info: sex.png  used on input line 82.
 <islands.png, id=15, 412.6617pt x 288.3573pt>
 File: islands.png Graphic file (type png)
 <use islands.png>
-Package pdftex.def Info: islands.png  used on input line 129.
+Package pdftex.def Info: islands.png  used on input line 131.
 (pdftex.def)             Requested size: 240.23016pt x 167.86774pt.
 <pairwise.png, id=16, 1011.78pt x 588.2778pt>
 File: pairwise.png Graphic file (type png)
 <use pairwise.png>
-Package pdftex.def Info: pairwise.png  used on input line 153.
+Package pdftex.def Info: pairwise.png  used on input line 160.
 (pdftex.def)             Requested size: 290.28163pt x 168.77397pt.
 
-Underfull \hbox (badness 1484) in paragraph at lines 161--169
+Underfull \hbox (badness 1484) in paragraph at lines 168--176
 \OT1/cmr/m/n/12 ing `Scikit-Learn' li-braries [7] un-
  []
 
-
-Overfull \hbox (22.84833pt too wide) in paragraph at lines 186--210
+[2 <./islands.png> <./pairwise.png>]
+Overfull \hbox (22.84833pt too wide) in paragraph at lines 193--217
  [] 
  []
 
-[2 <./islands.png> <./pairwise.png>]
-Overfull \hbox (4.02579pt too wide) in paragraph at lines 220--223
+
+Overfull \hbox (4.02579pt too wide) in paragraph at lines 227--230
 \OT1/cmr/m/n/12 strate per-for-mance im-prove-ments
  []
 
 
-Overfull \hbox (12.38126pt too wide) in paragraph at lines 220--223
+Overfull \hbox (12.38126pt too wide) in paragraph at lines 227--230
 \OT1/cmr/m/n/12 guins, giv-ing an ac-cu-racy of 43.49%
  []
 
 <kmeansvalue.png, id=23, 700.2963pt x 427.8384pt>
 File: kmeansvalue.png Graphic file (type png)
 <use kmeansvalue.png>
-Package pdftex.def Info: kmeansvalue.png  used on input line 273.
+Package pdftex.def Info: kmeansvalue.png  used on input line 280.
 (pdftex.def)             Requested size: 240.23016pt x 146.76878pt.
 [3 <./kmeansvalue.png>]
 <kmeansmap.png, id=30, 635.976pt x 419.8887pt>
 File: kmeansmap.png Graphic file (type png)
 <use kmeansmap.png>
-Package pdftex.def Info: kmeansmap.png  used on input line 296.
+Package pdftex.def Info: kmeansmap.png  used on input line 303.
 (pdftex.def)             Requested size: 240.23016pt x 158.60472pt.
 <sup_fliplen_billdepth.png, id=31, 625.8582pt x 438.6789pt>
 File: sup_fliplen_billdepth.png Graphic file (type png)
 <use sup_fliplen_billdepth.png>
-Package pdftex.def Info: sup_fliplen_billdepth.png  used on input line 324.
+Package pdftex.def Info: sup_fliplen_billdepth.png  used on input line 331.
 (pdftex.def)             Requested size: 262.75484pt x 184.17024pt.
 
-Overfull \hbox (12.51285pt too wide) in paragraph at lines 324--325
+Overfull \hbox (12.51285pt too wide) in paragraph at lines 331--332
  [][] 
  []
 
 <sup_billlen_billdepth.png, id=32, 619.3539pt x 437.9562pt>
 File: sup_billlen_billdepth.png Graphic file (type png)
 <use sup_billlen_billdepth.png>
-Package pdftex.def Info: sup_billlen_billdepth.png  used on input line 331.
+Package pdftex.def Info: sup_billlen_billdepth.png  used on input line 338.
 (pdftex.def)             Requested size: 262.75484pt x 185.79813pt.
 
-Overfull \hbox (12.51285pt too wide) in paragraph at lines 331--332
+Overfull \hbox (12.51285pt too wide) in paragraph at lines 338--339
  [][] 
  []
 
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 322--337
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 329--344
 []$[]$  $[]$ 
  []
 
-[4 <./kmeansmap.png> <./sup_fliplen_billdepth.png> <./sup_billlen_billdepth.png
->]
-Overfull \hbox (0.51927pt too wide) in paragraph at lines 356--356
+[4 <./kmeansmap.png>]
+Overfull \hbox (0.51927pt too wide) in paragraph at lines 363--363
 []\OT1/cmr/m/n/12 Leo Breiman and Adele Cut-ler. ``Ran-dom Forests''. In: \OT1/
 cmr/m/it/12 Ma-chine Learn-ing\OT1/cmr/m/n/12 . Vol. 45. 1. Springer.
  []
 
-[5] (./report.aux)
+[5 <./sup_fliplen_billdepth.png> <./sup_billlen_billdepth.png>] [6]
+(./report.aux)
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
@@ -744,10 +739,10 @@ pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt12.pfb>
-Output written on report.pdf (5 pages, 950082 bytes).
+Output written on report.pdf (6 pages, 953290 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

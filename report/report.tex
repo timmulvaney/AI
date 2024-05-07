@@ -41,27 +41,28 @@
 \subsection*{Q1 - Visualization and analysis of the Palmer dataset}
 \end{center}
 
-\begin{wraptable}{r}{0.5\textwidth} % {alignment}{width}
+\begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
   \small
   \begin{center}
   \vspace{-1.5\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
-  \begin{tabular}{l|l|l}
-  Attribute&Type&Values in the dataset\\
+  \begin{tabular}{l|l|l|l}
+  % \begin{tabular}{|p{1.8cm}|p{1.2cm}|p{4cm}|p{1.8cm}|}
+  \textbf{Feature}&\textbf{Type}&\textbf{Values in the dataset}&\textbf{Importance}\\
   \hline
-  species&categorial&Adelie, Chinstrap, Gentoo\\
-  island&categorial&Torgersen, Biscoe, Dream\\
-  bill length&numerical&32.1mm - 59.6mm\\
-  bill depth&numerical&13.1mm - 21.5mm\\
-  flipper length&numerical&172mm - 231mm\\
-  body mass&numerical&2700g - 6300g\\
-  sex&categorial&Male, Female
+  island&categorial&Torgersen, Biscoe, Dream&\ \ \ \ 0.13\\
+  bill length&numerical&32.1mm - 59.6mm&\ \ \ \ 0.16\\
+  bill depth&numerical&13.1mm - 21.5mm&\ \ \ \ 0.02\\
+  flipper length&numerical&172mm - 231mm&\ \ \ \ 0.65\\
+  body mass&numerical&2700g - 6300g&\ \ \ \ 0.01\\
+  sex&categorial&Male, Female&\ \ \ \ 0.04\\
+  species&categorial&Adelie, Chinstrap, Gentoo&\ \ \ \ class\\
   \end{tabular}
-  \vspace{-1.5\baselineskip} % Remove space before title
+  \vspace{-2\baselineskip} % Remove space before title
   \end{center} 
-  \caption{Attributes of the Palmer penguin dataset}
+  \caption{Attributes of the Palmer penguin dataset. Importance is calculated using random forest.}
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:dataset}
 \end{wraptable} 
@@ -78,11 +79,11 @@ to compare the accuracy performances of a small number of AI approaches.
 
 \begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
   \centering
-  \vspace{-0.5\baselineskip} % Remove space before the table
+  \vspace{-1.5\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{sex.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{All numerical measures show a significant statistical difference between male and female, 
-  as seen in the body mass boxplot above. Shown are median values, upper and lower quartiles, 
+  \caption{All numerical features show a significant statistical difference between male and female, 
+  as in the body mass above. Shown are median values, upper and lower quartiles, 
   and outliers.}
   \vspace{-0.5\baselineskip} % Remove space before title
   \label{fig:sex}
@@ -103,13 +104,11 @@ The cleaned dataset has 338 recods, 147 Adelie
 (74 male, 73 female), 68 Chinstrap (34 male, 34 female) and 123 Gentoo  (62 male, 61 female).
 
 The random forest method is able to deal directly with the categorical features in the dataset, 
-otherwise they were encoded. `One-shot' encoding was implemented, but not found to improve performance. 
-A number of AI methods are known to favour numerical features 
+otherwise they were encoded to numerical values. `One-shot' encoding was implemented, but was not found to 
+improve performance. A number of AI methods are known to favour numerical features 
 with smaller standard deviations \cite{hastie2009elements}. 
 This bias can be reduced by standardization to give zero mean and unity standard deviation. 
 Standardization statistics are calculated from the training set, but are also applied to the test set. 
-
-
 If a dataset is imbalanced, 
 AI predictions may be biased towards classes more frequently found in the training data. 
 In the Palmer penguin dataset, the number of Chinstrap records is around half of that of both Adelie and Gentoo.
@@ -136,7 +135,12 @@ Consequently, the island is not a confounding factor in the dataset.
   \label{fig:islands}
 \end{wrapfigure}
 
-Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
+The feature importance scores in (Table~\ref{tab:dataset}) represent 
+relative contributions in predicting the species and were calculated using a random forest approach.
+Results reported later show that performance improvements can be achieved by
+concentrating classification on the more important features.
+
+The pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
 Bill depth, in combination with either flipper length or body mass, 
 yields a separable cluster of Gentoo penguins (shown in green) allowing them to be identified. 
 No pairwise combination completely separates Adelie (orange) from Chinstrap (purple) clusters, 
