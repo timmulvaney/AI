@@ -181,12 +181,9 @@ performance were selected to generate accuracy results (the percentage of correc
 from the test set. Calculation of the metrics `precision' and `recall' were also considered, 
 but these are only relevant if false positives or false negatives (respectively) are to be avoided.   
 
-Scikit-Learn provides pseudo-random procedures for selecting validation and test set values and 100 of these were used 
-both when selecting metaparameters and when deriving accuracy results.
-
 \subsection*{Results and analysis}
 
-\begin{wraptable}{r}{0.7\textwidth} % {alignment}{width}
+\begin{wraptable}{r}{0.55\textwidth} % {alignment}{width}
   \small
   \begin{center}
   \vspace{-4\baselineskip} % Remove space before the table
@@ -196,24 +193,26 @@ both when selecting metaparameters and when deriving accuracy results.
   \begin{tabular}{l|l|l}
   Method & Metaparameters & Values considered\\
   \hline
-  \multirow{3}{*}{\textit{k}nn} & number of nearest neighbours \textit{k}	  & \textit{\textbf{1}}, 2, 3, 4, 5, 6, 8, 10 \\
-                            & weight function for prediction	& \textit{\textbf{uniform}}, distance \\
-                        & distance metric for neighbours	& \textbf{Manhattan}, Euclidean \\
+  \multirow{3}{*}{\textit{k}nn}    & nearest neighbours \textit{k}	  & \textit{\textbf{1}}, 2, 3, 4, 5, 6, 8, 10 \\
+                                   & prediction weight function	& \textit{\textbf{uniform}}, distance \\
+                                   & neighbours distance metric 	& \textbf{Manhattan}, Euclidean \\
   \hline
-  \multirow{5}{*}{random forest} & number of trees in the forest & 5, \textit{textbf{10}}, 15, 20, 25 \\
-                                 & maximum depth of trees	         & \textit{\textbf{no maximum}}, 10, 20 \\
-                                 & minimum samples to split node	 & \textit{\textbf{2}}, 5, 10 \\
-                                 & minimum samples at leaf node    & \textit{\textbf{1}}, 2, 4 \\
-                                 & function for quality of split   & \textit{\textbf{gini}}, entropy \\
+  \multirow{6}{*}[0.5ex]{\begin{tabular}[t]{@{}l@{}}random \\ forest\end{tabular}} 
+                                  & trees in the forest & 5, \textit{\textbf{10}}, 15, 20, 25 \\
+                                  & maximum depth of trees & \textit{\textbf{no maximum}}, 10, 20 \\
+                                  & min samples to split node & \textit{\textbf{2}}, 5, 10 \\
+                                  & min samples at leaf node & \textit{\textbf{1}}, 2, 4 \\
+                                  & quality of split function & \textit{\textbf{gini}}, entropy \\
+
   \hline
   \multirow{4}{*}{\textit{k}-means} & number of clusters \textit{k}  & 2, \textit{\textbf{3}}, 4, 5, 6, 7, 8, 9, 10 \\
-                              & centroid initialization method         & \textit{\textbf{k-means++}}, random \\
-                              & number of runs for centroid seeds	     & 2, \textit{\textbf{5}}, 10, 20 \\
-                              & maximum number of iterations           & 5, \textit{\textbf{10}}, 20, 50 \\
+                                    & centroid initialization         & \textit{\textbf{k-means++}}, random \\
+                                    & runs for centroid seeds	     & 2, \textit{\textbf{5}}, 10, 20 \\
+                                    & max number of iterations           & 5, \textit{\textbf{10}}, 20, 50 \\
   \hline
-    \multirow{3}{*}{CVA} & regularization parameter (C)  & 0.1, 1, \textit{\textbf{10}}, 100 \\
-                          & kernel coefficient (gamma)   & \textit{\textbf{1}}, 0.1, 0.01, 0.001 \\
-                          & kernel type                  & rbf, \textit{\textbf{linear}}, polynomial \\
+    \multirow{3}{*}{CVA}            & regularization parameter  & 0.1, 1, \textit{\textbf{10}}, 100 \\
+                                    & kernel coefficient      & \textit{\textbf{1}}, 0.1, 0.01, 0.001 \\
+                                    & kernel type                  & rbf, \textit{\textbf{linear}}, polynomial \\
   \hline
   \end{tabular}
   \vspace{-1.5\baselineskip} % Remove space before title
@@ -224,11 +223,14 @@ both when selecting metaparameters and when deriving accuracy results.
   \label{tab:metaparameters}
 \end{wraptable} 
 
+Scikit-Learn provides pseudo-random procedures for selecting validation and test set values and 100 of these were used 
+both when selecting metaparameters and when deriving accuracy results.
+
 The results in Table~\ref{tab:results} include a baseline that is used to demonstrate performance improvements achieved by the AI methods being considered. 
 In classification, the baseline method is often simply to select the most frequent class in the observations and, 
 in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/338).
 
-\begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
+\begin{wraptable}{r}{0.4\textwidth} % {alignment}{width}
   \small
   \begin{center}
   \vspace{-3\baselineskip} % Remove space before the table
@@ -244,22 +246,23 @@ in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/33
   \textit{k}NN, no island &	99.46\% \\
   \hline
   random forest, all features	& 98.57\% \\
-  random forest, no island, flipper length or body mass	& 98.57\% \\
+  random forest, three features	& 98.57\% \\
   \hline
-  \textit{k}-means, all numerical features & 97.06\% \\
-  \textit{k}-means, separate clusters for each sex & 98.23\% \\
+  \textit{k}-means, numerical features & 97.06\% \\
+  \textit{k}-means, sex clusters  & 98.23\% \\
   \hline
-  CVA using bill depth, flipper length, bill length	& 98.56\% \\
-  CVA using bill depth, flipper length, bill length, sex &98.78\% \\
+  CVA, three main features & 98.56\% \\
+  CVA, as above but with sex & 98.78\% \\
   \hline
   \end{tabular}
-  \vspace{-1.5\baselineskip} % Remove space before title
+  \vspace{-2\baselineskip} % Remove space before title
   \end{center} 
   \caption{Mean classification accuracy from 100 test sets each generated by a pseudo random approach 
   and using the parameters identified in Table~\ref{tab:metaparameters}}
-  \vspace{0\baselineskip} % Remove space after the table
+  \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:results}
 \end{wraptable} 
+
 
 \textbf{Classification method 1 - \textit{k}nn}  
 The performance of \textit{k}nn was found to be improved by omitting features from training. 
@@ -268,21 +271,21 @@ when island was omitted and this occurred when \textit{k}=3. It appears that isl
 and the higher value of \textit{k} implies better generalization may have been achieved.
 
 
-\begin{wrapfigure}{r}{0.47\textwidth} % {alignment}{width}
+\begin{wrapfigure}{r}{0.46\textwidth} % {alignment}{width}
   \centering
   \vspace{-2\baselineskip} % Remove space before the figure
   \includegraphics[width=0.48\textwidth]{kmeansvalue.png} % Adjust the width as needed
   \vspace{-1.5\baselineskip} % Remove space before title
-  \caption{For \textit{k}-means, the elbow method is the change in slope of `inertia' (\textit{k}=3)
-  and the silhouette method is the score closest to 1 (\textit{k}=2)}
-  \vspace{-0.5\baselineskip} % Remove space before title
+  \caption{The \textit{k}-means elbow is the change in slope of `inertia' (\textit{k}=3)
+  and the silhouette is the `score' closest to 1 (\textit{k}=2)}
+  \vspace{-0.5\baselineskip} % Remove space after title
   \label{fig:kmeansvalue}
 \end{wrapfigure}
 
 \textbf{Classification method 2 - Random forest}  
-Including all of the features in the analysis provided an accuracy marginally better 
-than could be achieved using \textit{k}nn when its features were carefully selected. 
-No performance improvement was found by using fewer features, indicating that 
+Including all of the features in the analysis gave an accuracy marginally better 
+than achieved using \textit{k}nn. 
+I contrast to \textit{k}nn, no performance improvement was found using fewer features, indicating that 
 considerably less implementation effort is needed to achieve good performance using random forest. 
 A marginal improvement in performance was apparent when island, flipper length or body mass were not included in training.
 
@@ -300,7 +303,7 @@ and this led to a small improvement in accuracy.
 
 \begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
   \centering
-  \vspace{-2\baselineskip} % Remove space before the table
+  \vspace{-1\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{kmeansmap.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
   \caption{\textit{k}-means clusters mapped to species using majority voting. 
@@ -310,21 +313,20 @@ and this led to a small improvement in accuracy.
 \end{wrapfigure}
 
 \textbf{A novel combined visualization and analysis (CVA) approach}  
-The CVA approach ivolves visualizing pairwise plots of features 
-to identify a short sequence of two-dimensional SVM classifiers. 
+The CVA approach involves visualizing pairwise plots of features 
+to identify a sequence of two-dimensional SVM classifiers. 
 CVA requires manual effort to understand the nature of the dataset, 
-in contrast with `black box' classification approaches that are applied with limited knowledge 
+in contrast with `black box' classification approaches that can be applied with limited knowledge 
 of the method and little insight into the nature of the data. 
-The drawbacks of the CVA approach are that it may not always be feasible to extract the necessary visualizations insights 
+The main drawback of the CVA approach is that it may not always be feasible to extract the necessary visualizations insights 
 particularly for large dimensional datasets. 
-For the Penguin data, CVA was able to produce results of accuracy almost as good 
-as conventional approaches.
 
 An application of CVA to the Penguin dataset is illustrated in Figure~\ref{fig:CVA}. 
 Figure~\ref{fig:CVA_part_a} shows the relationship between bill depth and flipper length and 
 SVM is used to find a suitable `decision boundary' that separates Gentoo from the other two species. 
 Figure~\ref{fig:CVA_part_b} then shows a second SVM line that best separates Adelie and Chinstrap using bill length and bill depth. 
-A small improvement in accuracy was achieved when separate SVM models were developed for each penguin sex.
+CVA was able to produce results of accuracy almost as good as conventional approaches and a small improvement 
+was apparent when separate SVM models were developed for each penguin sex.
 
 \begin{figure}[!ht]
     \vspace{-0.5\baselineskip} % Remove space before figure
@@ -354,15 +356,16 @@ A small improvement in accuracy was achieved when separate SVM models were devel
 
 With careful data preparation, optimization of metaparameters and robust application of training and testing methods, 
 the \textit{k}nn and random forest classification methods produced high-quality results. 
-The \textit{k}-means classification accuracy results were somewhat worse, 
-but this is to be expected as the approach does not take advantage of target data information that is known to the supervised approaches. 
+As expected, the \textit{k}-means accuracy results were comparitively worse
+as it does not take advantage of target data information known to the supervised approaches. 
+
+The novel CVA approach was able to produce accuracy results
+similar to those of other classification methods. 
+Although needing to be tailored to each problem and not well-suited to high-dimensionality data, 
+its internal operations are transparent and this is in contrast with general-purpose classification methods. 
 
 A classifier that is able to achieve 100\% accuracy for the given data is possible, 
-but its performance when applied to new unseen data would likely exhibit poor generalization.
-The novel CVA approach is designed to use insights available in visualizations. 
-Although needing to be tailored to each problem and not well-suited to high-dimensionality data, 
-its internal operations are easy to visualize, an advantage not afforded to general-purpose classification methods. 
-For the penguin data, it was able to produce accuracy results similar to those of other classification methods. 
+but is likely exhibit poor generalization.
 
 \printbibliography
 
