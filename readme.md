@@ -10,14 +10,9 @@ The githb repository containing the project can be found at https://github.com/t
 The following directories can be found in the repository.
 - brief - the coursework specification
 - code - the Python implementation of the data cleaning, encoding. standardization, as well as the AI training and testing
-- kmeans - the code for kmeans was originally written as a jupyter notebook, but a Python version was written for easier integration with the remaining code
-- penguin reference - links to other work on Penguin data analysis
-- report - the separate report on ....?
-
-### Report
-
-The report is witten in LaTeX and is found in the file report.tex. A separate BibTex file report.bib contains the
-references. The report is compiled to pdf output using the bash script 'gen', for example ./gen report.
+- essay - on racial bias and existential threat submitted in response to question 2  
+- penguin references - links to other work on Penguin data analysis
+- report - the report submitted on the work carried out 
 
 ### Code
 
@@ -31,17 +26,16 @@ The options available are as follows.
  - test whether island is a cofounding factor in the physical attributes of the pengiuns
  - produce pairwise plot of the numerial variables
  - standardize - use numerical feature training data to modify feature data to a mean of zero and standard deviation of unity
- - produce one-hot encoded versions of the dataset  
  - plot bill length for each species on each island
  - plot bill length against bill depth
  - produce a heatmap of the numerical data
  - determine feature importance
  - knn training and testing
  - random forest training and testing
+ - perform an unusual and interesting combined visualization and analysis (CVA) that includes SVM training and testing
+ - logic regression training and testing
 
-k means
-in separate jupyter notebook
+### Report
 
- - perform an unusual and interesting combined visualization and analysis (CVA) that includes SVMs
- - logistic regression analysis
-
+The report is witten in LaTeX and is found in the file report.tex. A separate BibTex file report.bib contains the
+references. The report is compiled to pdf output using the bash script 'gen', for example ./gen report.

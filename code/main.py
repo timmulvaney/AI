@@ -1,23 +1,22 @@
 from globals import *
 from basic import basic
-# from clean import clean
 from clean import clean
 from baseline import baseline
-from logistic_regression import logistic_regression
 from species import species
 from num_sex import num_sex
 from islands import islands
 from island_confounding import island_confounding
 from pairwise_numericals import pairwise_numericals
 from standardize import standardize
-from surprising import surprising
 from bill_len import bill_len
 from bill_len_and_depth import bill_len_and_depth
 from heatmap_of_numericals import heatmap_of_numericals
 from feature_importance import feature_importance
 from random_forest import random_forest
+from kmeans import kmeans
 from knn import knn
-
+from surprising import surprising
+from logistic_regression import logistic_regression
 
 # control the operation of the program
 
@@ -62,10 +61,7 @@ clean_df = clean(df)
 # pairwise_numericals(clean_df, custom_colors)
 
 # get a version of the df with the numerical features to have a mean of zero and standard deviation of unity
-stand_df = standardize(clean_df)
-
-# one hot encoding - only needed for methods that can only be numerical  
-#  e.g. not needed for DTs, but it is for linear models and NNs 
+# stand_df = standardize(clean_df)
 
 # plot bill length for each species on each island
 # bill_len(df)
@@ -83,10 +79,10 @@ stand_df = standardize(clean_df)
 # knn(clean_df)
 
 # random forest analysis
-random_forest(clean_df)
+# random_forest(clean_df)
 
 # k means
-# in separate jupyter notebook
+kmeans(clean_df)
 
 # unusual and interesting mix of visualization and classification? 
 # surprising(clean_df, custom_colors)
