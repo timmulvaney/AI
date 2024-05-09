@@ -28,16 +28,16 @@ def feature_importance(local_df):
   ############ comment out one of the following classifiers
 
   # Train XGBoost classifier
-  method = 'XGBoost'
-  xgb_classifier = xgb.XGBClassifier(random_state=42)
-  xgb_classifier.fit(X, y)
-  feature_importances = xgb_classifier.feature_importances_
+  # method = 'XGBoost'
+  # xgb_classifier = xgb.XGBClassifier(random_state=42)
+  # xgb_classifier.fit(X, y)
+  # feature_importances = xgb_classifier.feature_importances_
 
   # # Train Random Forest classifier
-  # method = 'Random Forest'
-  # rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
-  # rf_classifier.fit(X, y)
-  # feature_importances = rf_classifier.feature_importances_
+  method = 'Random Forest'
+  rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
+  rf_classifier.fit(X, y)
+  feature_importances = rf_classifier.feature_importances_
 
   # Create DataFrame of feature importances
   feature_importance_df = pd.DataFrame({'Feature': X.columns, 'Importance': feature_importances})

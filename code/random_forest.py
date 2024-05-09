@@ -21,11 +21,11 @@ def random_forest(local_df):
   df_copy['sex'] = label_encoder.fit_transform(df_copy['sex'])
 
   # comment out the following if the corresponding feature is to be dropped
-  df_copy.drop(columns=['island'], inplace =True)
+  # df_copy.drop(columns=['island'], inplace =True)
   # df_copy.drop(columns=['sex'], inplace =True)
   # df_copy.drop(columns=['bill_length_mm'], inplace =True)
   # df_copy.drop(columns=['bill_depth_mm'], inplace =True)
-  df_copy.drop(columns=['flipper_length_mm'], inplace =True)
+  # df_copy.drop(columns=['flipper_length_mm'], inplace =True)
   df_copy.drop(columns=['body_mass_g'], inplace =True)
   
   # separate features and target

@@ -30,8 +30,8 @@
 \makeatother
 
 % Redefine the table and figure formats to bold
-% \captionsetup[table]{labelfont=bf}
-\captionsetup[table]{labelfont=bf, justification=centering}
+\captionsetup[table]{labelfont=bf}
+%\captionsetup[table]{labelfont=bf, justification=centering,skip=-2pt}
 % \captionsetup[figure]{labelfont=bf}
 \captionsetup[figure]{labelfont=bf, justification=centering}
 \captionsetup{font=small}
@@ -52,17 +52,17 @@
   % \begin{tabular}{|p{1.8cm}|p{1.2cm}|p{4cm}|p{1.8cm}|}
   \textbf{Feature}&\textbf{Type}&\textbf{Values in the dataset}&\textbf{Importance}\\
   \hline
-  island&categorial&Torgersen, Biscoe, Dream&\ \ \ \ 0.13\\
-  bill length&numerical&32.1mm - 59.6mm&\ \ \ \ 0.16\\
-  bill depth&numerical&13.1mm - 21.5mm&\ \ \ \ 0.02\\
-  flipper length&numerical&172mm - 231mm&\ \ \ \ 0.65\\
-  body mass&numerical&2700g - 6300g&\ \ \ \ 0.01\\
-  sex&categorial&Male, Female&\ \ \ \ 0.04\\
+  island&categorial&Torgersen, Biscoe, Dream&\ \ \ 0.12 (4)\\
+  bill length&numerical&32.1mm - 59.6mm&\ \ \ 0.37 (1)\\
+  bill depth&numerical&13.1mm - 21.5mm&\ \ \ 0.17 (3)\\
+  flipper length&numerical&172mm - 231mm&\ \ \ 0.23 (2)\\
+  body mass&numerical&2700g - 6300g&\ \ \ 0.11 (5)\\
+  sex&categorial&Male, Female&\ \ \ 0.01 (6)\\
   species&categorial&Adelie, Chinstrap, Gentoo&\ \ \ \ class\\
   \end{tabular}
   \vspace{-2\baselineskip} % Remove space before title
   \end{center} 
-  \caption{Attributes of the Palmer penguin dataset. Importance is calculated using random forest.}
+  \caption{\centering\linespread{0.8}\selectfont Palmer penguin dataset features. Importance was calculated using random forest and a ranking is shown.}
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:dataset}
 \end{wraptable} 
@@ -82,7 +82,7 @@ to compare the accuracy performances of a small number of AI approaches.
   \vspace{-1.5\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{sex.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{All numerical features show a significant statistical difference between male and female, 
+  \caption{\centering\linespread{0.8}\selectfont All numerical features show a significant statistical difference between male and female, 
   as in the body mass above. Shown are median values, upper and lower quartiles, 
   and outliers.}
   \vspace{-0.5\baselineskip} % Remove space before title
@@ -128,7 +128,7 @@ Consequently, the island is not a confounding factor in the dataset.
   \vspace{-1.5\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{islands.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{Adelie samples are from all three islands, but Gentoo and Chinstrap from only one}
+  \caption{\centering\linespread{0.8}\selectfont Adelie samples are from all three islands, but Gentoo and Chinstrap from only one}
   \vspace{-1.5\baselineskip} % Remove space after title
   \label{fig:islands}
 \end{wrapfigure}
@@ -157,7 +157,7 @@ and this knowledge can be used to improve performance, as discussed in the analy
   \vspace{-3\baselineskip} % Remove space before the figure
   \includegraphics[width=0.58\textwidth]{pairwise.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{Pairwise distributions of numerical features. Gentoo can be distinguished, 
+  \caption{\centering\linespread{0.8}\selectfont Pairwise distributions of numerical features. Gentoo can be distinguished, 
   but Adelie and Chinstrap may not be completely separable from one another}
   \vspace{-0.5\baselineskip} % Remove space before title
   \label{fig:pairwise}
@@ -217,7 +217,7 @@ but these are only relevant if false positives or false negatives (respectively)
   \end{tabular}
   \vspace{-1.5\baselineskip} % Remove space before title
   \end{center} 
-  \caption{Metaparameters values shown in italics most consistently produced training results of 
+  \caption{\centering\linespread{0.8}\selectfont Metaparameters values shown in italics most consistently produced training results of 
   best accuracy during validation and were selected for generating results}
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:metaparameters}
@@ -245,11 +245,11 @@ in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/33
   \textit{k}NN, all features	& 99.24\% \\
   \textit{k}NN, no island &	99.46\% \\
   \hline
-  random forest, all features	& 98.57\% \\
-  random forest, three features	& 98.57\% \\
+  random forest, all features	& 98.75\% \\
+  random forest, three main features	& 98.57\% \\
   \hline
   \textit{k}-means, numerical features & 97.06\% \\
-  \textit{k}-means, sex clusters  & 98.23\% \\
+  \textit{k}-means, two sex clusters  & 98.23\% \\
   \hline
   CVA, three main features & 98.56\% \\
   CVA, as above but with sex & 98.78\% \\
@@ -257,26 +257,24 @@ in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/33
   \end{tabular}
   \vspace{-2\baselineskip} % Remove space before title
   \end{center} 
-  \caption{Mean classification accuracy from 100 test sets each generated by a pseudo random approach 
-  and using the parameters identified in Table~\ref{tab:metaparameters}}
+  \caption{\centering\linespread{0.8}\selectfont Mean classification accuracy from 100 test sets each generated by a pseudo random approach 
+  and using the metaparameters identified in Table~\ref{tab:metaparameters}}
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:results}
 \end{wraptable} 
 
-
 \textbf{Classification method 1 - \textit{k}nn}  
 The performance of \textit{k}nn was found to be improved by omitting features from training. 
 An exhaustive search involving omitting all combinations of features in turn determined that the best accuracy was obtained 
-when island was omitted and this occurred when \textit{k}=3. It appears that island was not providing any additional information 
+when island was omitted and when \textit{k}=3. It appears that island was not providing any additional information 
 and the higher value of \textit{k} implies better generalization may have been achieved.
-
 
 \begin{wrapfigure}{r}{0.46\textwidth} % {alignment}{width}
   \centering
   \vspace{-2\baselineskip} % Remove space before the figure
   \includegraphics[width=0.48\textwidth]{kmeansvalue.png} % Adjust the width as needed
   \vspace{-1.5\baselineskip} % Remove space before title
-  \caption{The \textit{k}-means elbow is the change in slope of `inertia' (\textit{k}=3)
+  \caption{\centering\linespread{0.8}\selectfont The \textit{k}-means elbow is the change in slope of `inertia' (\textit{k}=3)
   and the silhouette is the `score' closest to 1 (\textit{k}=2)}
   \vspace{-0.5\baselineskip} % Remove space after title
   \label{fig:kmeansvalue}
@@ -306,7 +304,7 @@ and this led to a small improvement in accuracy.
   \vspace{-1\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{kmeansmap.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{\textit{k}-means clusters mapped to species using majority voting. 
+  \caption{\centering\linespread{0.8}\selectfont \textit{k}-means clusters mapped to species using majority voting. 
   Class assignments are shown by polygon colour (\textit{k}=10, 50 samples coloured).}
   \vspace{-0.5\baselineskip} % Remove space before title
   \label{fig:kmeansmap}
@@ -346,7 +344,7 @@ was apparent when separate SVM models were developed for each penguin sex.
     \label{fig:CVA_part_b}
   \end{subfigure}
   \vspace{2\baselineskip} % Remove space before title
-  \caption{Two-stage CVA approach with boundaries fitted using SVM 
+  \caption{\centering\linespread{0.8}\selectfont Two-stage CVA approach with boundaries fitted using SVM 
   to training data of feature pairs}
   \label{fig:CVA}
   \vspace{-1.5\baselineskip} % Remove space after title
