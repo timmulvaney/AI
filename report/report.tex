@@ -71,8 +71,8 @@
 The Palmer penguin dataset consists of 344 records of the physical attributes of three species of penguin 
 living on three islands in Antarctica (Table~\ref{tab:dataset}) \cite{PM}. 
 In this report, consideration is given to data cleaning and preparation, 
-the dataset is explored through visualization and analysis is carried out 
-to compare the accuracy performances of a small number of AI approaches. 
+the dataset is then explored through visualization and analysis is carried out 
+to compare the accuracy of a small number of AI approaches in classifying penguin species. 
 
 \vspace{\baselineskip}
 \subsection*{Data cleaning - missing values, encoding, standardization and imbalance}
@@ -83,7 +83,7 @@ to compare the accuracy performances of a small number of AI approaches.
   \includegraphics[width=0.48\textwidth]{sex.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
   \caption{\centering\linespread{0.8}\selectfont All numerical features show a significant statistical difference between male and female, 
-  as in the body mass above. Shown are median values, upper and lower quartiles, 
+  as in the body mass example above. Shown are median values, upper and lower quartiles, 
   and outliers.}
   \vspace{-0.5\baselineskip} % Remove space before title
   \label{fig:sex}
@@ -97,19 +97,19 @@ a Shapiro-Wilk test confirmed each numerical attribute has a normal distribution
 and separate Z-tests were applied to assess the 
 hypotheses that the missing sex value is male or female \cite{freedman2007statistics}. 
 Two of the records could be imputed as male and three as female 
-and these were retained. with the remaining four records being removed. 
+and these were retained, with the remaining four records being removed. 
 The cleaned dataset has 338 records, 147 Adelie  
 (74 male, 73 female), 68 Chinstrap (34 male, 34 female) and 123 Gentoo (62 male, 61 female).
 
 The categorical features in the dataset were encoded to numerical values. `One-shot' encoding of 
-categorical features was not found to 
+categorical features was considered but not found to 
 improve performance. A number of AI methods are known to be biased in favour of numerical features 
 with smaller standard deviations \cite{hastie2009elements}, but this can be reduced by standardization 
-of features to zero mean and unity standard deviation. 
-Standardization statistics are calculated only from the training set, but are also applied to the test set. 
+of features to zero mean and unity standard deviation. In this work, 
+standardization statistics were calculated only from training sets, but applied to all data. 
 If a dataset is imbalanced, 
 AI predictions may be biased towards classes more frequently found in the training data. 
-In the Palmer penguin dataset, the number of Chinstrap records is around half of that of both Adelie and Gentoo, 
+In the Palmer penguin dataset, the number of Chinstrap records is around half of that for either Adelie or Gentoo, 
 but, as all the methods adopted in the current work are known to be little affected by 
 imbalanced data \cite{he2009learning}, no modifications were made.
 
@@ -121,7 +121,7 @@ Chinstrap and Gentoo penguins are found only on one island, making island a pote
 individual environmental factors may influence physical characteristics. 
 A Shapiro-Wilk test confirmed the normal distribution of the numerical features of the Adelie penguins (found on 
 all islands) and an ANOVA test confirmed the features are not significantly influenced by the island inhabited. 
-Consequently, the island is not a confounding factor in the dataset.
+It is clear the island is not a confounding factor in the dataset.
 
 \begin{wrapfigure}{R}{0.5\textwidth} % {alignment}{width}
   \centering
@@ -136,9 +136,9 @@ Consequently, the island is not a confounding factor in the dataset.
 The feature importance scores in Table~\ref{tab:dataset} represent 
 relative contributions in predicting the species and were calculated using a random forest approach.
 Results reported later show that performance improvements can be achieved by
-concentrating classification on the more important features.
+concentrating classification on the more `important' features.
 
-The pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
+Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
 Bill depth, in combination with either flipper length or body mass, 
 yields a separable cluster of Gentoo penguins (shown in green) allowing them to be identified. 
 No pairwise combination completely separates Adelie (orange) from Chinstrap (purple) clusters, 
@@ -146,9 +146,9 @@ but the best candidate feature for doing so is in the distributions involving bi
 
 Figure~\ref{fig:sex} above shows there is a difference in the body masses of the male and female samples for each of the three species. 
 Differences between the sexes for the other three numerical physical characteristics in the dataset were also apparent. 
-Since narrower distributions are apparent if the sex of the species is considered rather than just the species itself, 
+Since narrower distributions are seen if the sex of the species is considered rather than just the species itself, 
 including sex is likely to provide a finer grained distinction for species classification 
-and this knowledge can be used to improve performance, as discussed in the analysis section below. 
+and this knowledge can be used to improve performance, as discussed in the `results and analysis' section below. 
 
 \subsection*{Methodology}
 
@@ -163,13 +163,13 @@ and this knowledge can be used to improve performance, as discussed in the analy
   \label{fig:pairwise}
 \end{wrapfigure}
 
-All code is in Python 3.11 \cite{python311} using ‘Scikit-Learn’ libraries \cite{scikit-learn} 
+All code was written in Python 3.11 \cite{python311} using ‘Scikit-Learn’ libraries \cite{scikit-learn} 
 under Ubuntu Linux \cite{ubuntu}. The code is available in a Gitub repository \cite{TimAIRepo}. 
 Predicting the penguin species from the given features is a classification problem. 
 Results are obtained from a baseline method, two convention classification approaches, 
 namely \textit{k}-Nearest Neighbour (\textit{k}nn) \cite{bishop2006pattern} and random forest \cite{breiman2001random}, 
 unsupervised \textit{k}-means (following cluster labelling) \cite{tan2005introduction} 
-and a novel combined visualization and analysis (CVA) approach that uses 
+and a novel visualization and analysis (CVA) approach that uses a bespoke combination of 
 practical visualizations and Support Vector Machine (SVM) classification.
 
 To reduce the potential for overfitting, the classification methods (all but \textit{k}-means) were trained using 
@@ -178,8 +178,9 @@ configuration \cite{james2013introduction}. The remaining 20\% was kept for a te
 the Scikit-Learn function GridSearchCV was employed to tune metaparameters \cite{scikit-learn}. 
 Table~\ref{tab:metaparameters} shows the values selected for the metaparameter grid. Those giving the best 
 performance were selected to generate accuracy results (the percentage of correctly predicted species) 
-from the test set. Calculation of the metrics `precision' and `recall' were also considered, 
-but these are only relevant if false positives or false negatives (respectively) are to be avoided.   
+from the test set. The metrics `precision' and `recall' were also caculated, but as 
+these are only relevant if false positives or false negatives (respectively) are specfically to be avoided, 
+they are not included in this report.   
 
 \subsection*{Results and analysis}
 
@@ -283,14 +284,14 @@ and the higher value of \textit{k} implies better generalization may have been a
 \textbf{Classification method 2 - Random forest}  
 Including all of the features in the analysis gave an accuracy marginally better 
 than achieved using \textit{k}nn. 
-I contrast to \textit{k}nn, no performance improvement was found using fewer features, indicating that 
+Im contrast with \textit{k}nn, no performance improvement was found using fewer features, indicating that 
 considerably less implementation effort is needed to achieve good performance using random forest. 
 A marginal improvement in performance was apparent when island, flipper length or body mass were not included in training.
 
 \textbf{Unsupervised method - \textit{k}-means}  
 Although an unsupervised clustering method, 
 \textit{k}-means can be used for classification by matching clusters to classes. 
-The \textit{k}-means method is normally applied only to numerical features so only they were included in this work. 
+The \textit{k}-means method is normally applied only to numerical features and only they were included in this work. 
 The number of clusters (\textit{k}) can be selected using elbow and silhouette methods, 
 as shown in Figure~\ref{fig:kmeansvalue}. Empirically, accuracy improved significantly when \(k \geq 4\)
 as clusters were not reliably formed for all three species for smaller values of \textit{k},  
@@ -314,13 +315,13 @@ and this led to a small improvement in accuracy.
 The CVA approach involves visualizing pairwise plots of features 
 to identify a sequence of two-dimensional SVM classifiers. 
 CVA requires manual effort to understand the nature of the dataset, 
-in contrast with `black box' classification approaches that can be applied with limited knowledge 
+in contrast with `black box' classification approaches that are often applied with limited knowledge 
 of the method and little insight into the nature of the data. 
-The main drawback of the CVA approach is that it may not always be feasible to extract the necessary visualizations insights 
+The main drawback of the CVA approach is that it may not always be feasible to extract the necessary visualization insights, 
 particularly for large dimensional datasets. 
 
 An application of CVA to the Penguin dataset is illustrated in Figure~\ref{fig:CVA}. 
-Figure~\ref{fig:CVA_part_a} shows the relationship between bill depth and flipper length and 
+Figure~\ref{fig:CVA_part_a} shows the relationship between bill depth and flipper length and, 
 SVM is used to find a suitable `decision boundary' that separates Gentoo from the other two species. 
 Figure~\ref{fig:CVA_part_b} then shows a second SVM line that best separates Adelie and Chinstrap using bill length and bill depth. 
 CVA was able to produce results of accuracy almost as good as conventional approaches and a small improvement 
@@ -355,7 +356,7 @@ was apparent when separate SVM models were developed for each penguin sex.
 With careful data preparation, optimization of metaparameters and robust application of training and testing methods, 
 the \textit{k}nn and random forest classification methods produced high-quality results. 
 As expected, the \textit{k}-means accuracy results were comparitively worse
-as it does not take advantage of target data information known to the supervised approaches. 
+as in training it does not take advantage of target data information known to the supervised approaches. 
 
 The novel CVA approach was able to produce accuracy results
 similar to those of other classification methods. 
