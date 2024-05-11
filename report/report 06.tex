@@ -12,6 +12,7 @@
 \usepackage{linegoal} % for determining the remaining width of the line
 \usepackage[backend=biber, sorting=none]{biblatex}
 \usepackage{subcaption}
+\usepackage{array} % for defining custom column widths
 
 % reference file
 \addbibresource{report.bib}
@@ -125,11 +126,11 @@ It is clear the island is not a confounding factor in the dataset.
 
 \begin{wrapfigure}{R}{0.5\textwidth} % {alignment}{width}
   \centering
-  \vspace{-2\baselineskip} % Remove space before the table
+  \vspace{-1.5\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{islands.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont Adelie is on all three islands, but Gentoo and Chinstrap samples are from only one.}
-  \vspace{-0.5\baselineskip} % Remove space after title
+  \caption{\centering\linespread{0.8}\selectfont Adelie samples are from all three islands, but Gentoo and Chinstrap from only one}
+  \vspace{-1.5\baselineskip} % Remove space after title
   \label{fig:islands}
 \end{wrapfigure}
 
@@ -152,7 +153,7 @@ and this knowledge can be used to improve performance, as discussed in the `resu
 
 \subsection*{Methodology}
 
-\begin{wrapfigure}{r}{0.55\textwidth} % {alignment}{width}
+\begin{wrapfigure}{r}{0.6\textwidth} % {alignment}{width}
   \centering
   \vspace{-3\baselineskip} % Remove space before the figure
   \includegraphics[width=0.58\textwidth]{pairwise.png} % Adjust the width as needed
@@ -184,15 +185,15 @@ they are not included in this report.
 
 \subsection*{Results and analysis}
 
-\begin{wraptable}{r}{0.58\textwidth} % {alignment}{width}
+\begin{wraptable}{r}{0.55\textwidth} % {alignment}{width}
   \small
   \begin{center}
-  \vspace{-4.5\baselineskip} % Remove space before the table
+  \vspace{-4\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
   \begin{tabular}{l|l|l}
-  \textbf{Method} & \textbf{Metaparameters} & \textbf{Values considered}\\
+    \textbf{Method} & \textbf{Metaparameters} & Values \textbf{considered}\\
   \hline
   \multirow{3}{*}{\textit{k}nn}    & nearest neighbours \textit{k}	  & \textit{\textbf{1}}, 2, 3, 4, 5, 6, 8, 10 \\
                                    & prediction weight function	& \textit{\textbf{uniform}}, distance \\
@@ -216,7 +217,7 @@ they are not included in this report.
                                     & kernel type                  & rbf, \textit{\textbf{linear}}, polynomial \\
   \hline
   \end{tabular}
-  \vspace{-2\baselineskip} % Remove space before title
+  \vspace{-1.5\baselineskip} % Remove space before title
   \end{center} 
   \caption{\centering\linespread{0.8}\selectfont Metaparameters values shown in italics most consistently produced training results of 
   best accuracy during validation and were selected for generating results}
@@ -228,66 +229,64 @@ Scikit-Learn provides pseudo-random procedures for selecting validation and test
 both when selecting metaparameters and when deriving accuracy results.
 
 The results in Table~\ref{tab:results} include a baseline that is used to demonstrate performance improvements achieved by the AI methods being considered. 
-
 In classification, the baseline method is often simply to select the most frequent class in the observations and, 
 in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/338).
 
-\begin{wraptable}{r}{0.49\textwidth} % {alignment}{width}
+
+\begin{wraptable}{r}{0.45\textwidth} % {alignment}{width}
   \small
-  \begin{center}
-  \vspace{-2.5\baselineskip} % Remove space before the table
+  \centering
+  \vspace{-3\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
-  \begin{tabular}{l|l}
-    \textbf{Method} & \textbf{Accuracy (range)}\\
-  \hline
-  baseline, Adeleie species & 43.49\% \\
-  \hline
-  \textit{k}NN, all features	& 99.24\% (97.06\%-100\%)\\
-  \textit{k}NN, no island &	99.46\% (97.06\%-100\%)\\
-  \hline
-  random forest, all features	& 98.75\% \\
-  random forest, three main 	& 98.57\% \\
-  \hline
-  \textit{k}-means, numerical features & 97.06\% \\
-  \textit{k}-means, two sex clusters  & 98.23\% \\
-  \hline
-  CVA, three main features & 98.56\% \\
-  CVA, as above but with sex & 98.78\% \\
-  \hline
+  \begin{tabular}{@{}lp{1.5cm}>{\centering\arraybackslash}p{2.2cm}@{}}
+  \toprule
+  \textbf{Method} & \textbf{Accuracy} & \textbf{Range}\\
+  \midrule
+  baseline, Adelie species & 43.49\% & - \\
+  \midrule
+  \textit{k}NN, all features    & 99.24\% &  \\
+  \textit{k}NN, no island &   99.46\% & 97.08\%-100\% \\
+  \midrule
+  random forest, all features    & 98.75\% &  \\
+  random forest, three main   & 98.57\% &  \\
+  \midrule
+  \textit{k}-means, numerical features & 97.06\% &  \\
+  \textit{k}-means, two sex clusters  & 98.23\% &  \\
+  \midrule
+  CVA, three main features & 98.56\% &  \\
+  CVA, as above but with sex & 98.78\% &  \\
+  \bottomrule
   \end{tabular}
   \vspace{-2\baselineskip} % Remove space before title
-  \end{center} 
-  \caption{\centering\linespread{0.8}\selectfont Classification accuracy mean value and range for 100 pseudo-random test sets 
+  \caption{Mean classification accuracy from 100 test sets each generated by a pseudo-random approach 
   and using the metaparameters identified in Table~\ref{tab:metaparameters}}
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:results}
-\end{wraptable} 
+\end{wraptable}
 
 \textbf{Classification method 1 - \textit{k}nn}  
-
 The performance of \textit{k}nn was found to be improved by omitting features from training. 
-
-\begin{wrapfigure}{r}{0.46\textwidth} % {alignment}{width}
-  \centering
-  \vspace{-1\baselineskip} % Remove space before the figure
-  \includegraphics[width=0.48\textwidth]{kmeansvalue.png} % Adjust the width as needed
-  \vspace{-1.5\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont The \textit{k}-means elbow is the change in slope of `inertia' (\textit{k}=3)
-  and the silhouette is the `score' closest to 1 (\textit{k}=2)}
-  \vspace{-1.5\baselineskip} % Remove space after title
-  \label{fig:kmeansvalue}
-\end{wrapfigure}
-
 An exhaustive search involving omitting all combinations of features in turn determined that the best accuracy was obtained 
 when island was omitted and when \textit{k}=3. It appears that island was not providing any additional information 
 and the higher value of \textit{k} implies better generalization may have been achieved.
 
+\begin{wrapfigure}{r}{0.46\textwidth} % {alignment}{width}
+  \centering
+  \vspace{-2\baselineskip} % Remove space before the figure
+  \includegraphics[width=0.48\textwidth]{kmeansvalue.png} % Adjust the width as needed
+  \vspace{-1.5\baselineskip} % Remove space before title
+  \caption{\centering\linespread{0.8}\selectfont The \textit{k}-means elbow is the change in slope of `inertia' (\textit{k}=3)
+  and the silhouette is the `score' closest to 1 (\textit{k}=2)}
+  \vspace{-0.5\baselineskip} % Remove space after title
+  \label{fig:kmeansvalue}
+\end{wrapfigure}
+
 \textbf{Classification method 2 - Random forest}  
 Including all of the features in the analysis gave an accuracy marginally better 
 than achieved using \textit{k}nn. 
-In contrast with \textit{k}nn, no performance improvement was found using fewer features, indicating that 
+Im contrast with \textit{k}nn, no performance improvement was found using fewer features, indicating that 
 considerably less implementation effort is needed to achieve good performance using random forest. 
 A marginal improvement in performance was apparent when island, flipper length or body mass were not included in training.
 

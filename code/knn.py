@@ -59,7 +59,7 @@ def train_knn(param_grid, X, y):
 
   # the sum of the accuracies from all the knn tests
   knn_accuracy = 0
-
+  
   # the number of separate tests using random forest classification (knn_max > 0)
   knn_max = 100
 
@@ -102,9 +102,20 @@ def train_knn(param_grid, X, y):
     # keep the sum of the accuracies so far
     knn_accuracy += accuracy_score(y_test, y_pred)
 
+    if (random_state==1):
+      knn_best_accuracy = test_accuracy
+      knn_worst_accuracy = test_accuracy
+    else:
+      if(test_accuracy>knn_best_accuracy):
+        knn_best_accuracy = test_accuracy
+      if(test_accuracy<knn_worst_accuracy):
+        knn_worst_accuracy = test_accuracy
+
   # print count of best parameters
   for params, count in best_params_count.items():
     print("Parameters:", dict(params), "Count:", count)
 
   # overall accuracy for evaluating the model
   print(f"knn accuracy: {100*knn_accuracy/knn_max:.2f}%")
+  print(f"knn best accuracy: {100*knn_best_accuracy:.2f}%")  
+  print(f"knn worst accuracy: {100*knn_worst_accuracy:.2f}%") 
