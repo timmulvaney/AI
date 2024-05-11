@@ -2187,15 +2187,14 @@
     <bcf:citekey order="3">freedman2007statistics</bcf:citekey>
     <bcf:citekey order="4">hastie2009elements</bcf:citekey>
     <bcf:citekey order="5">he2009learning</bcf:citekey>
-    <bcf:citekey order="6">python311</bcf:citekey>
-    <bcf:citekey order="7">scikit-learn</bcf:citekey>
-    <bcf:citekey order="8">ubuntu</bcf:citekey>
-    <bcf:citekey order="9">TimAIRepo</bcf:citekey>
-    <bcf:citekey order="10">bishop2006pattern</bcf:citekey>
-    <bcf:citekey order="11">breiman2001random</bcf:citekey>
-    <bcf:citekey order="12">tan2005introduction</bcf:citekey>
-    <bcf:citekey order="13">james2013introduction</bcf:citekey>
-    <bcf:citekey order="14">scikit-learn</bcf:citekey>
+    <bcf:citekey order="6">TimAIRepo</bcf:citekey>
+    <bcf:citekey order="7">python311</bcf:citekey>
+    <bcf:citekey order="8">scikit-learn</bcf:citekey>
+    <bcf:citekey order="9">bishop2006pattern</bcf:citekey>
+    <bcf:citekey order="10">breiman2001random</bcf:citekey>
+    <bcf:citekey order="11">tan2005introduction</bcf:citekey>
+    <bcf:citekey order="12">james2013introduction</bcf:citekey>
+    <bcf:citekey order="13">scikit-learn</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

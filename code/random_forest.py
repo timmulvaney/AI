@@ -26,7 +26,7 @@ def random_forest(local_df):
   # df_copy.drop(columns=['bill_length_mm'], inplace =True)
   # df_copy.drop(columns=['bill_depth_mm'], inplace =True)
   # df_copy.drop(columns=['flipper_length_mm'], inplace =True)
-  df_copy.drop(columns=['body_mass_g'], inplace =True)
+  # df_copy.drop(columns=['body_mass_g'], inplace =True)
   
   # separate features and target
   X = df_copy.drop('species', axis=1)
@@ -42,11 +42,11 @@ def random_forest(local_df):
   }
 
   # find best metaparameters
-  # train_random_forest(param_grid, X, y)
+  train_random_forest(param_grid, X, y)
   
   # this is the set of best parameters - this needs to be filled in manually at present
   param_grid = {
-    'n_estimators': [15],  # Number of trees in the forest
+    'n_estimators': [10],  # Number of trees in the forest
     'max_depth': [None],  # Maximum depth of the trees
     'min_samples_split': [2],  # Minimum number of samples required to split a node
     'min_samples_leaf': [1],  # Minimum number of samples required at each leaf node
@@ -102,6 +102,14 @@ def train_random_forest(param_grid, X, y):
     # keep the sum of the accuracies so far
     rf_accuracy += accuracy_score(y_test, y_pred)
 
+    if (random_state==1):
+      rf_best_accuracy = test_accuracy
+      rf_worst_accuracy = test_accuracy
+    else:
+      if(test_accuracy>rf_best_accuracy):
+        rf_best_accuracy = test_accuracy
+      if(test_accuracy<rf_worst_accuracy):
+        rf_worst_accuracy = test_accuracy
 
   # print count of best parameters
   for params, count in best_params_count.items():
@@ -109,3 +117,5 @@ def train_random_forest(param_grid, X, y):
 
   # overall accuracy for evaluating the model
   print(f"Random forest accuracy: {100*rf_accuracy/rf_max:.2f}%")
+  print(f"Random forest best accuracy: {100*rf_best_accuracy:.2f}%")  
+  print(f"Random forest worst accuracy: {100*rf_worst_accuracy:.2f}%") 
