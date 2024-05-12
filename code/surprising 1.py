@@ -1,7 +1,7 @@
 from globals import * 
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
-from sklearn.preprocessing import StandardScaler
+
 from sklearn import __version__
 
 print(__version__)
@@ -287,44 +287,24 @@ def surprising(local_df, custom_colors):
   # X_train = scaler.fit_transform(X_train)
   # X_test = scaler.transform(X_test)
   
-  # Define the parameter grid to search
-  param_grid_train = {
-    'C': [0.1, 1, 10, 100],  # Regularization parameter
-    'gamma': [1, 0.1, 0.01, 0.001],  # Kernel coefficient
-    'kernel': ['rbf', 'linear', 'poly']  # Kernel type
-  }
-
-  # find best metaparameters
-  train_svm(param_grid_train, X_in, y_in)
-  
-  # Define the parameter grid, use best set of metaparameters to get the test set result - this needs to be filled in manually at present
-  param_grid_test = {
-    'C': [10],  # Regularization parameter
-    'gamma': [1],  # Kernel coefficient
-    'kernel': ['linear']  # Kernel type
-  }
- 
-  # use best set of metaparameters to get the test set result - this needs to be filled in manually at present
-  train_svm(param_grid_test, X_in, y_in)
-
-
-# perform the knn training and testing
-def train_svm(param_grid, X, y):
-
   # the sum of the accuracies from all the logistic regression tests
   svm_accuracy = 0
 
   # number of random states to try
   svm_max = 100
-
-  # initialize counts of best parameters
-  best_params_count = {}
+  
+  # Define the parameter grid
+  param_grid = {
+    'C': [0.1, 1, 10, 100],  # Regularization parameter
+    'gamma': [1, 0.1, 0.01, 0.001],  # Kernel coefficient
+    'kernel': ['rbf', 'linear', 'poly']  # Kernel type
+  }
 
   # train and find accuracy for svn_max random states
   for random_state in range (1,svm_max+1):
     
     # divide into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=random_state)
+    X_train, X_test, y_train, y_test = train_test_split(X_in, y_in, test_size=0.2, random_state=random_state)
 
     # Standardize features by removing the mean and scaling to unit variance
     scaler = StandardScaler()
@@ -345,14 +325,8 @@ def train_svm(param_grid, X, y):
     # y_pred = svm_classifier.predict(X_test)
 
     # Print the best parameters found
-    print("random state:", random_state, " Best parameters:", svm_classifier.best_params_)
-  
-    # make hashable
-    best_params_tuple = tuple(sorted(svm_classifier.best_params_.items()))
+    print("Best parameters:", svm_classifier.best_params_)
     
-    # increment the count for the current best parameters
-    best_params_count[best_params_tuple] = best_params_count.get(best_params_tuple, 0) + 1
-
     # Evaluate the model on the test set
     accuracy = svm_classifier.score(X_test, y_test)
     print("Test accuracy:", accuracy)
@@ -360,7 +334,7 @@ def train_svm(param_grid, X, y):
     # Calculate accuracy
     # test_accuracy = accuracy_score(y_test, y_pred)
     # print(f"Test Accuracy on random set {random_state}: {test_accuracy}")
-
+ 
     # keep the sum of the accuracies so far
     # svm_accuracy += accuracy_score(y_test, y_pred)
     svm_accuracy += accuracy
@@ -373,10 +347,6 @@ def train_svm(param_grid, X, y):
         svm_best_accuracy = accuracy
       if(accuracy<svm_worst_accuracy):
         svm_worst_accuracy = accuracy
-
-  # print count of best parameters
-  for params, count in best_params_count.items():
-    print("Parameters:", dict(params), "Count:", count)
 
   # overall accuracy for evaluating the model
   print(f"svm accuracy: {100*svm_accuracy/svm_max:.2f}%")

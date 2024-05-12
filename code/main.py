@@ -79,10 +79,10 @@ clean_df = clean(df)
 # knn(clean_df)
 
 # random forest analysis
-random_forest(clean_df)
+# random_forest(clean_df)
 
 # k means
-# kmeans(clean_df)
+kmeans(clean_df)
 
 # unusual and interesting mix of visualization and classification? 
 # surprising(clean_df, custom_colors)

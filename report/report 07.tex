@@ -224,7 +224,9 @@ they are not included in this report.
 \subsection*{Results and analysis}
 Scikit-Learn provides pseudo-random procedures for selecting validation and test set values and 100 of these were used 
 both when selecting metaparameters and when deriving accuracy results.
-The results in Table~\ref{tab:results} include a baseline that is used to demonstrate performance improvements achieved by the AI methods being considered. 
+
+The results in Table~\ref{tab:results} include a baseline that is used to demonstrate performance improvements 
+achieved by the AI methods. In classification, 
 \begin{wraptable}{r}{0.49\textwidth} % {alignment}{width}
   \small
   \begin{center}
@@ -257,7 +259,7 @@ The results in Table~\ref{tab:results} include a baseline that is used to demons
   \vspace{-0.5\baselineskip} % Remove space after the table
   \label{tab:results}
 \end{wraptable} 
-In classification, the baseline method is often simply to select the most frequent class in the observations and, 
+the baseline method is often simply to select the most frequent class in the observations and, 
 in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/338).
 
 

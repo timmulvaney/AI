@@ -14,12 +14,12 @@ def kmeans(local_df):
   # create all Male version of dataframe
   male = df[df['sex'] != 'Female']
   male.to_csv('penguin_cleaned_male.csv', index = False)
-  # df = male   # uncomment so male only
+  #df = male   # uncomment so male only
 
   # create all Gemale version of dataframe
   female = df[df['sex'] != 'Male']
   female.to_csv('penguin_cleaned_female.csv', index = False)
-  df = female     # uncomment so female only
+  # df = female     # uncomment so female only
 
   print(df.head())
 
@@ -196,7 +196,7 @@ def kmeans(local_df):
   }
 
   # List of random states to consider for additional robustness in finding the best init
-  random_states = range(1,100)
+  random_states = range(10)
 
   # Placeholders for the best score and parameters based on validation set
   best_avg_score = -1
@@ -244,13 +244,22 @@ def kmeans(local_df):
                       print("best_avg_score so far:", best_avg_score)
                       best_params = {'n_clusters': n_clusters, 'init': init, 'n_init': n_init, 'max_iter': max_iter}
 
+                  # if (random_state==0):
+                  #   knn_best_accuracy = test_accuracy
+                  #   knn_worst_accuracy = test_accuracy
+                  # else:
+                  #   if(test_accuracy>knn_best_accuracy):
+                  #     knn_best_accuracy = test_accuracy
+                  #   if(test_accuracy<knn_worst_accuracy):
+                  #     knn_worst_accuracy = test_accuracy
+
 
   # Return accuracy of model on test dataset
 
 
                       
   # the number of separate tests using random forest classification (kmeans_max > 0)
-  kmeans_max = 100
+  kmeans_max = 10
 
   # the sum of the accuracies from all the random forest tests
   kmeans_accuracy = 0
@@ -290,20 +299,9 @@ def kmeans(local_df):
     # keep the sum of the accuracies so far
     kmeans_accuracy += accuracy_test
 
-    
-    if (random_state==1):
-      km_best_accuracy = accuracy_test
-      km_worst_accuracy = accuracy_test
-    else:
-      if(accuracy_test>km_best_accuracy):
-        km_best_accuracy = accuracy_test
-      if(accuracy_test<km_worst_accuracy):
-        km_worst_accuracy = accuracy_test
-
   # overall accuracy for evaluating the model
   print(f"kmeans accuracy for all random states: {100*kmeans_accuracy/kmeans_max:.2f}%")
-  print(f"knn best accuracy: {100*km_best_accuracy:.2f}%")  
-  print(f"knn worst accuracy: {100*km_worst_accuracy:.2f}%") 
+
 
 
   # Do a plot of cluster areas

@@ -224,7 +224,8 @@ they are not included in this report.
 \subsection*{Results and analysis}
 Scikit-Learn provides pseudo-random procedures for selecting validation and test set values and 100 of these were used 
 both when selecting metaparameters and when deriving accuracy results.
-The results in Table~\ref{tab:results} include a baseline that is used to demonstrate performance improvements achieved by the AI methods being considered. 
+The results in Table~\ref{tab:results} include a baseline that is used to demonstrate 
+performance improvements achieved by the AI methods considered. In classification, the
 \begin{wraptable}{r}{0.49\textwidth} % {alignment}{width}
   \small
   \begin{center}
@@ -240,14 +241,14 @@ The results in Table~\ref{tab:results} include a baseline that is used to demons
   \textit{k}NN, all features & 99.24\% (97.06\%-100\%)\\
   \textit{k}NN, no island &	99.46\% (97.06\%-100\%)\\
   \hline
-  random forest, all features	& 98.49\% (92.65\%-100\%)\\
+  random forest, all features	& 98.57\% (95.59\%-100\%)\\
   random forest, no body mass & 98.49\% (92.65\%-100\%)\\
   \hline
-  \textit{k}-means, numerical features & 97.06\% \\
-  \textit{k}-means, two sex clusters  & 98.23\% \\
+  \textit{k}-means, numerical features & 97.03\% (94.12\%-97.06\%)\\
+  \textit{k}-means, two sex clusters  & 99.18\% (94.12\%-100\%)\\
   \hline
-  CVA, three main features & 98.56\% \\
-  CVA, as above but with sex & 98.78\% \\
+  CVA, three main features & 98.98\% (95.35\%-100\%)\\
+  CVA, separate sex models & 99.25\% (90.91\%-100\%)\\
   \hline
   \end{tabular}
   \vspace{-2\baselineskip} % Remove space before title
@@ -257,9 +258,8 @@ The results in Table~\ref{tab:results} include a baseline that is used to demons
   \vspace{-0.5\baselineskip} % Remove space after the table
   \label{tab:results}
 \end{wraptable} 
-In classification, the baseline method is often simply to select the most frequent class in the observations and, 
+baseline method is often simply to select the most frequent class in the observations and, 
 in this work, this is the Adelie penguins, giving an accuracy of 43.49\% (147/338).
-
 
 \textbf{Classification method 1 - \textit{k}nn}  
 An additional test was carried to investigate if, compared to the accuracy found for all features, 
@@ -278,11 +278,11 @@ An improvement was found when island was omitted and when \textit{k}=3. It appea
 any additional information and the higher value of \textit{k} implies better generalization may have been achieved.
 
 \textbf{Classification method 2 - Random forest}  
-Including all of the features in the analysis gave an accuracy marginally better 
+Including all of the features in the analysis gave an accuracy marginally worse 
 than achieved using \textit{k}nn. 
-In contrast with \textit{k}nn, no performance improvement was found using fewer features, indicating that 
-considerably less implementation effort is needed to achieve good performance using random forest. 
-A marginal improvement in performance was apparent when island, flipper length or body mass were not included in training.
+In contrast with \textit{k}nn, no performance improvement was found using fewer features, indicating that random forest
+may be less influenced by superfluous features in training data. 
+For selected test sets, 100\% accuracy is possible, but the trained systems is likely to exhibit poor generalization.
 
 \textbf{Unsupervised method - \textit{k}-means}  
 Although a clustering method, 
@@ -303,12 +303,12 @@ this led to a small improvement in accuracy.
   \vspace{-0.5\baselineskip} % Remove space before title
   \caption{\centering\linespread{0.8}\selectfont \textit{k}-means clusters mapped to species using majority voting. 
   Class assignments are shown by polygon colour (\textit{k}=10, 50 samples coloured).}
-  \vspace{-0.5\baselineskip} % Remove space before title
+  \vspace{-1\baselineskip} % Remove space before title
   \label{fig:kmeansmap}
 \end{wrapfigure}
 
 \textbf{A novel combined visualization and analysis (CVA) approach}  
-The CVA approach involves visualizing pairwise plots of features 
+The CVA approach involves visualizing selected pairwise plots of features 
 to identify a sequence of two-dimensional SVM classifiers. 
 CVA requires manual effort to understand the nature of the dataset, 
 in contrast with `black box' classification approaches that are often applied with limited knowledge 
@@ -317,10 +317,10 @@ The main drawback of the CVA approach is that it may not always be feasible to e
 particularly for large dimensional datasets. 
 
 An application of CVA to the Penguin dataset is illustrated in Figure~\ref{fig:CVA}. 
-Figure~\ref{fig:CVA_part_a} shows the relationship between bill depth and flipper length and, 
-SVM is used to find a suitable `decision boundary' that separates Gentoo from the other two species. 
-Figure~\ref{fig:CVA_part_b} then shows a second SVM line that best separates Adelie and Chinstrap using bill length and bill depth. 
-CVA was able to produce results of accuracy almost as good as conventional approaches and a small improvement 
+Figure~\ref{fig:CVA}(a) shows the relationship between bill depth and flipper length, and
+SVM determines finds a suitable `decision boundary' to separate Gentoo from the other two species. 
+Figure~\ref{fig:CVA}(b) plots bill length against bill depth and shows a second SVM line to best separate Adelie and Chinstrap . 
+CVA was able to produce results of accuracy similar to conventional approaches. A small improvement in accuracy
 was apparent when separate SVM models were developed for each penguin sex.
 
 \begin{figure}[!ht]
@@ -329,7 +329,7 @@ was apparent when separate SVM models were developed for each penguin sex.
     \centering
     \includegraphics[width=1\textwidth]{sup_fliplen_billdepth.png} % Adjust the width as needed
     \caption{Gentoo can be distingushed from other species}
-    \vspace{-2.2\baselineskip} % Remove space before title
+    \vspace{-1.5\baselineskip} % Remove space before title
     \label{fig:CVA_part_a}
   \end{subfigure}
   \hfill
@@ -337,14 +337,14 @@ was apparent when separate SVM models were developed for each penguin sex.
     \centering
     \includegraphics[width=1\textwidth]{sup_billlen_billdepth.png} % Adjust the width as needed
     \caption{Adelie and Chinstrap can be partially separated}
-    \vspace{-2.2\baselineskip} % Remove space before title
+    \vspace{-1.5\baselineskip} % Remove space before title
     \label{fig:CVA_part_b}
   \end{subfigure}
-  \vspace{2\baselineskip} % Remove space before title
+  \vspace{1\baselineskip} % Remove space before title
   \caption{\centering\linespread{0.8}\selectfont Two-stage CVA approach with boundaries fitted using SVM 
   to training data of feature pairs}
   \label{fig:CVA}
-  \vspace{-1.5\baselineskip} % Remove space after title
+  \vspace{-1.4\baselineskip} % Remove space after title
 \end{figure}
 % \vspace{\baselineskip}
 \subsection*{Conclusions}
@@ -359,8 +359,6 @@ similar to those of other classification methods.
 Although needing to be tailored to each problem and not well-suited to high-dimensionality data, 
 its internal operations are transparent and this is in contrast with general-purpose classification methods. 
 
-A classifier that is able to achieve 100\% accuracy for the given data is possible, 
-but is likely exhibit poor generalization.
 
 \printbibliography
 

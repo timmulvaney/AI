@@ -22,11 +22,11 @@ def random_forest(local_df):
 
   # comment out the following if the corresponding feature is to be dropped
   # df_copy.drop(columns=['island'], inplace =True)
-  # df_copy.drop(columns=['sex'], inplace =True)
+  df_copy.drop(columns=['sex'], inplace =True)
   # df_copy.drop(columns=['bill_length_mm'], inplace =True)
   # df_copy.drop(columns=['bill_depth_mm'], inplace =True)
   # df_copy.drop(columns=['flipper_length_mm'], inplace =True)
-  # df_copy.drop(columns=['body_mass_g'], inplace =True)
+  df_copy.drop(columns=['body_mass_g'], inplace =True)
   
   # separate features and target
   X = df_copy.drop('species', axis=1)
@@ -46,6 +46,7 @@ def random_forest(local_df):
   
   # this is the set of best parameters - this needs to be filled in manually at present
   param_grid = {
+  #  'n_estimators': [10, 15, 20, 25],  # Number of trees in the forest
     'n_estimators': [10],  # Number of trees in the forest
     'max_depth': [None],  # Maximum depth of the trees
     'min_samples_split': [2],  # Minimum number of samples required to split a node
