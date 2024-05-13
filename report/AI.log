@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.21)  13 MAY 2024 16:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.21)  13 MAY 2024 23:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -618,36 +618,35 @@ Package biblatex Info: ... file 'AI.bbl' found.
  (./AI.bbl)
 Package biblatex Info: Reference section=0 on input line 52.
 Package biblatex Info: Reference segment=0 on input line 52.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (29.23778pt too wide) in paragraph at lines 68--81
+Overfull \hbox (29.23778pt too wide) in paragraph at lines 69--82
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--85
-\OT1/cmr/m/n/10.95 species of pen-guin liv-ing on three is-lands in Antarc-tica
- (Ta-ble 1[]) [1].
+Underfull \hbox (badness 4024) in paragraph at lines 86--90
+[]\OT1/cmr/m/n/10.95 consideration is given
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 85--89
-\OT1/cmr/m/n/10.95 clean-ing and prepa-ra-
+Underfull \hbox (badness 2951) in paragraph at lines 86--90
+\OT1/cmr/m/n/10.95 to data clean-ing and
  []
 
 
-Underfull \hbox (badness 3769) in paragraph at lines 85--89
-\OT1/cmr/m/n/10.95 al-iza-tion and anal-y-sis
+Underfull \hbox (badness 1552) in paragraph at lines 86--90
+\OT1/cmr/m/n/10.95 proaches in clas-si-fy-ing
  []
 
 <sex.png, id=1, 427.1157pt x 307.8702pt>
@@ -655,6 +654,11 @@ File: sex.png Graphic file (type png)
 <use sex.png>
 Package pdftex.def Info: sex.png  used on input line 97.
 (pdftex.def)             Requested size: 200.75996pt x 144.70839pt.
+<islands.png, id=3, 412.6617pt x 288.3573pt>
+File: islands.png Graphic file (type png)
+<use islands.png>
+Package pdftex.def Info: islands.png  used on input line 134.
+(pdftex.def)             Requested size: 200.75996pt x 140.2843pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 13.59999pt.
@@ -664,164 +668,128 @@ This may cause the page layout to be inconsistent, however.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./sex.png>]
-<islands.png, id=12, 412.6617pt x 288.3573pt>
-File: islands.png Graphic file (type png)
-<use islands.png>
-Package pdftex.def Info: islands.png  used on input line 136.
-(pdftex.def)             Requested size: 200.75996pt x 140.2843pt.
+
+Package wrapfig Warning: Collision between wrapping environments on input line 
+146.
+
 <pairwise.png, id=13, 867.24pt x 792.0792pt>
 File: pairwise.png Graphic file (type png)
 <use pairwise.png>
-Package pdftex.def Info: pairwise.png  used on input line 152.
+Package pdftex.def Info: pairwise.png  used on input line 149.
 (pdftex.def)             Requested size: 242.58789pt x 221.56311pt.
 
-Underfull \hbox (badness 1112) in paragraph at lines 159--163
-\OT1/cmr/m/n/10.95 species. Re-sults re-ported later
- []
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 164--170
-[]\OT1/cmr/m/n/10.95 Pairwise scat-ter-plots for the
- []
-
-
-Underfull \hbox (badness 1616) in paragraph at lines 164--170
-\OT1/cmr/m/n/10.95 pair-wise com-bi-na-tion com-pletely
- []
-
-
-Underfull \hbox (badness 3690) in paragraph at lines 164--170
-\OT1/cmr/m/n/10.95 sep-a-rates Adelie (or-ange) from
- []
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 15
+7.
 
 [2 <./islands.png> <./pairwise.png>]
-Overfull \hbox (10.16963pt too wide) in paragraph at lines 205--231
+Overfull \hbox (10.16963pt too wide) in paragraph at lines 188--214
  [] 
  []
 
 
-Package wrapfig Warning: wraptable used inside a conflicting environment on inp
-ut line 243.
+Overfull \hbox (5.82587pt too wide) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 over-fit-ting, the clas-si-fi-ca-tion meth-
+ []
 
 
-Overfull \hbox (54.27625pt too wide) in paragraph at lines 250--269
+Underfull \hbox (badness 6032) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 ods (all but \OT1/cmr/m/it/10.95 k\OT1/cmr/m/n/10.95 -means)
+ were
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 trained us-ing `hold-out val-i-da-
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 was used in a five-fold cross-
+ []
+
+
+Overfull \hbox (0.797pt too wide) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 validation con-fig-u-ra-tion [12]. The
+ []
+
+
+Underfull \hbox (badness 3601) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 test set. For all meth-ods,
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 221--230
+\OT1/cmr/m/n/10.95 meta-pa-ram-e-ters [8]. Ta-ble 2[]
+ []
+
+
+Overfull \hbox (16.63495pt too wide) in paragraph at lines 241--260
  [] 
  []
 
 
-Overfull \hbox (18.57048pt too wide) in paragraph at lines 239--274
-\OT1/cmr/m/n/10.95 Scikit-Learn pro-vides pseudo-random
- []
-
-
-Overfull \hbox (2.60172pt too wide) in paragraph at lines 239--274
-\OT1/cmr/m/n/10.95 pro-ce-dures for se-lect-ing val-i-da-tion
- []
-
-
-Overfull \hbox (4.76129pt too wide) in paragraph at lines 239--274
-\OT1/cmr/m/n/10.95 and test set val-ues and 100 of these
- []
-
-
-Overfull \hbox (13.18668pt too wide) in paragraph at lines 239--274
-\OT1/cmr/m/n/10.95 were used both when se-lect-ing meta-
- []
-
-
-Overfull \hbox (0.71587pt too wide) in paragraph at lines 239--274
-\OT1/cmr/m/n/10.95 pa-ram-e-ters and when de-riv-ing ac-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--274
-\OT1/cmr/m/n/10.95 ca-tion, the
- []
-
-
-Package wrapfig Warning: Stationary wraptable forced to float on input line 274
-.
-
-
-Overfull \hbox (29.79427pt too wide) in paragraph at lines 274--277
-\OT1/cmr/m/n/10.95 giv-ing an ac-cu-racy of 43.49% (147/338). 
- []
-
-
-Package wrapfig Warning: Collision between wrapping environments on input line 
-281.
-
-<kmeansvalue.png, id=19, 700.2963pt x 427.8384pt>
-File: kmeansvalue.png Graphic file (type png)
-<use kmeansvalue.png>
-Package pdftex.def Info: kmeansvalue.png  used on input line 284.
-(pdftex.def)             Requested size: 200.75996pt x 122.6533pt.
-
-Overfull \hbox (8.36047pt too wide) in paragraph at lines 284--287
- [][] 
+Underfull \hbox (badness 2837) in paragraph at lines 267--274
+\OT1/cmr/m/n/10.95 e-ters and when de-riv-ing ac-cu-
  []
 
 [3]
-
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 29
-0.
-
-<kmeansmap.png, id=25, 635.976pt x 419.8887pt>
+<kmeansmap.png, id=24, 635.976pt x 419.8887pt>
 File: kmeansmap.png Graphic file (type png)
 <use kmeansmap.png>
-Package pdftex.def Info: kmeansmap.png  used on input line 316.
+Package pdftex.def Info: kmeansmap.png  used on input line 300.
 (pdftex.def)             Requested size: 200.75996pt x 132.54755pt.
 
-Underfull \hbox (badness 1337) in paragraph at lines 324--332
-\OT1/cmr/m/n/10.95 CVA ap-proach in-volves vi-su-al-iz-ing se-
+Overfull \hbox (8.9475pt too wide) in paragraph at lines 308--317
+[][]\OT1/cmr/bx/it/10.95 k\OT1/cmr/bx/n/10.95 -means \OT1/cmr/m/n/10.95 Al-thou
+gh a clus-ter-ing method,
  []
 
-[4 <./kmeansvalue.png> <./kmeansmap.png>]
-<sup_fliplen_billdepth.png, id=33, 625.8582pt x 438.6789pt>
+<sup_fliplen_billdepth.png, id=25, 625.8582pt x 438.6789pt>
 File: sup_fliplen_billdepth.png Graphic file (type png)
 <use sup_fliplen_billdepth.png>
-Package pdftex.def Info: sup_fliplen_billdepth.png  used on input line 344.
+Package pdftex.def Info: sup_fliplen_billdepth.png  used on input line 332.
 (pdftex.def)             Requested size: 196.57973pt x 137.78964pt.
-<sup_billlen_billdepth.png, id=34, 619.3539pt x 437.9562pt>
+<sup_billlen_billdepth.png, id=26, 619.3539pt x 437.9562pt>
 File: sup_billlen_billdepth.png Graphic file (type png)
 <use sup_billlen_billdepth.png>
-Package pdftex.def Info: sup_billlen_billdepth.png  used on input line 352.
+Package pdftex.def Info: sup_billlen_billdepth.png  used on input line 340.
 (pdftex.def)             Requested size: 196.57973pt x 139.0061pt.
- [5 <./sup_fliplen_billdepth.png> <./sup_billlen_billdepth.png>] [6]
-Overfull \hbox (2.87767pt too wide) in paragraph at lines 397--397
+[4 <./kmeansmap.png> <./sup_fliplen_billdepth.png> <./sup_billlen_billdepth.png
+>] [5]
+Overfull \hbox (2.87767pt too wide) in paragraph at lines 385--385
 []\OT1/cmr/m/n/10.95 Python Soft-ware Foun-da-tion. \OT1/cmr/m/it/10.95 Python 
 3.11 Doc-u-men-ta-tion\OT1/cmr/m/n/10.95 . $\OT1/cmtt/m/n/10.95 https : / / doc
 s . python .
  []
 
-
-Overfull \hbox (18.6795pt too wide) in paragraph at lines 397--397
+[6]
+Overfull \hbox (18.6795pt too wide) in paragraph at lines 385--385
 \OT1/cmtt/m/n/10.95 20230601STO93804 / eu -[] ai -[] act -[] first -[] regulati
 on -[] on -[] artificial -[] intelligence$\OT1/cmr/m/n/10.95 .
  []
 
-[7]
-Overfull \hbox (9.71945pt too wide) in paragraph at lines 397--397
+
+Overfull \hbox (9.71945pt too wide) in paragraph at lines 385--385
 []\OT1/cmr/m/n/10.95 M. L. Cum-mings. \OT1/cmr/m/it/10.95 Ar-ti-fi-cial In-tel-
 li-gence and the Fu-ture of War-fare\OT1/cmr/m/n/10.95 . Lon-don: Chatham
  []
 
 
-Overfull \hbox (6.6921pt too wide) in paragraph at lines 397--397
+Overfull \hbox (6.6921pt too wide) in paragraph at lines 385--385
 \OT1/cmr/m/it/10.95 War-fare\OT1/cmr/m/n/10.95 . [On-line]. Avail-able: $\OT1/c
 mtt/m/n/10.95 https : / / www . brookings . edu / articles / loitering -[]
  []
 
-[8] (./AI.aux)
+[7] [8] (./AI.aux)
 Package logreq Info: Writing requests to 'AI.run.xml'.
 \openout1 = `AI.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11782 strings out of 483183
- 209579 string characters out of 5966292
- 837463 words of memory out of 5000000
- 26637 multiletter control sequences out of 15000+600000
+ 11775 strings out of 483183
+ 209453 string characters out of 5966292
+ 837455 words of memory out of 5000000
+ 26631 multiletter control sequences out of 15000+600000
  542997 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,15n,45p,914b,1217s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -836,10 +804,10 @@ pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb>
-Output written on AI.pdf (8 pages, 1074264 bytes).
+Output written on AI.pdf (8 pages, 1026032 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
