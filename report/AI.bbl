@@ -1,0 +1,1048 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{PM}{report}{}
+      \name{author}{3}{}{%
+        {{hash=fbcffad3ec613b82d5e19028a516fbdc}{%
+           family={Horst},
+           familyi={H\bibinitperiod},
+           given={Allison\bibnamedelima Marie},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=370325e34513cbd04ffa886168b36b26}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Alison\bibnamedelima Presmanes},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=d80aca42ed31bba223a96d2f82df5bf2}{%
+           family={Gorman},
+           familyi={G\bibinitperiod},
+           given={Kristen\bibnamedelima B},
+           giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{fullhash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{bibnamehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{authorbibnamehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{authornamehash}{112243af1b71a19ca303ea62f13f3449}
+      \strng{authorfullhash}{112243af1b71a19ca303ea62f13f3449}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{R package version 0.1.0}
+      \field{title}{palmerpenguins: Palmer Archipelago (Antarctica) penguin data}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.5281/zenodo.3960218
+      \endverb
+      \verb{urlraw}
+      \verb https://allisonhorst.github.io/palmerpenguins/
+      \endverb
+      \verb{url}
+      \verb https://allisonhorst.github.io/palmerpenguins/
+      \endverb
+    \endentry
+    \entry{shapiro1965analysis}{article}{}
+      \name{author}{2}{}{%
+        {{hash=caf206d66b314b912c0d88a0eb22a338}{%
+           family={Shapiro},
+           familyi={S\bibinitperiod},
+           given={Samuel\bibnamedelima S},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=8200befcf64f857666244e8fc1588ba2}{%
+           family={Wilk},
+           familyi={W\bibinitperiod},
+           given={Maurice\bibnamedelima B},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{fullhash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{bibnamehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{authorbibnamehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{authornamehash}{80bdc1c3797ed9789b94ba2248974c46}
+      \strng{authorfullhash}{80bdc1c3797ed9789b94ba2248974c46}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biometrika}
+      \field{number}{3/4}
+      \field{title}{An analysis of variance test for normality (complete samples)}
+      \field{volume}{52}
+      \field{year}{1965}
+      \field{pages}{591\bibrangedash 611}
+      \range{pages}{21}
+    \endentry
+    \entry{freedman2007statistics}{book}{}
+      \name{author}{3}{}{%
+        {{hash=7396ccf082b609137d9256e7354f6228}{%
+           family={Freedman},
+           familyi={F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cdec4cb2cdaa2e414896a88c7f7b9b41}{%
+           family={Pisani},
+           familyi={P\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=769d0dfff57bc7932d72a5575819934b}{%
+           family={Purves},
+           familyi={P\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {W. W. Norton \& Company}%
+      }
+      \strng{namehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{fullhash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{bibnamehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{authorbibnamehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{authornamehash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \strng{authorfullhash}{d4af681498b5fa4cdaa1afd62d16591b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0393929720}
+      \field{title}{Statistics}
+      \field{year}{2007}
+    \endentry
+    \entry{hastie2009elements}{book}{}
+      \name{author}{3}{}{%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=971cf69058b64a94326dea0f2a8bbcce}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authornamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0387848570}
+      \field{title}{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}
+      \field{year}{2009}
+    \endentry
+    \entry{he2009learning}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bb5eb80bb4dc903dbeef6eb15c0155e5}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Haibo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=19b8b7adc1376a6a3a66c3a5f24c61c9}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Yunqian},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{fullhash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{bibnamehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{authorbibnamehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{authornamehash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \strng{authorfullhash}{0f521695f6e76b1f94bc30e8087fa0a6}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Knowledge and Data Engineering, IEEE Transactions on}
+      \field{number}{9}
+      \field{title}{Learning from imbalanced data}
+      \field{volume}{21}
+      \field{year}{2009}
+      \field{pages}{1263\bibrangedash 1284}
+      \range{pages}{22}
+    \endentry
+    \entry{TimAIRepo}{software}{}
+      \name{author}{1}{}{%
+        {{hash=2f371a64a8cb2e0ae4d19a293edcd68c}{%
+           family={Mulvaney},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{fullhash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{bibnamehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{authorbibnamehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{authornamehash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \strng{authorfullhash}{2f371a64a8cb2e0ae4d19a293edcd68c}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AI coursework repository}}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://github.com/timmulvaney/AI
+      \endverb
+      \verb{url}
+      \verb https://github.com/timmulvaney/AI
+      \endverb
+    \endentry
+    \entry{python311}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c7b5508dc5e59a2846d22617276cc27c}{%
+           family={{Python Software Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{fullhash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{bibnamehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{authorbibnamehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{authornamehash}{c7b5508dc5e59a2846d22617276cc27c}
+      \strng{authorfullhash}{c7b5508dc5e59a2846d22617276cc27c}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.python.org/3.11/}}
+      \field{title}{Python 3.11 Documentation}
+      \field{year}{2022}
+    \endentry
+    \entry{scikit-learn}{software}{}
+      \name{author}{1}{}{%
+        {{hash=64288955ec1628b061254b56453e17a4}{%
+           family={{scikit-learn contributors}},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{64288955ec1628b061254b56453e17a4}
+      \strng{fullhash}{64288955ec1628b061254b56453e17a4}
+      \strng{bibnamehash}{64288955ec1628b061254b56453e17a4}
+      \strng{authorbibnamehash}{64288955ec1628b061254b56453e17a4}
+      \strng{authornamehash}{64288955ec1628b061254b56453e17a4}
+      \strng{authorfullhash}{64288955ec1628b061254b56453e17a4}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{scikit-learn: Machine Learning in Python}}
+      \field{version}{1.2.2}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://scikit-learn.org
+      \endverb
+      \verb{url}
+      \verb https://scikit-learn.org
+      \endverb
+    \endentry
+    \entry{bishop2006pattern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Pattern Recognition and Machine Learning}
+      \field{year}{2006}
+    \endentry
+    \entry{breiman2001random}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=132b7100417675d55d5d4d8b244f7a34}{%
+           family={Breiman},
+           familyi={B\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ea9492aa5759b3542d9fe2f1d62b3412}{%
+           family={Cutler},
+           familyi={C\bibinitperiod},
+           given={Adele},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{fullhash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{bibnamehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{authorbibnamehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{authornamehash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \strng{authorfullhash}{915e559f2abbaabdb2638b5e847e5ae8}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Machine Learning}
+      \field{number}{1}
+      \field{title}{Random Forests}
+      \field{volume}{45}
+      \field{year}{2001}
+      \field{pages}{5\bibrangedash 32}
+      \range{pages}{28}
+    \endentry
+    \entry{tan2005introduction}{book}{}
+      \name{author}{3}{}{%
+        {{hash=86a8d7a88b3690035ad60e47af41a2af}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Pang-Ning},
+           giveni={P\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=b9765658c356344d0b65e62185a7fbda}{%
+           family={Steinbach},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=efb90d78e35ff61d3bc639f5c6f3d822}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Vipin},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Addison Wesley}%
+      }
+      \strng{namehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{fullhash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{bibnamehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{authorbibnamehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{authornamehash}{c6671104b89c6a346045bc95dabb5434}
+      \strng{authorfullhash}{c6671104b89c6a346045bc95dabb5434}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Data Mining}
+      \field{year}{2005}
+    \endentry
+    \entry{james2013introduction}{book}{}
+      \name{author}{4}{}{%
+        {{hash=df184c5fa522ac8a515ec4de13aef234}{%
+           family={James},
+           familyi={J\bibinitperiod},
+           given={Gareth},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1ab16961e0de50711fa6bd9425f9b4a6}{%
+           family={Witten},
+           familyi={W\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{fullhash}{da61646157a6be769f34984f5cb603b0}
+      \strng{bibnamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{authorbibnamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{authornamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{authorfullhash}{da61646157a6be769f34984f5cb603b0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Introduction to Statistical Learning: with Applications in R}
+      \field{year}{2013}
+    \endentry
+    \entry{Jemielity2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1a74aa15ceea7b38b6f76499c9e0d351}{%
+           family={Jemielity},
+           familyi={J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a74aa15ceea7b38b6f76499c9e0d351}
+      \strng{fullhash}{1a74aa15ceea7b38b6f76499c9e0d351}
+      \strng{bibnamehash}{1a74aa15ceea7b38b6f76499c9e0d351}
+      \strng{authorbibnamehash}{1a74aa15ceea7b38b6f76499c9e0d351}
+      \strng{authornamehash}{1a74aa15ceea7b38b6f76499c9e0d351}
+      \strng{authorfullhash}{1a74aa15ceea7b38b6f76499c9e0d351}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online]. Available: \url{https://news.uchicago.edu/story/health-care-prediction-algorithm-biased-against-black-patients-study-finds}. [Accessed 27 03 2024]}
+      \field{title}{Health care prediction algorithm biased against black patients, study finds}
+      \field{year}{2019}
+    \endentry
+    \entry{Ledford2019}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e7b5c8b304467f85ae0953ec3b41ce4c}{%
+           family={Ledford},
+           familyi={L\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{e7b5c8b304467f85ae0953ec3b41ce4c}
+      \strng{fullhash}{e7b5c8b304467f85ae0953ec3b41ce4c}
+      \strng{bibnamehash}{e7b5c8b304467f85ae0953ec3b41ce4c}
+      \strng{authorbibnamehash}{e7b5c8b304467f85ae0953ec3b41ce4c}
+      \strng{authornamehash}{e7b5c8b304467f85ae0953ec3b41ce4c}
+      \strng{authorfullhash}{e7b5c8b304467f85ae0953ec3b41ce4c}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{month}{10}
+      \field{title}{Millions Affected by Racial Bias in Health-care Algorithm}
+      \field{volume}{574}
+      \field{year}{2019}
+      \field{pages}{608\bibrangedash 609}
+      \range{pages}{2}
+    \endentry
+    \entry{Obermeyer2019}{article}{}
+      \name{author}{4}{}{%
+        {{hash=48627c2e818a6ac73a72702304289108}{%
+           family={Obermeyer},
+           familyi={O\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=037f56c5ed77b0ef34e511412fd0e806}{%
+           family={Powers},
+           familyi={P\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0e31ebb33c369db1084e8e30dfb7f323}{%
+           family={Vogeli},
+           familyi={V\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e0dbb370d319a5ff72be8fc0e0256060}{%
+           family={Mullainathan},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{445b34816f93e959b15aedcf0663a845}
+      \strng{fullhash}{5df4387e4c49baac30e770d73aa60c22}
+      \strng{bibnamehash}{445b34816f93e959b15aedcf0663a845}
+      \strng{authorbibnamehash}{445b34816f93e959b15aedcf0663a845}
+      \strng{authornamehash}{445b34816f93e959b15aedcf0663a845}
+      \strng{authorfullhash}{5df4387e4c49baac30e770d73aa60c22}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{month}{10}
+      \field{title}{Dissecting racial bias in an algorithm used to manage the health of populations}
+      \field{volume}{366}
+      \field{year}{2019}
+      \field{pages}{447\bibrangedash 453}
+      \range{pages}{7}
+    \endentry
+    \entry{Seroussi2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=6e71e47cd27104a73f90408e6bfa695a}{%
+           family={Séroussi},
+           familyi={S\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1c0a78e79e8791284569d5d02aec8d5a}{%
+           family={Hollis},
+           familyi={H\bibinitperiod},
+           given={K.\bibnamedelimi F.},
+           giveni={K\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=e861020693fa19174b622ba8d17dc6e0}{%
+           family={Soualmia},
+           familyi={S\bibinitperiod},
+           given={L.\bibnamedelimi F.},
+           giveni={L\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5db9a0124249efe4c17fe8a42a9f9967}
+      \strng{fullhash}{5db9a0124249efe4c17fe8a42a9f9967}
+      \strng{bibnamehash}{5db9a0124249efe4c17fe8a42a9f9967}
+      \strng{authorbibnamehash}{5db9a0124249efe4c17fe8a42a9f9967}
+      \strng{authornamehash}{5db9a0124249efe4c17fe8a42a9f9967}
+      \strng{authorfullhash}{5db9a0124249efe4c17fe8a42a9f9967}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Yearbook of Medical Informatics}
+      \field{number}{01}
+      \field{title}{Transparency of Health Informatics Processes as the Condition of Healthcare Professionals’ and Patients’ Trust and Adoption: the Rise of Ethical Requirements}
+      \field{volume}{29}
+      \field{year}{2020}
+      \field{pages}{007\bibrangedash 010}
+      \range{pages}{4}
+    \endentry
+    \entry{Winter2023}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6fbe90c426a07ccdaa443f0c8efd7bdc}{%
+           family={Winter},
+           familyi={W\bibinitperiod},
+           given={P.\bibnamedelimi D.},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=c982781bc2bb851b27f699626c6ab323}{%
+           family={Carusi},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d6c3f72a238b72102071cb37a994972}
+      \strng{fullhash}{0d6c3f72a238b72102071cb37a994972}
+      \strng{bibnamehash}{0d6c3f72a238b72102071cb37a994972}
+      \strng{authorbibnamehash}{0d6c3f72a238b72102071cb37a994972}
+      \strng{authornamehash}{0d6c3f72a238b72102071cb37a994972}
+      \strng{authorfullhash}{0d6c3f72a238b72102071cb37a994972}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Medical Humanities}
+      \field{number}{1}
+      \field{title}{(De)troubling transparency: {A}rtificial {I}ntelligence ({AI}) for clinical applications}
+      \field{volume}{49}
+      \field{year}{2023}
+      \field{pages}{17\bibrangedash 26}
+      \range{pages}{10}
+    \endentry
+    \entry{EuropeanParliament2023}{online}{}
+      \name{author}{1}{}{%
+        {{hash=c25d305ea83de23a244dd39c979ff060}{%
+           family={Parliament},
+           familyi={P\bibinitperiod},
+           given={European},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{fullhash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{bibnamehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authorbibnamehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authornamehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authorfullhash}{c25d305ea83de23a244dd39c979ff060}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online]. Available: \url{https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence}. [Accessed 27 03 2024]}
+      \field{title}{EU {AI} Act: first regulation on artificial intelligence}
+      \field{year}{2023}
+    \endentry
+    \entry{Edwards2021}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4f62e43042df5e701524fb8a5883b3b5}{%
+           family={Edwards},
+           familyi={E\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{4f62e43042df5e701524fb8a5883b3b5}
+      \strng{fullhash}{4f62e43042df5e701524fb8a5883b3b5}
+      \strng{bibnamehash}{4f62e43042df5e701524fb8a5883b3b5}
+      \strng{authorbibnamehash}{4f62e43042df5e701524fb8a5883b3b5}
+      \strng{authornamehash}{4f62e43042df5e701524fb8a5883b3b5}
+      \strng{authorfullhash}{4f62e43042df5e701524fb8a5883b3b5}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence (The EU AI Act)}
+      \field{title}{The {EU} {AI} Act: a summary of its significance and scope}
+      \field{volume}{1}
+      \field{year}{2021}
+    \endentry
+    \entry{Donovan2018}{article}{}
+      \name{author}{4}{}{%
+        {{hash=06a75886454e1ed5dd0703921ccc2250}{%
+           family={Donovan},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bfae20ee430d9266f32b92f7120a5cb7}{%
+           family={Matthews},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=20a06d80fcdcdd91e2517668708e491d}{%
+           family={Caplan},
+           familyi={C\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=889a6e9f0766e0ef3cd9f5e5cd910c2e}{%
+           family={Hanson},
+           familyi={H\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington}%
+      }
+      \strng{namehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
+      \strng{fullhash}{c2ac12e076538370873aee9a3b4b08d4}
+      \strng{bibnamehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
+      \strng{authorbibnamehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
+      \strng{authornamehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
+      \strng{authorfullhash}{c2ac12e076538370873aee9a3b4b08d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algorithmic Accountability: A Primer}
+      \field{year}{2018}
+    \endentry
+    \entry{Lawry2020}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bf94c11828fb70022455c15b0a1bf0ab}{%
+           family={Lawry},
+           familyi={L\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press, Taylor \& Francis Group}%
+      }
+      \strng{namehash}{bf94c11828fb70022455c15b0a1bf0ab}
+      \strng{fullhash}{bf94c11828fb70022455c15b0a1bf0ab}
+      \strng{bibnamehash}{bf94c11828fb70022455c15b0a1bf0ab}
+      \strng{authorbibnamehash}{bf94c11828fb70022455c15b0a1bf0ab}
+      \strng{authornamehash}{bf94c11828fb70022455c15b0a1bf0ab}
+      \strng{authorfullhash}{bf94c11828fb70022455c15b0a1bf0ab}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{title}{AI in Health}
+      \field{year}{2020}
+    \endentry
+    \entry{Kearns2020}{book}{}
+      \name{author}{2}{}{%
+        {{hash=70b261549db3f2c583a46a1735237235}{%
+           family={Kearns},
+           familyi={K\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb63548009f9e40044faf83118db1dda}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{a032d7098b6a20d24c945de8fa435deb}
+      \strng{fullhash}{a032d7098b6a20d24c945de8fa435deb}
+      \strng{bibnamehash}{a032d7098b6a20d24c945de8fa435deb}
+      \strng{authorbibnamehash}{a032d7098b6a20d24c945de8fa435deb}
+      \strng{authornamehash}{a032d7098b6a20d24c945de8fa435deb}
+      \strng{authorfullhash}{a032d7098b6a20d24c945de8fa435deb}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{title}{The Ethical Algorithm}
+      \field{year}{2020}
+    \endentry
+    \entry{Grace2018}{article}{}
+      \name{author}{5}{}{%
+        {{hash=93a23ded6ab9d416d7337b1a354d00f3}{%
+           family={Grace},
+           familyi={G\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=e4cb1fc78e5c9c936e48b9d2fed45905}{%
+           family={Salvatier},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=51eecfb9ff3f58f4708abc14735f1c44}{%
+           family={Dafoe},
+           familyi={D\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=14fd6c4762d5113df9a2a4c45d09c456}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8f471e0c1b99f184fa5e90bb8caaaa34}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{4da9f2a80f06cd51af45bb54f13b3228}
+      \strng{fullhash}{77fe0cb5bc0e00f12fee24fbdf3db0bb}
+      \strng{bibnamehash}{4da9f2a80f06cd51af45bb54f13b3228}
+      \strng{authorbibnamehash}{4da9f2a80f06cd51af45bb54f13b3228}
+      \strng{authornamehash}{4da9f2a80f06cd51af45bb54f13b3228}
+      \strng{authorfullhash}{77fe0cb5bc0e00f12fee24fbdf3db0bb}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Artificial Intelligence Research}
+      \field{month}{7}
+      \field{title}{When Will {AI} Exceed Human Performance? Evidence from {AI} Experts}
+      \field{volume}{62}
+      \field{year}{2018}
+      \field{pages}{729\bibrangedash 754}
+      \range{pages}{26}
+    \endentry
+    \entry{Ord2020}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a263261de2edb162bf6dc010e9c1e3a0}{%
+           family={Ord},
+           familyi={O\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Hachette Books}%
+      }
+      \strng{namehash}{a263261de2edb162bf6dc010e9c1e3a0}
+      \strng{fullhash}{a263261de2edb162bf6dc010e9c1e3a0}
+      \strng{bibnamehash}{a263261de2edb162bf6dc010e9c1e3a0}
+      \strng{authorbibnamehash}{a263261de2edb162bf6dc010e9c1e3a0}
+      \strng{authornamehash}{a263261de2edb162bf6dc010e9c1e3a0}
+      \strng{authorfullhash}{a263261de2edb162bf6dc010e9c1e3a0}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{title}{The Precipice: Existential Risk and the Future of Humanity}
+      \field{year}{2020}
+    \endentry
+    \entry{Cummings2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ae1d54cb226f0874ded5724e3426c4b2}{%
+           family={Cummings},
+           familyi={C\bibinitperiod},
+           given={M.\bibnamedelimi L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Chatham House for the Royal Institute of International Affairs}%
+      }
+      \strng{namehash}{ae1d54cb226f0874ded5724e3426c4b2}
+      \strng{fullhash}{ae1d54cb226f0874ded5724e3426c4b2}
+      \strng{bibnamehash}{ae1d54cb226f0874ded5724e3426c4b2}
+      \strng{authorbibnamehash}{ae1d54cb226f0874ded5724e3426c4b2}
+      \strng{authornamehash}{ae1d54cb226f0874ded5724e3426c4b2}
+      \strng{authorfullhash}{ae1d54cb226f0874ded5724e3426c4b2}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Artificial Intelligence and the Future of Warfare}
+      \field{year}{2017}
+    \endentry
+    \entry{Barrat2013}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fa0e04ae3069a787871ac73da519f160}{%
+           family={Barrat},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Thomas Dunne Books}%
+      }
+      \strng{namehash}{fa0e04ae3069a787871ac73da519f160}
+      \strng{fullhash}{fa0e04ae3069a787871ac73da519f160}
+      \strng{bibnamehash}{fa0e04ae3069a787871ac73da519f160}
+      \strng{authorbibnamehash}{fa0e04ae3069a787871ac73da519f160}
+      \strng{authornamehash}{fa0e04ae3069a787871ac73da519f160}
+      \strng{authorfullhash}{fa0e04ae3069a787871ac73da519f160}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{title}{Our Final Invention}
+      \field{year}{2013}
+    \endentry
+    \entry{Atherton2021}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ed7994fcfe99b84a9ef9d51fed70289a}{%
+           family={Atherton},
+           familyi={A\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{ed7994fcfe99b84a9ef9d51fed70289a}
+      \strng{fullhash}{ed7994fcfe99b84a9ef9d51fed70289a}
+      \strng{bibnamehash}{ed7994fcfe99b84a9ef9d51fed70289a}
+      \strng{authorbibnamehash}{ed7994fcfe99b84a9ef9d51fed70289a}
+      \strng{authornamehash}{ed7994fcfe99b84a9ef9d51fed70289a}
+      \strng{authorfullhash}{ed7994fcfe99b84a9ef9d51fed70289a}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online]. Available: \url{https://www.brookings.edu/articles/loitering-munitions-preview-the-autonomous-future-of-warfare}. [Accessed 30 03 2024]}
+      \field{title}{Brookings: Loitering Munitions Preview the Autonomous Future of Warfare}
+      \field{year}{2021}
+    \endentry
+    \entry{BodeWatts2023}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0bcede8f50e0bd20066b0b2abdbcd901}{%
+           family={Bode},
+           familyi={B\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=c2b60e38154d70884c04b244bb9b4381}{%
+           family={Watts},
+           familyi={W\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Odense}%
+      }
+      \list{publisher}{1}{%
+        {Center for War Studies}%
+      }
+      \strng{namehash}{59b2c3300b5a8af71e7d2a423478d068}
+      \strng{fullhash}{59b2c3300b5a8af71e7d2a423478d068}
+      \strng{bibnamehash}{59b2c3300b5a8af71e7d2a423478d068}
+      \strng{authorbibnamehash}{59b2c3300b5a8af71e7d2a423478d068}
+      \strng{authornamehash}{59b2c3300b5a8af71e7d2a423478d068}
+      \strng{authorfullhash}{59b2c3300b5a8af71e7d2a423478d068}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Loitering Munitions and Unpredictability: Autonomy in Weapon Systems and Challenges to Human Control}
+      \field{year}{2023}
+    \endentry
+    \entry{Emery2021}{article}{}
+      \name{author}{1}{}{%
+        {{hash=99da0070f53ac4c6ae4602248f7fe937}{%
+           family={Emery},
+           familyi={E\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{99da0070f53ac4c6ae4602248f7fe937}
+      \strng{fullhash}{99da0070f53ac4c6ae4602248f7fe937}
+      \strng{bibnamehash}{99da0070f53ac4c6ae4602248f7fe937}
+      \strng{authorbibnamehash}{99da0070f53ac4c6ae4602248f7fe937}
+      \strng{authornamehash}{99da0070f53ac4c6ae4602248f7fe937}
+      \strng{authorfullhash}{99da0070f53ac4c6ae4602248f7fe937}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Peace Review: A Journal of Social Justice}
+      \field{title}{Algorithms, {AI}, and Ethics of War}
+      \field{volume}{33}
+      \field{year}{2021}
+      \field{pages}{205\bibrangedash 212}
+      \range{pages}{8}
+    \endentry
+    \entry{Tegmark2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e1192849db13e443ab3ce0607d56773e}{%
+           family={Tegmark},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Toronto}%
+      }
+      \list{publisher}{1}{%
+        {Alfred A. Knopf}%
+      }
+      \strng{namehash}{e1192849db13e443ab3ce0607d56773e}
+      \strng{fullhash}{e1192849db13e443ab3ce0607d56773e}
+      \strng{bibnamehash}{e1192849db13e443ab3ce0607d56773e}
+      \strng{authorbibnamehash}{e1192849db13e443ab3ce0607d56773e}
+      \strng{authornamehash}{e1192849db13e443ab3ce0607d56773e}
+      \strng{authorfullhash}{e1192849db13e443ab3ce0607d56773e}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{title}{Life 3.0: Being Human in the Age of Artificial Intelligence}
+      \field{year}{2017}
+    \endentry
+    \entry{Cihon2019}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d046333ff3e5155dba1ae308a606feca}{%
+           family={Cihon},
+           familyi={C\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Future of Humanity Institute, University of Oxford}%
+      }
+      \strng{namehash}{d046333ff3e5155dba1ae308a606feca}
+      \strng{fullhash}{d046333ff3e5155dba1ae308a606feca}
+      \strng{bibnamehash}{d046333ff3e5155dba1ae308a606feca}
+      \strng{authorbibnamehash}{d046333ff3e5155dba1ae308a606feca}
+      \strng{authornamehash}{d046333ff3e5155dba1ae308a606feca}
+      \strng{authorfullhash}{d046333ff3e5155dba1ae308a606feca}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Standards for {AI} Governance: International Standards to Enable Global Coordination in AI Research \& Development}
+      \field{year}{2019}
+    \endentry
+    \entry{Leslie2019}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9b483c7152f997a013a7f197676352f5}{%
+           family={Leslie},
+           familyi={L\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b483c7152f997a013a7f197676352f5}
+      \strng{fullhash}{9b483c7152f997a013a7f197676352f5}
+      \strng{bibnamehash}{9b483c7152f997a013a7f197676352f5}
+      \strng{authorbibnamehash}{9b483c7152f997a013a7f197676352f5}
+      \strng{authornamehash}{9b483c7152f997a013a7f197676352f5}
+      \strng{authorfullhash}{9b483c7152f997a013a7f197676352f5}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{Understanding {A}rtificial {I}ntelligence Ethics and Safety}
+      \field{volume}{abs/1906.05684}
+      \field{year}{2019}
+    \endentry
+    \entry{CritchKrueger2020}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=41acb8a44d0d33393aebef7e9e489cdc}{%
+           family={Critch},
+           familyi={C\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4534902a488a6573037ec7d788ef12ab}{%
+           family={Krueger},
+           familyi={K\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2e8546ad2b9a6334095c05c2b306f18}
+      \strng{fullhash}{e2e8546ad2b9a6334095c05c2b306f18}
+      \strng{bibnamehash}{e2e8546ad2b9a6334095c05c2b306f18}
+      \strng{authorbibnamehash}{e2e8546ad2b9a6334095c05c2b306f18}
+      \strng{authornamehash}{e2e8546ad2b9a6334095c05c2b306f18}
+      \strng{authorfullhash}{e2e8546ad2b9a6334095c05c2b306f18}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{A{I} Research Considerations for Human Existential Safety}
+      \field{volume}{vol. 2006.04948}
+      \field{year}{2020}
+    \endentry
+    \entry{Russell2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c451164a0a4a9471276b7e4fb5a8cbd6}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Viking}%
+      }
+      \strng{namehash}{c451164a0a4a9471276b7e4fb5a8cbd6}
+      \strng{fullhash}{c451164a0a4a9471276b7e4fb5a8cbd6}
+      \strng{bibnamehash}{c451164a0a4a9471276b7e4fb5a8cbd6}
+      \strng{authorbibnamehash}{c451164a0a4a9471276b7e4fb5a8cbd6}
+      \strng{authornamehash}{c451164a0a4a9471276b7e4fb5a8cbd6}
+      \strng{authorfullhash}{c451164a0a4a9471276b7e4fb5a8cbd6}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st}
+      \field{title}{Human Compatible: Artificial Intelligence and the Problem of Control}
+    \endentry
+  \enddatalist
+  \missing{Yampolskiy2016}
+\endrefsection
+\endinput
+

@@ -1,0 +1,22 @@
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:307> INFO - Logfile is 'AI.blg'
+[63] biber:322> INFO - === Mon May 13, 2024, 14:05:15
+[74] Biber.pm:415> INFO - Reading 'AI.bcf'
+[132] Biber.pm:943> INFO - Found 35 citekeys in bib section 0
+[144] Biber.pm:4256> INFO - Processing section 0
+[144] Utils.pm:75> INFO - Globbing data source 'AI.bib'
+[144] Utils.pm:91> INFO - Globbed data source 'AI.bib' to AI.bib
+[153] Biber.pm:4455> INFO - Looking for bibtex format file 'AI.bib' for section 0
+[154] bibtex.pm:1653> INFO - LaTeX decoding ...
+[187] bibtex.pm:1471> INFO - Found BibTeX data source 'AI.bib'
+[272] Utils.pm:293> WARN - month field 'Oct' in entry 'Ledford2019' is not an integer - this will probably not sort properly.
+[278] Utils.pm:293> WARN - month field 'Oct' in entry 'Obermeyer2019' is not an integer - this will probably not sort properly.
+[320] Utils.pm:293> WARN - Possible typo (case mismatch) between citation and datasource keys: 'Yampolskiy2016' and 'yampolskiy2016' in file 'AI.bib'
+[351] Utils.pm:293> WARN - I didn't find a database entry for 'Yampolskiy2016' (section 0)
+[378] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[378] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[378] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[378] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[398] bbl.pm:652> INFO - Writing 'AI.bbl' with encoding 'UTF-8'
+[412] bbl.pm:755> INFO - Output to AI.bbl
+[412] Biber.pm:128> INFO - WARNINGS: 4
