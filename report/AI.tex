@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[a4paper, 11pt]{article}
 \usepackage{geometry}
 \usepackage{amsfonts, epsfig}
 \usepackage{amsmath}
@@ -16,18 +16,31 @@
 % reference file
 \addbibresource{AI.bib}
 
-\geometry{
-    left=20mm,
-    right=20mm,
-    top=20mm,
-    bottom=20mm
-}
+% \geometry{
+%     left=20mm,
+%     right=20mm,
+%     top=20mm,
+%     bottom=20mm
+% }
 
 % header and footer
-\makeatletter
-\def\@oddhead{\parbox{\textwidth}{\raggedright\sffamily\underline{Question 1 - Visualization and analysis of the Palmer penguin dataset} \hfill \thepage}}
-\def\@oddfoot{\parbox{\textwidth}{\raggedright\footnotesize\texttt{emamtm0067.github.io} / \texttt{ematm0044.github.io}}}
-\makeatother
+% \makeatletter
+% \pagestyle{fancy}
+% \def\@oddhead{\parbox{\textwidth}{\raggedright\sffamily\underline{Question 1 - Visualization and analysis of the Palmer penguin dataset} \hfill \thepage}}
+% \pagestyle{empty}
+% \makeatother
+
+% Define custom page style
+\fancypagestyle{nofooter}{
+  \fancyhf{}
+  \fancyhead[L]{Student Number: 2489941}
+  \fancyhead[C]{Introduction to AI}
+  \fancyhead[R]{\thepage}% 
+  \renewcommand{\headrulewidth}{0.4pt}% Header rule
+}
+% Apply custom page style
+\pagestyle{nofooter}
+
 
 % Redefine the table and figure formats to bold
 \captionsetup[table]{labelfont=bf}
@@ -37,14 +50,18 @@
 \captionsetup{font=small}
 
 \begin{document}
+
 \begin{center}
-\subsection*{Q1 - Visualization and analysis of the Palmer dataset}
+  \subsection*{Q1 - Visualization and analysis of the Palmer penguin dataset}
 \end{center}
 
-\begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
+\noindent
+The Palmer penguin dataset consists of 344 records of the physical attributes of three species of penguin 
+living on three islands in Antarctica (Table~\ref{tab:dataset}) \cite{PM}. 
+\begin{wraptable}{r}{0.7\textwidth} % {alignment}{width}
   \small
   \begin{center}
-  \vspace{-1.5\baselineskip} % Remove space before the table
+  \vspace{-1.7\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
@@ -65,21 +82,18 @@
   \caption{\centering\linespread{0.8}\selectfont Palmer penguin dataset features. Importance was calculated using random forest and a ranking is shown.}
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:dataset}
-\end{wraptable} 
-
-\noindent
-The Palmer penguin dataset consists of 344 records of the physical attributes of three species of penguin 
-living on three islands in Antarctica (Table~\ref{tab:dataset}) \cite{PM}. 
+\end{wraptable}
 In this report, consideration is given to data cleaning and preparation, 
 the dataset is then explored through visualization and analysis is carried out 
-to compare the accuracy of a small number of AI approaches in classifying penguin species. 
+to compare the accuracy of a small number of AI approaches in classifying penguin species.
+
 
 \vspace{\baselineskip}
 \subsection*{Data cleaning - missing values, encoding, standardization and imbalance}
 
 \begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
   \centering
-  \vspace{-1.5\baselineskip} % Remove space before the table
+  \vspace{-1.2\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{sex.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
   \caption{\centering\linespread{0.8}\selectfont All numerical features show a significant statistical difference between male and female, 
@@ -116,6 +130,15 @@ imbalanced data \cite{he2009learning}, no modifications were made.
 % \vspace{\baselineskip}
 \subsection*{Visualization of the dataset}
 
+\begin{wrapfigure}{r}{0.53\textwidth} % {alignment}{width}
+  \centering
+  \vspace{0\baselineskip} % Remove space before the table
+  \includegraphics[width=0.48\textwidth]{islands.png} % Adjust the width as needed
+  \vspace{-0.5\baselineskip} % Remove space before title
+  \caption{\centering\linespread{0.8}\selectfont Adelie is on all three islands, but Gentoo and Chinstrap samples are from only one.}
+  \vspace{-0.5\baselineskip} % Remove space after title
+  \label{fig:islands}
+\end{wrapfigure}
 Figure~\ref{fig:islands} shows the species distribution for the islands. 
 Chinstrap and Gentoo penguins are found only on one island, making island a potential confounding factor whose 
 individual environmental factors may influence physical characteristics. 
@@ -123,16 +146,16 @@ A Shapiro-Wilk test confirmed the normal distribution of the numerical features 
 all islands) and an ANOVA test confirmed the features are not significantly influenced by the island inhabited. 
 It is clear the island is not a confounding factor in the dataset.
 
-\begin{wrapfigure}{R}{0.53\textwidth} % {alignment}{width}
+\begin{wrapfigure}{r}{0.58\textwidth} % {alignment}{width}
   \centering
-  \vspace{-2\baselineskip} % Remove space before the table
-  \includegraphics[width=0.48\textwidth]{islands.png} % Adjust the width as needed
-  \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont Adelie is on all three islands, but Gentoo and Chinstrap samples are from only one.}
-  \vspace{-0.5\baselineskip} % Remove space after title
-  \label{fig:islands}
+  \vspace{0\baselineskip} % Remove space before the figure
+  \includegraphics[width=0.58\textwidth]{pairwise.png} % Adjust the width as needed
+  \vspace{-1.5\baselineskip} % Remove space before title
+  \caption{\centering\linespread{0.8}\selectfont Pairwise distributions of numerical features. Gentoo can be distinguished, 
+  but Adelie and Chinstrap may not be completely separable from one another}
+  \vspace{-1\baselineskip} % Remove space after title
+  \label{fig:pairwise}
 \end{wrapfigure}
-
 Table~\ref{tab:dataset} shows the feature importance scores (and rank in parentheses) indicating
 relative contributions to predicting the penguin species.
 Results reported later show that performance improvements can be achieved by
@@ -140,7 +163,8 @@ concentrating classification on the more `important' features.
 
 Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
 Bill depth, combined with either flipper length or body mass, 
-yields a separable cluster of Gentoo penguins (shown in green) allowing them to be identified. 
+yields a separable cluster of Gentoo penguins (shown in 
+green) allowing them to be identified. 
 No pairwise combination completely separates Adelie (orange) from Chinstrap (purple) clusters, 
 but the best candidate feature for doing so is in distributions involving bill length.
 
@@ -151,17 +175,6 @@ including sex is likely to provide a finer grained distinction for species class
 and this knowledge can be used to improve performance, as discussed in the `results and analysis' section below. 
 
 \subsection*{Methodology}
-
-\begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
-  \centering
-  \vspace{-4\baselineskip} % Remove space before the figure
-  \includegraphics[width=0.58\textwidth]{pairwise.png} % Adjust the width as needed
-  \vspace{-1.5\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont Pairwise distributions of numerical features. Gentoo can be distinguished, 
-  but Adelie and Chinstrap may not be completely separable from one another}
-  \vspace{-1\baselineskip} % Remove space after title
-  \label{fig:pairwise}
-\end{wrapfigure}
 
 The code is available on Gitub \cite{TimAIRepo} and was written in Python 3.11 \cite{python311} 
 using ‘Scikit-Learn’ libraries \cite{scikit-learn}.
@@ -182,7 +195,7 @@ from the test set. The metrics `precision' and `recall' were also caculated, but
 these are only relevant if false positives or false negatives (respectively) are specfically to be avoided, 
 they are not included in this report.   
 
-\begin{wraptable}{r}{0.58\textwidth} % {alignment}{width}
+\begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
   \small
   \begin{center}
   \vspace{-2\baselineskip} % Remove space before the table
@@ -192,26 +205,26 @@ they are not included in this report.
   \begin{tabular}{l|l|l}
   \textbf{Method} & \textbf{Metaparameters} & \textbf{Values considered}\\
   \hline
-  \multirow{3}{*}{\textit{k}nn}    & nearest neighbours \textit{k}	  & \textit{\textbf{1}}, 2, 3, 4, 5, 6, 8, 10 \\
-                                   & prediction weight function	& \textit{\textbf{uniform}}, distance \\
-                                   & neighbours distance metric 	& \textit{\textbf{Manhattan}}, Euclidean \\
+  \multirow{3}{*}{\textit{k}nn}    & nearest neighbours \textit{k}	  & \textit{\textbf{1}}, 2, 3, 4, 5, 6, 8, 10\\
+                                   & prediction function	& \textit{\textbf{uniform}},distance \\
+                                   & distance metric 	& \textit{\textbf{Manhattan}},Euclid \\
   \hline
   \multirow{6}{*}[0.5ex]{\begin{tabular}[t]{@{}l@{}}random \\ forest\end{tabular}} 
-                                  & trees in the forest & 5, \textit{\textbf{10}}, 15, 20, 25 \\
-                                  & maximum depth of trees & \textit{\textbf{no maximum}}, 10, 20 \\
-                                  & min samples to split node & \textit{\textbf{2}}, 5, 10 \\
-                                  & min samples at leaf node & \textit{\textbf{1}}, 2, 4 \\
-                                  & quality of split function & \textit{\textbf{gini}}, entropy \\
+                                   & number of trees & 5, \textit{\textbf{10}}, 15, 20, 25 \\
+                                   & maximum depth & \textit{\textbf{no max}}, 10, 20 \\
+                                   & min samples to split  & \textit{\textbf{2}}, 5, 10 \\
+                                   & min samples at leaf & \textit{\textbf{1}}, 2, 4 \\
+                                   & split function & \textit{\textbf{gini}},entropy \\
 
   \hline
-  \multirow{4}{*}{\textit{k}-means} & number of clusters \textit{k}  & 2, \textit{\textbf{3}}, 4, 5, 6, 7, 8, 9, 10 \\
-                                    & centroid initialization         & \textit{\textbf{k-means++}}, random \\
-                                    & runs for centroid seeds	     & 2, \textit{\textbf{5}}, 10, 20 \\
-                                    & max number of iterations           & 5, \textit{\textbf{10}}, 20, 50 \\
+  \multirow{4}{*}{\textit{k}-means} & number of clusters \textit{k}  & 2, \textit{\textbf{3}}, 4, 5, 6, 7, 8, 10\\
+                                    & centroid initialize         & \textit{\textbf{k-means++}},random\\
+                                    & runs for centroid	     & 2, \textit{\textbf{5}}, 10, 20 \\
+                                    & maximum iterations           & 5, \textit{\textbf{10}}, 20, 50 \\
   \hline
-    \multirow{3}{*}{CVA}            & regularization parameter  & 0.1, 1, \textit{\textbf{10}}, 100 \\
+    \multirow{3}{*}{CVA}            & regularization   & 0.1, 1, \textit{\textbf{10}}, 100 \\
                                     & kernel coefficient      & \textit{\textbf{1}}, 0.1, 0.01, 0.001 \\
-                                    & kernel type                  & rbf, \textit{\textbf{linear}}, polynomial \\
+                                    & kernel type                  & rbf, \textit{\textbf{linear}},poly \\
   \hline
   \end{tabular}
   \vspace{-2\baselineskip} % Remove space before title
@@ -221,6 +234,7 @@ they are not included in this report.
   \vspace{-1\baselineskip} % Remove space after the table
   \label{tab:metaparameters}
 \end{wraptable} 
+
 \subsection*{Results and analysis}
 Scikit-Learn provides pseudo-random procedures for selecting validation and test set values and 100 of these were used 
 both when selecting metaparameters and when deriving accuracy results.
@@ -360,21 +374,21 @@ Although needing to be tailored to each problem and not well-suited to high-dime
 its internal operations are transparent and this is in contrast with general-purpose classification methods. 
 
 
-\section*{Question 2}
+\begin{center}
+\subsection*{Question 2 - Ethical challenges and threats in AI}
+\end{center}
 
-\textbf{2. Racial Bias in Medical Algorithms}
-
+\subsection*{Racial Bias in Medical Algorithms}
 
 In 2019, a widely used US healthcare algorithm was found to discriminate by prioritising hospital services based on historical spending records, resulting in the allocation of relatively less future funding and fewer referrals for black patients \cite{Jemielity2019, Ledford2019}. Through the application of a series of test data sets, Obermeyer et al. \cite{Obermeyer2019} identified this inadvertent bias and the team was able to mitigate against it by adjusting the model’s training labels. 
 
-The fact that this third-party assessment and adjustment were possible, demonstrates how exposing a model’s internal operations can aid bias identification and removal \cite{Seroussi2020, Winter2023}. Ensuring greater transparency of AI models is becoming the subject of legislation, for example the 2023 EU AI Act aims to enforce transparency principles by requiring developers to disclose an algorithm’s variables, data sources, and selection logic \cite{EuropeanParliament2023, Edwards2021}. While ensuring that organisations building AI systems are held accountable for the processes used in their development may lead to algorithmic changes that reduce bias \cite{Donovan2018, Lawry2020}, care needs to be taken that the removal of bias doesn't significantly affect the performance of the model in its application domain \cite{Kearns2020}. \\
- 
-\noindent \textbf{3. AI system safety and existential risks in warfare}
+The fact that this third-party assessment and adjustment were possible, demonstrates how exposing a model’s internal operations can aid bias identification and removal \cite{Seroussi2020, Winter2023}. Ensuring greater transparency of AI models is becoming the subject of legislation, for example the 2023 EU AI Act aims to enforce transparency principles by requiring developers to disclose an algorithm’s variables, data sources, and selection logic \cite{EuropeanParliament2023, Edwards2021}. While ensuring that organisations building AI systems are held accountable for the processes used in their development may lead to algorithmic changes that reduce bias \cite{Donovan2018, Lawry2020}, care needs to be taken that the removal of bias doesn't significantly affect the performance of the model in its application domain \cite{Kearns2020}.
 
+\subsection*{AI system safety and existential risks in warfare}
 
 Recent developments in AI have led many researchers to believe that AI systems capable of directly acting in the real world based on decisions they have taken autonomously will become available later this century \cite{Grace2018}. With such advancements comes the risk that AI systems whose decision-making does not prioritise human welfare may pose a threat to life \cite{Ord2020}. 
 
-A specific example of a military AI system posing an existential risk \cite{Yampolskiy2016, Cummings2017}, is one that decides maximising human casualties would be the best strategy to achieve a high-level battlefield objective \cite{Barrat2013}. Recent deployments of automated missiles that activate on target acquisition \cite{Atherton2021, BodeWatts2023},  have raised ethical concerns over the use of AI in situations where human beings are potential targets \cite{Emery2021}. If such advanced AI was given control of powerful military weapons and applied more widely, the ramifications for the human race's survival could be profound \cite{Tegmark2017}. 
+A specific example of a military AI system posing an existential risk \cite{yampolskiy2016, Cummings2017}, is one that decides maximising human casualties would be the best strategy to achieve a high-level battlefield objective \cite{Barrat2013}. Recent deployments of automated missiles that activate on target acquisition \cite{Atherton2021, BodeWatts2023},  have raised ethical concerns over the use of AI in situations where human beings are potential targets \cite{Emery2021}. If such advanced AI was given control of powerful military weapons and applied more widely, the ramifications for the human race's survival could be profound \cite{Tegmark2017}. 
 
 Addressing these existential threats requires international cooperation to guarantee the transparency of AI algorithms \cite{Cihon2019, Leslie2019}. A potential future safeguard is to include a human-controlled override in all military AI systems \cite{CritchKrueger2020}, although Russell \cite{Russell2019} warns that super-intelligent AI may be capable of removing such safety measures. Ultimately, a global strategy that prioritises human wellbeing in all areas of AI usage will be essential.
 

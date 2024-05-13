@@ -777,6 +777,32 @@
       \field{title}{The Precipice: Existential Risk and the Future of Humanity}
       \field{year}{2020}
     \endentry
+    \entry{yampolskiy2016}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=85237c83ab50955dc88666e2ba00959e}{%
+           family={Yampolskiy},
+           familyi={Y\bibinitperiod},
+           given={R.V.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Phoenix, Arizona}%
+      }
+      \strng{namehash}{85237c83ab50955dc88666e2ba00959e}
+      \strng{fullhash}{85237c83ab50955dc88666e2ba00959e}
+      \strng{bibnamehash}{85237c83ab50955dc88666e2ba00959e}
+      \strng{authorbibnamehash}{85237c83ab50955dc88666e2ba00959e}
+      \strng{authornamehash}{85237c83ab50955dc88666e2ba00959e}
+      \strng{authorfullhash}{85237c83ab50955dc88666e2ba00959e}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Workshops at the Thirtieth AAAI Conference on Artificial Intelligence}
+      \field{month}{3}
+      \field{title}{Taxonomy of Pathways to Dangerous Artificial Intelligence}
+      \field{year}{2016}
+    \endentry
     \entry{Cummings2017}{book}{}
       \name{author}{1}{}{%
         {{hash=ae1d54cb226f0874ded5724e3426c4b2}{%
@@ -1042,7 +1068,6 @@
       \field{title}{Human Compatible: Artificial Intelligence and the Problem of Control}
     \endentry
   \enddatalist
-  \missing{Yampolskiy2016}
 \endrefsection
 \endinput
 
