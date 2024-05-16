@@ -15,7 +15,7 @@
 %\usepackage{hyperref}
 
 % reference file
-\addbibresource{AI.bib}
+\addbibresource{2489941.bib}
 
 % custom page style
 \fancypagestyle{nofooter}{
@@ -42,12 +42,12 @@
 \noindent
 The Palmer penguin dataset consists of 344 records of the physical attributes of three species of penguin 
 living on three islands in Antarctica (Table~\ref{tab:dataset}) \cite{PM}. In this
-report, the 
-the data are cleaned and carefully prepared for investigation, the dataset is then  
+report, the
+data are cleaned and carefully prepared for investigation, the dataset is then explored 
 \begin{wraptable}{r}{0.75\textwidth} % {alignment}{width}
   \small
   \begin{center}
-  \vspace{-1.5\baselineskip} % Remove space before the table
+  \vspace{-1.7\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
@@ -66,10 +66,9 @@ the data are cleaned and carefully prepared for investigation, the dataset is th
   \vspace{-2\baselineskip} % Remove space before title
   \end{center} 
   \caption{\centering\linespread{0.8}\selectfont Palmer penguin dataset features. Importance was calculated using random forest and a ranking is shown.}
-  \vspace{-1\baselineskip} % Remove space after the table
+  \vspace{-3\baselineskip} % Remove space after the table
   \label{tab:dataset}
 \end{wraptable}
-explored 
 through visualization and finally analysis is carried out 
 to compare the accuracy of a small number of AI approaches in classifying penguin species.
 
@@ -123,7 +122,7 @@ imbalanced data \cite{he2009learning}, so no modifications were made.
 Figure~\ref{fig:islands} shows Chinstrap and Gentoo penguins are found only on one \textit{island}, making it a potential confounding factor since 
 environmental factors may influence physical characteristics. A Shapiro-Wilk test showed  
 the numerical features of the Adelie penguins have a normal distribution and an ANOVA test confirmed Adelie features are not 
-significantly influenced by the island inhabited. \textit{island} is thus unlikely to be a confounding factor.
+significantly influenced by the island inhabited. Thus \textit{island} is unlikely to be a confounding factor.
 
 Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
 \textit{Bill depth}, combined with either \textit{flipper length} or \textit{body mass}, 

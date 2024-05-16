@@ -15,7 +15,7 @@
 %\usepackage{hyperref}
 
 % reference file
-\addbibresource{AI.bib}
+\addbibresource{2489941.bib}
 
 % custom page style
 \fancypagestyle{nofooter}{
@@ -42,12 +42,11 @@
 \noindent
 The Palmer penguin dataset consists of 344 records of the physical attributes of three species of penguin 
 living on three islands in Antarctica (Table~\ref{tab:dataset}) \cite{PM}. In this
-report, the 
-the data are cleaned and carefully prepared for investigation, the dataset is then  
+report, the
 \begin{wraptable}{r}{0.75\textwidth} % {alignment}{width}
   \small
   \begin{center}
-  \vspace{-1.5\baselineskip} % Remove space before the table
+  \vspace{-1.7\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
@@ -66,64 +65,59 @@ the data are cleaned and carefully prepared for investigation, the dataset is th
   \vspace{-2\baselineskip} % Remove space before title
   \end{center} 
   \caption{\centering\linespread{0.8}\selectfont Palmer penguin dataset features. Importance was calculated using random forest and a ranking is shown.}
-  \vspace{-1\baselineskip} % Remove space after the table
+  \vspace{-2\baselineskip} % Remove space after the table
   \label{tab:dataset}
 \end{wraptable}
-explored 
-through visualization and finally analysis is carried out 
-to compare the accuracy of a small number of AI approaches in classifying penguin species.
+dataset is cleaned, explored through visualization,  carefully prepared
+for investigation and finally the performances of AI approaches in classifying penguin species are compared.
+
 
 \vspace{\baselineskip}
-\subsection*{Data cleaning - missing values, encoding, standardization and imbalance}
+\subsection*{Data cleaning}
 
-\begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
-  \centering
-  \vspace{-1\baselineskip} % Remove space before the table
-  \includegraphics[width=0.48\textwidth]{sex.png} % Adjust the width as needed
-  \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont All numerical features show a significant statistical difference between male and female, 
-  as in the body mass example above. Shown are median values, upper and lower quartiles, 
-  and outliers.}
-  \vspace{-0.6\baselineskip} % Remove space before title
-  \label{fig:sex}
-\end{wrapfigure}   
-
-The two records missing \textit{sex} and all numerical features were removed as imputation is unlikely to be reliable. 
-The remaining nine records are missing only the \textit{sex} attribute. Figure~\ref{fig:sex} shows the physical 
-attributes of the male and female of each species differ statistically, making it reasonable to 
-consider imputing \textit{sex} for those records would be reliable. Following standardization, 
+Eleven records have missing values. 
+The two missing both \textit{sex} and all numerical features were removed as imputation is unlikely to be reliable. 
+A further nine records are missing only a \textit{sex} value and were considered for imputation. 
+Figure~\ref{fig:sex} shows the physical 
+attributes of the male and female of each species differ statistically, making it likely that imputing \textit{sex} would be reliable. Following standardization, 
 a Shapiro-Wilk test confirmed all the numerical attributes have a normal distribution \cite{shapiro1965analysis} 
 and Z-tests were applied to assess the 
 hypotheses that the missing \textit{sex} value is male or female \cite{freedman2007statistics}. 
-Two of the records could be imputed as male and three as female; the remaining four records were removed. 
-The cleaned dataset has 338 records, 147 Adelie  
+Two of the records could be imputed as male and three as female; the 
+remaining four records were removed. 
+The cleaned dataset has 338 records: 147 Adelie  
 (74 male, 73 female), 68 Chinstrap (34 male, 34 female) and 123 Gentoo (62 male, 61 female).
 
-The categorical features in the dataset were encoded to numerical values as this is required for a number of the AI methods. 
-Some AI methods are known to be biased in favour of numerical features 
-with smaller standard deviations \cite{hastie2009elements}, but this bias can be reduced by the standardization 
-of features to zero mean and unity standard deviation. Standardization statistics were calculated only from 
-training sets, but were applied to all data. 
-If a dataset is imbalanced, AI predictions may be biased towards classes more frequently found in the training data. 
-All the methods adopted in the current work are known to be little affected by 
-imbalanced data \cite{he2009learning}, so no modifications were made.
+\begin{figure}[!ht]
+  \vspace{-0.5\baselineskip} % Remove space before figure
+  \begin{minipage}{0.5\textwidth}
+    \vspace{0\baselineskip} % Remove space before figure
+    \centering
+    \includegraphics[width=1\textwidth]{sex.png} % Adjust the width as needed
+    \vspace{-1.5\baselineskip} % Remove space before title
+    \caption{All numerical features show a significant statistical difference between sexes, for example, the body mass shown here}
+    \vspace{-1\baselineskip} % Remove space after title
+    \label{fig:sex}
+  \end{minipage}\hfill
+  \begin{minipage}{0.5\textwidth}
+    \vspace{0\baselineskip} % Remove space before figure
+    \centering
+    \includegraphics[width=1\textwidth]{islands.png} % Adjust the width as needed
+    \vspace{-1.5\baselineskip} % Remove space before title
+    \caption{Adelie is found on all three islands, but Gentoo and Chinstrap samples are found on only one of the islands}
+    \vspace{-1\baselineskip} % Remove space after title
+    \label{fig:islands}
+  \end{minipage}
+\end{figure}
+
 
 % \vspace{\baselineskip}
 \subsection*{Visualization of the dataset}
 
-\begin{wrapfigure}{r}{0.53\textwidth} % {alignment}{width}
-  \centering
-  \vspace{-1\baselineskip} % Remove space before the table
-  \includegraphics[width=0.48\textwidth]{islands.png} % Adjust the width as needed
-  \vspace{-0.5\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont Adelie is on all three islands, but Gentoo and Chinstrap samples are from only one.}
-  \vspace{-0.5\baselineskip} % Remove space after title
-  \label{fig:islands}
-\end{wrapfigure}
 Figure~\ref{fig:islands} shows Chinstrap and Gentoo penguins are found only on one \textit{island}, making it a potential confounding factor since 
 environmental factors may influence physical characteristics. A Shapiro-Wilk test showed  
 the numerical features of the Adelie penguins have a normal distribution and an ANOVA test confirmed Adelie features are not 
-significantly influenced by the island inhabited. \textit{island} is thus unlikely to be a confounding factor.
+significantly influenced by the island inhabited. Thus \textit{island} is unlikely to be a confounding factor.
 
 Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
 \textit{Bill depth}, combined with either \textit{flipper length} or \textit{body mass}, 
@@ -150,20 +144,28 @@ This knowledge was able to improve performance in some cases, as discussed in `r
 
 \subsection*{Methodology}
 
+The categorical features in the dataset were encoded to numerical values as this is required for a number of the AI methods. 
+Some AI methods are known to be biased in favour of numerical features 
+with smaller standard deviations \cite{hastie2009elements}, but this bias can be reduced by the standardization 
+of features to zero mean and unity standard deviation. Standardization statistics were calculated only from 
+training sets, but the standardization itself was applied to all data, including the test set. 
+If a dataset is imbalanced, AI predictions may be biased towards classes more frequently found in the training data. 
+All the methods adopted in the current work are known to be little affected by 
+imbalanced data \cite{he2009learning}, so no modifications were made.
+
 Predicting the penguin species from the given features is a classification problem. 
-The code is available on Github \cite{TimAIRepo} and was written in Python 3.11 \cite{python311} 
+The implementation code is available on Github \cite{TimAIRepo} and was written in Python 3.11 \cite{python311} 
 using \texttt{scikit-learn} libraries \cite{scikit-learn}.
 Results are obtained from two conventional classification approaches, 
-namely \textit{k}-Nearest Neighbour (\textit{k}nn) \cite{bishop2006pattern} and random forest \cite{breiman2001random}, 
-unsupervised \textit{k}-means (following cluster labelling) \cite{tan2005introduction} 
+namely \textit{k}-Nearest Neighbour (\textit{k}nn) \cite{bishop2006pattern} and random forest \cite{breiman2001random}.
+In addition, classificaton was carried out using unsupervised \textit{k}-means (following cluster labelling) \cite{tan2005introduction} 
 and a novel combined visualization and analysis (CVA) approach that is a mix of 
-practical visualizations and Support Vector Machine (SVM) classification.
 practical visualizations and Support Vector Machine (SVM) classification.
 
 \begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
   \small
   \begin{center}
-  \vspace{-2.5\baselineskip} % Remove space before the table
+  \vspace{-0.5\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
@@ -216,7 +218,7 @@ they are not included in this report.
 \begin{wraptable}{r}{0.58\textwidth} % {alignment}{width}
   \small
   \begin{center}
-  \vspace{-2\baselineskip} % Remove space before the table
+  \vspace{-3.5\baselineskip} % Remove space before the table
   \setlength{\abovecaptionskip}{5pt}
   \setlength{\belowcaptionskip}{5pt}
   \fontsize{10}{10}\selectfont % Change font size here
@@ -242,7 +244,7 @@ they are not included in this report.
   \end{center} 
   \caption{\centering\linespread{0.8}\selectfont Classification accuracy mean value and range for 100 pseudo-random test sets 
   and using the metaparameters identified in Table~\ref{tab:metaparameters}}
-  \vspace{-1\baselineskip} % Remove space after the table
+  \vspace{-1.2\baselineskip} % Remove space after the table
   \label{tab:results}
 \end{wraptable} 
 
@@ -280,7 +282,7 @@ may be less influenced by superfluous information in the training data.
 \textit{k}-means can be used for classification by 
 \begin{wrapfigure}{r}{0.5\textwidth} % {alignment}{width}
   \centering
-  \vspace{0\baselineskip} % Remove space before the table
+  \vspace{-0.8\baselineskip} % Remove space before the table
   \includegraphics[width=0.48\textwidth]{kmeansmap.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
   \caption{\centering\linespread{0.8}\selectfont \textit{k}-means clusters mapped to species using majority voting. 
@@ -288,30 +290,36 @@ may be less influenced by superfluous information in the training data.
   \vspace{-1\baselineskip} % Remove space after title
   \label{fig:kmeansmap}
 \end{wrapfigure}
-matching clusters to classes. 
-Figure~\ref{fig:kmeansmap} illustrates the mapping of classes to clusters for two feature dimensions.
-\textit{k}-means is normally applied to numerical features and only they were included in this work. 
-Using the elbow approach, the number of clusters (\textit{k}) was recommended to be two, but three was suggested 
-using the silhouette method. Empirically, accuracy improved when \(k \geq 4\),
+mapping clusters to classes. 
+Figure~\ref{fig:kmeansmap} illustrates such a mapping for two feature dimensions.
+Using the elbow method, the number of clusters (\textit{k}) was recommended to be two, but three was suggested 
+by the silhouette method. Empirically, accuracy improved when \(k \geq 4\),
 as otherwise clusters were not reliably formed for all three species.   
-An accuracy improvement was achieved by creating a separate set of clusters for each \textit{sex}.
+Accuracy was also greatly improved by creating a separate set of clusters for each \textit{sex}.
 
 \textbf{CVA}  
-requires manual inspection of pairwise feature plots 
-to identify suitable sets of two-dimensional SVM classifiers. 
+requires manual identification of suitable pairs of features for SVM classification. 
+In general, for features \textbf{x}, SVM seeks to maximize class separation by defining a decision boundary, given by
+\vspace{-0\baselineskip} % remove space before equation
+\begin{equation}
+\mathbf{w}^T \mathbf{x} = b
+\end{equation}
+where \textbf{w} is a weight vector perpendicular to the boundary and \textit{b} is the intercept. 
+SVM training finds \textbf{w} and \textit{b} to specify an optimal hyperplane (and hence the boundary). 
+As CVA is a sequence of two feature problems, each decision boundary is a line.
 An application of CVA to the Penguin dataset is given in Figure~\ref{fig:CVA}. 
 Figure~\ref{fig:CVA}(a) shows the relationship between \textit{bill depth} and \textit{flipper length}, and
-SVM determines finds a suitable `decision boundary' to separate Gentoo from the other two species. 
-Figure~\ref{fig:CVA}(b) plots \textit{bill length} against \textit{bill depth} and shows the SVM boundary that best 
-separates Adelie and Chinstrap. An improvement in accuracy
-was apparent when separate SVM models were developed for each \textit{sex}.
+the SVM decision boundary separates Gentoo from the other two species. 
+Figure~\ref{fig:CVA}(b) plots \textit{bill length} against \textit{bill depth} and shows the SVM boundary to best
+distinguish Adelie from Chinstrap. Accuracy was found to be improved by implementing separate SVM models for each \textit{sex}.
 
 \begin{figure}[!ht]
     \vspace{-0.5\baselineskip} % Remove space before figure
     \begin{subfigure}{0.47\textwidth}
     \centering
     \includegraphics[width=1\textwidth]{sup_fliplen_billdepth.png} % Adjust the width as needed
-    \caption{Gentoo can be distinguished from other species}
+    \vspace{-1.2\baselineskip} % Remove space before title
+    \caption{ Gentoo distinguished from the other species}
     \vspace{-1.5\baselineskip} % Remove space before title
     \label{fig:CVA_part_a}
   \end{subfigure}
@@ -319,27 +327,25 @@ was apparent when separate SVM models were developed for each \textit{sex}.
   \begin{subfigure}{0.47\textwidth}
     \centering
     \includegraphics[width=1\textwidth]{sup_billlen_billdepth.png} % Adjust the width as needed
-    \caption{Adelie and Chinstrap can be partially separated}
+    \vspace{-1.2\baselineskip} % Remove space before title
+    \caption{ Adelie and Chinstrap partially separated}
     \vspace{-1.5\baselineskip} % Remove space before title
     \label{fig:CVA_part_b}
   \end{subfigure}
   \vspace{1\baselineskip} % Remove space before title
-  \caption{\centering\linespread{0.8}\selectfont Two-stage CVA approach with boundaries fitted using SVM 
-  to training data of feature pairs}
+  \caption{\centering\linespread{0.8}\selectfont Two-stage CVA approach with decision boundaries fitted to feature pairs using SVM}
   \label{fig:CVA}
   \vspace{-2\baselineskip} % Remove space after title
 \end{figure}
-% \vspace{\baselineskip}
+\vspace{\baselineskip}
+
 \subsection*{Conclusions}
 
-With careful data preparation, optimization of metaparameters and robust application of training and testing methods, 
+With careful data preparation, selection of metaparameters and robust application of training and testing methods, 
 the \textit{k}nn and random forest classification methods produced high-quality results. 
-As expected, the \textit{k}-means accuracy results were comparatively worse
-as training does not take advantage of target data information, but its performance was improved 
-significantly by producing a cluster for each sex. 
-The novel CVA approach was able to produce accuracy results similar to those of other classification methods. 
-Although needing to be tailored to each problem and not well-suited to high-dimensional data, 
-in contrast with many general-purpose classification methods 
+\textit{k}-means training does not take advantage of target information and this resulted in comparatively poor accuracy, yet training
+separate clusters for each sex improved performance significantly.
+The novel CVA approach needs to be tailored to each problem and is not well-suited to high-dimensional data, but it was found to produce results comparable to those of general-purpose classification methods and has the advantage that 
 its internal operations are easy to visualize, understand and explain.
 
 \begin{center}
