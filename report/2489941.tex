@@ -273,7 +273,7 @@ The best improvement was found when \textit{island} was omitted and when \textit
 any additional information and the larger value of \textit{k} implies better generalization has been achieved.
 
 \textbf{Random forest}  
-Including all of the features in the analysis, the accuracy of random forest was marginally worse 
+When all features are inlcuded in the analysis, the accuracy of random forest was marginally worse 
 than achieved using \textit{k}nn. 
 No performance improvement was found using fewer features, indicating that random forest
 may be less influenced by superfluous information in the training data. 
@@ -299,14 +299,13 @@ Accuracy was also greatly improved by creating a separate set of clusters for ea
 
 \textbf{CVA}  
 requires manual identification of suitable pairs of features for SVM classification. 
-In general, for features \textbf{x}, SVM seeks to maximize class separation by defining a decision boundary, given by
-\vspace{-0\baselineskip} % remove space before equation
+Given features \textbf{x}, SVM finds a decision boundary that maximizes class separation
+\vspace{-0.8\baselineskip} % remove space before equation
 \begin{equation}
 \mathbf{w}^T \mathbf{x} = b
 \end{equation}
 where \textbf{w} is a weight vector perpendicular to the boundary and \textit{b} is the intercept. 
 SVM training finds \textbf{w} and \textit{b} to specify an optimal hyperplane (and hence the boundary). 
-As CVA is a sequence of two feature problems, each decision boundary is a line.
 An application of CVA to the Penguin dataset is given in Figure~\ref{fig:CVA}. 
 Figure~\ref{fig:CVA}(a) shows the relationship between \textit{bill depth} and \textit{flipper length}, and
 the SVM decision boundary separates Gentoo from the other two species. 
@@ -342,11 +341,16 @@ distinguish Adelie from Chinstrap. Accuracy was found to be improved by implemen
 \subsection*{Conclusions}
 
 With careful data preparation, selection of metaparameters and robust application of training and testing methods, 
-the \textit{k}nn and random forest classification methods produced high-quality results. 
+\textit{k}nn and random forest both produced high-quality results. 
 \textit{k}-means training does not take advantage of target information and this resulted in comparatively poor accuracy, yet training
 separate clusters for each sex improved performance significantly.
-The novel CVA approach needs to be tailored to each problem and is not well-suited to high-dimensional data, but it was found to produce results comparable to those of general-purpose classification methods and has the advantage that 
+The novel CVA approach needs to be tailored anew to each problem and is not well-suited to high-dimensional data, 
+but it was found to produce results comparable to those of general-purpose classification methods and has the advantage that 
 its internal operations are easy to visualize, understand and explain.
+
+That CVA makes a series of decisions using chosen feature pairs 
+led the author to consider SVMs in place of entropy at random forests nodes - 
+but this has been done \cite{law2003support}!
 
 \begin{center}
 \subsection*{Question 2 - Ethical challenges and threats in AI}

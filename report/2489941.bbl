@@ -403,6 +403,42 @@
       \field{title}{An Introduction to Statistical Learning: with Applications in R}
       \field{year}{2013}
     \endentry
+    \entry{law2003support}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8cf9286ab4aa48c58512a13a00a238b1}{%
+           family={Law},
+           familyi={L\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=00db26127db6ebda9f3ee77db454386b}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Ira},
+           giveni={I\bibinitperiod}}}%
+        {{hash=e281c3b38181c6232893b3bf21de6b7d}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Cheng-Lin},
+           giveni={C\bibinithyphendelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{caae35d90dbb8579e657c65cbe478a27}
+      \strng{fullhash}{caae35d90dbb8579e657c65cbe478a27}
+      \strng{bibnamehash}{caae35d90dbb8579e657c65cbe478a27}
+      \strng{authorbibnamehash}{caae35d90dbb8579e657c65cbe478a27}
+      \strng{authornamehash}{caae35d90dbb8579e657c65cbe478a27}
+      \strng{authorfullhash}{caae35d90dbb8579e657c65cbe478a27}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Information Processing - Letters and Reviews}
+      \field{number}{4}
+      \field{title}{Support Vector Decision Trees for Classification}
+      \field{volume}{2}
+      \field{year}{2003}
+      \field{pages}{71\bibrangedash 76}
+      \range{pages}{6}
+    \endentry
     \entry{Jemielity2019}{online}{}
       \name{author}{1}{}{%
         {{hash=1a74aa15ceea7b38b6f76499c9e0d351}{%
@@ -696,8 +732,8 @@
       \strng{authorbibnamehash}{a032d7098b6a20d24c945de8fa435deb}
       \strng{authornamehash}{a032d7098b6a20d24c945de8fa435deb}
       \strng{authorfullhash}{a032d7098b6a20d24c945de8fa435deb}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1st}
@@ -1061,8 +1097,8 @@
       \strng{authorbibnamehash}{c451164a0a4a9471276b7e4fb5a8cbd6}
       \strng{authornamehash}{c451164a0a4a9471276b7e4fb5a8cbd6}
       \strng{authorfullhash}{c451164a0a4a9471276b7e4fb5a8cbd6}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1st}

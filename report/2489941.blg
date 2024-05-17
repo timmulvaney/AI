@@ -1,21 +1,21 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is '2489941.blg'
-[82] biber:322> INFO - === Thu May 16, 2024, 21:55:26
-[97] Biber.pm:415> INFO - Reading '2489941.bcf'
-[169] Biber.pm:943> INFO - Found 35 citekeys in bib section 0
-[184] Biber.pm:4256> INFO - Processing section 0
-[184] Utils.pm:75> INFO - Globbing data source '2489941.bib'
-[184] Utils.pm:91> INFO - Globbed data source '2489941.bib' to 2489941.bib
-[195] Biber.pm:4455> INFO - Looking for bibtex format file '2489941.bib' for section 0
-[197] bibtex.pm:1653> INFO - LaTeX decoding ...
-[239] bibtex.pm:1471> INFO - Found BibTeX data source '2489941.bib'
-[337] Utils.pm:293> WARN - month field 'Oct' in entry 'Ledford2019' is not an integer - this will probably not sort properly.
-[344] Utils.pm:293> WARN - month field 'Oct' in entry 'Obermeyer2019' is not an integer - this will probably not sort properly.
-[391] Utils.pm:293> WARN - month field 'Mar' in entry 'yampolskiy2016' is not an integer - this will probably not sort properly.
-[459] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[459] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[460] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[460] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[485] bbl.pm:652> INFO - Writing '2489941.bbl' with encoding 'UTF-8'
-[502] bbl.pm:755> INFO - Output to 2489941.bbl
-[502] Biber.pm:128> INFO - WARNINGS: 3
+[63] biber:322> INFO - === Fri May 17, 2024, 20:51:48
+[74] Biber.pm:415> INFO - Reading '2489941.bcf'
+[128] Biber.pm:943> INFO - Found 36 citekeys in bib section 0
+[139] Biber.pm:4256> INFO - Processing section 0
+[140] Utils.pm:75> INFO - Globbing data source '2489941.bib'
+[140] Utils.pm:91> INFO - Globbed data source '2489941.bib' to 2489941.bib
+[148] Biber.pm:4455> INFO - Looking for bibtex format file '2489941.bib' for section 0
+[149] bibtex.pm:1653> INFO - LaTeX decoding ...
+[183] bibtex.pm:1471> INFO - Found BibTeX data source '2489941.bib'
+[269] Utils.pm:293> WARN - month field 'Oct' in entry 'Ledford2019' is not an integer - this will probably not sort properly.
+[275] Utils.pm:293> WARN - month field 'Oct' in entry 'Obermeyer2019' is not an integer - this will probably not sort properly.
+[313] Utils.pm:293> WARN - month field 'Mar' in entry 'yampolskiy2016' is not an integer - this will probably not sort properly.
+[373] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[373] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[373] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[373] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[395] bbl.pm:652> INFO - Writing '2489941.bbl' with encoding 'UTF-8'
+[409] bbl.pm:755> INFO - Output to 2489941.bbl
+[409] Biber.pm:128> INFO - WARNINGS: 3
