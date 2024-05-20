@@ -91,7 +91,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>999</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
@@ -99,7 +99,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>999</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -111,15 +111,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>3</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -413,6 +413,7 @@
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
+    <bcf:option datatype="boolean">dashed</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
     <bcf:option datatype="integer">maxnames</bcf:option>
@@ -2195,30 +2196,31 @@
     <bcf:citekey order="11">tan2005introduction</bcf:citekey>
     <bcf:citekey order="12">james2013introduction</bcf:citekey>
     <bcf:citekey order="13">scikit-learn</bcf:citekey>
-    <bcf:citekey order="14">law2003support</bcf:citekey>
-    <bcf:citekey order="15">Jemielity2019</bcf:citekey>
-    <bcf:citekey order="15">Ledford2019</bcf:citekey>
-    <bcf:citekey order="16">Obermeyer2019</bcf:citekey>
-    <bcf:citekey order="17">Seroussi2020</bcf:citekey>
-    <bcf:citekey order="17">Winter2023</bcf:citekey>
-    <bcf:citekey order="18">EuropeanParliament2023</bcf:citekey>
-    <bcf:citekey order="18">Edwards2021</bcf:citekey>
-    <bcf:citekey order="19">Donovan2018</bcf:citekey>
-    <bcf:citekey order="19">Lawry2020</bcf:citekey>
-    <bcf:citekey order="20">Kearns2020</bcf:citekey>
-    <bcf:citekey order="21">Grace2018</bcf:citekey>
-    <bcf:citekey order="22">Ord2020</bcf:citekey>
-    <bcf:citekey order="23">yampolskiy2016</bcf:citekey>
-    <bcf:citekey order="23">Cummings2017</bcf:citekey>
-    <bcf:citekey order="24">Barrat2013</bcf:citekey>
-    <bcf:citekey order="25">Atherton2021</bcf:citekey>
-    <bcf:citekey order="25">BodeWatts2023</bcf:citekey>
-    <bcf:citekey order="26">Emery2021</bcf:citekey>
-    <bcf:citekey order="27">Tegmark2017</bcf:citekey>
-    <bcf:citekey order="28">Cihon2019</bcf:citekey>
-    <bcf:citekey order="28">Leslie2019</bcf:citekey>
-    <bcf:citekey order="29">CritchKrueger2020</bcf:citekey>
-    <bcf:citekey order="30">Russell2019</bcf:citekey>
+    <bcf:citekey order="14">geron2019hands</bcf:citekey>
+    <bcf:citekey order="15">law2003support</bcf:citekey>
+    <bcf:citekey order="16">Jemielity2019</bcf:citekey>
+    <bcf:citekey order="16">Ledford2019</bcf:citekey>
+    <bcf:citekey order="17">Obermeyer2019</bcf:citekey>
+    <bcf:citekey order="18">Seroussi2020</bcf:citekey>
+    <bcf:citekey order="18">Winter2023</bcf:citekey>
+    <bcf:citekey order="19">EuropeanParliament2023</bcf:citekey>
+    <bcf:citekey order="19">Edwards2021</bcf:citekey>
+    <bcf:citekey order="20">Donovan2018</bcf:citekey>
+    <bcf:citekey order="20">Lawry2020</bcf:citekey>
+    <bcf:citekey order="21">Kearns2020</bcf:citekey>
+    <bcf:citekey order="22">Grace2018</bcf:citekey>
+    <bcf:citekey order="23">Ord2020</bcf:citekey>
+    <bcf:citekey order="24">yampolskiy2016</bcf:citekey>
+    <bcf:citekey order="24">Cummings2017</bcf:citekey>
+    <bcf:citekey order="25">Barrat2013</bcf:citekey>
+    <bcf:citekey order="26">Atherton2021</bcf:citekey>
+    <bcf:citekey order="26">BodeWatts2023</bcf:citekey>
+    <bcf:citekey order="27">Emery2021</bcf:citekey>
+    <bcf:citekey order="28">Tegmark2017</bcf:citekey>
+    <bcf:citekey order="29">Cihon2019</bcf:citekey>
+    <bcf:citekey order="29">Leslie2019</bcf:citekey>
+    <bcf:citekey order="30">CritchKrueger2020</bcf:citekey>
+    <bcf:citekey order="31">Russell2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

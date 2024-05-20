@@ -10,7 +10,8 @@
 \usepackage{booktabs} % for better table rules
 \usepackage{caption} % to customize caption format
 \usepackage{linegoal} % for determining the remaining width of the line
-\usepackage[backend=biber, sorting=none]{biblatex}
+% \usepackage[backend=biber, sorting=none]{biblatex}
+\usepackage[style=ieee,natbib=true,backend=biber]{biblatex}
 \usepackage{subcaption}
 %\usepackage{hyperref}
 
@@ -79,10 +80,10 @@ Eleven records have missing values.
 The two missing both \textit{sex} and all numerical features were removed as imputation is unlikely to be reliable. 
 A further nine records are missing only a \textit{sex} value and were considered for imputation. 
 Figure~\ref{fig:sex} shows the physical 
-attributes of the male and female of each species differ statistically, making it likely that imputing \textit{sex} would be reliable. Following standardization, 
+attributes of the male and female of each species differ statistically, making it likely that imputing \textit{sex} would be reliable. Following standardisation, 
 a Shapiro-Wilk test confirmed all the numerical attributes have a normal distribution \cite{shapiro1965analysis} 
 and Z-tests were applied to assess the 
-hypotheses that the missing \textit{sex} value is male or female \cite{freedman2007statistics}. 
+hypotheses that the missing \textit{sex} value is male or is female \cite{freedman2007statistics}. 
 Two of the records could be imputed as male and three as female; the 
 remaining four records were removed. 
 The cleaned dataset has 338 records: 147 Adelie  
@@ -95,7 +96,7 @@ The cleaned dataset has 338 records: 147 Adelie
     \centering
     \includegraphics[width=1\textwidth]{sex.png} % Adjust the width as needed
     \vspace{-1.5\baselineskip} % Remove space before title
-    \caption{All numerical features show a significant statistical difference between sexes, for example, the body mass shown here}
+    \caption{All numerical features (includig body mass shown here) show a significant statistical difference between sexes}
     \vspace{-1\baselineskip} % Remove space after title
     \label{fig:sex}
   \end{minipage}\hfill
@@ -114,9 +115,9 @@ The cleaned dataset has 338 records: 147 Adelie
 % \vspace{\baselineskip}
 \subsection*{Visualization of the dataset}
 
-Figure~\ref{fig:islands} shows Chinstrap and Gentoo penguins are found only on one \textit{island}, making it a potential confounding factor since 
+Figure~\ref{fig:islands} shows Chinstrap and Gentoo penguins are each found on only one of the islands, making \textit{island} a potential confounding factor since 
 environmental factors may influence physical characteristics. A Shapiro-Wilk test showed  
-the numerical features of the Adelie penguins have a normal distribution and an ANOVA test confirmed Adelie features are not 
+the numerical features of the Adelie penguins (found on all the islands) have a normal distribution and an ANOVA test confirmed Adelie features are not 
 significantly influenced by the island inhabited. Thus \textit{island} is unlikely to be a confounding factor.
 
 Pairwise scatterplots for the numerical features are shown in Figure~\ref{fig:pairwise}. 
@@ -138,28 +139,29 @@ but the best candidate feature for doing so is \textit{bill length}.
 
 Figure~\ref{fig:sex} above shows the normative body masses of the male and female differ for all the species. 
 Differences between the sexes for the other three numerical physical characteristics were also apparent. 
-Since narrower distributions are extracted if the \textit{sex} of the species is considered rather than just the species itself, 
-\textit{sex} is likely to provide a finer grained distinction for species classification. 
-This knowledge was able to improve performance in some cases, as discussed in `results and analysis'. 
+As `narrower' distributions result if the \textit{sex} of the species is considered 
+rather than just the species itself, including \textit{sex} in analysis is likely to improve species classification. 
+This knowledge was able to improve performance for some AI methods, as discussed in `results and analysis'.
 
 \subsection*{Methodology}
 
 The categorical features in the dataset were encoded to numerical values as this is required for a number of the AI methods. 
 Some AI methods are known to be biased in favour of numerical features 
-with smaller standard deviations \cite{hastie2009elements}, but this bias can be reduced by the standardization 
-of features to zero mean and unity standard deviation. Standardization statistics were calculated only from 
-training sets, but the standardization itself was applied to all data, including the test set. 
+with smaller standard deviations \cite{hastie2009elements}, but this bias can be reduced by the standardisation 
+of features to zero mean and unity standard deviation. Standardisation statistics were calculated only from 
+training sets, but the standardisation itself was applied to all data, including test sets. 
 If a dataset is imbalanced, AI predictions may be biased towards classes more frequently found in the training data. 
-All the methods adopted in the current work are known to be little affected by 
-imbalanced data \cite{he2009learning}, so no modifications were made.
+Although Adelie penguins are more populus in the dataset, all the methods adopted in the current work are known to be little affected by 
+imbalanced data, so no modifications were made \cite{he2009learning}.
 
 Predicting the penguin species from the given features is a classification problem. 
-The implementation code is available on Github \cite{TimAIRepo} and was written in Python 3.11 \cite{python311} 
-using \texttt{scikit-learn} libraries \cite{scikit-learn}.
-Results are obtained from two conventional classification approaches, 
+The code supporting this report is available on Github \cite{TimAIRepo}, was written in Python 3.11 \cite{python311} 
+and used the \texttt{scikit-learn} libraries \cite{scikit-learn}.
+Results were obtained from two conventional classification approaches, 
 namely \textit{k}-Nearest Neighbour (\textit{k}nn) \cite{bishop2006pattern} and random forest \cite{breiman2001random}.
-In addition, classificaton was carried out using unsupervised \textit{k}-means (following cluster labelling) \cite{tan2005introduction} 
-and a novel combined visualization and analysis (CVA) approach that is a mix of 
+Classificaton was also carried out using 
+unsupervised \textit{k}-means (following cluster labelling) \cite{tan2005introduction}, 
+as well as a novel combined visualization and analysis (CVA) approach that is a mix of 
 practical visualizations and Support Vector Machine (SVM) classification.
 
 \begin{wraptable}{r}{0.6\textwidth} % {alignment}{width}
@@ -173,25 +175,25 @@ practical visualizations and Support Vector Machine (SVM) classification.
   \textbf{Method} & \textbf{Metaparameters} & \textbf{Values considered}\\
   \hline
   \multirow{3}{*}{\textit{k}nn}    & nearest neighbours \textit{k}	  & \textit{\textbf{1}}, 2, 3, 4, 5, 6, 8, 10\\
-                                   & prediction function	& \textit{\textbf{uniform}},distance \\
-                                   & distance metric 	& \textit{\textbf{Manhattan}},Euclid \\
+                                   & prediction function	& \textit{\textbf{uniform}}, distance \\
+                                   & distance metric 	& \textit{\textbf{Manhattan}}, Euclid \\
   \hline
   \multirow{6}{*}[0.5ex]{\begin{tabular}[t]{@{}l@{}}random \\ forest\end{tabular}} 
                                    & number of trees & 5, \textit{\textbf{10}}, 15, 20, 25 \\
-                                   & maximum depth & \textit{\textbf{no max}}, 10, 20 \\
-                                   & min samples to split  & \textit{\textbf{2}}, 5, 10 \\
-                                   & min samples at leaf & \textit{\textbf{1}}, 2, 4 \\
-                                   & split function & \textit{\textbf{gini}},entropy \\
+                                   & max. depth & \textit{\textbf{no max}}, 10, 20 \\
+                                   & min. samples to split  & \textit{\textbf{2}}, 5, 10 \\
+                                   & min. samples at leaf & \textit{\textbf{1}}, 2, 4 \\
+                                   & split function & \textit{\textbf{gini}}, entropy \\
 
   \hline
   \multirow{4}{*}{\textit{k}-means} & number of clusters \textit{k}  & 2, 3, \textit{\textbf{4}}, 5, 6, 7, 8, 10\\
-                                    & centroid initialize         & \textit{\textbf{k-means++}},random\\
+                                    & centroid initialize         & \textit{\textbf{k-means\small{++}}}, random\\
                                     & runs for centroid	     & 2, \textit{\textbf{5}}, 10, 20 \\
-                                    & maximum iterations           & 5, \textit{\textbf{10}}, 20, 50 \\
+                                    & max. iterations           & 5, \textit{\textbf{10}}, 20, 50 \\
   \hline
     \multirow{3}{*}{CVA}            & regularization   & 0.1, 1, \textit{\textbf{10}}, 100 \\
                                     & kernel coefficient      & \textit{\textbf{1}}, 0.1, 0.01, 0.001 \\
-                                    & kernel type                  & rbf, \textit{\textbf{linear}},poly \\
+                                    & kernel type                  & rbf, \textit{\textbf{linear}}, poly \\
   \hline
   \end{tabular}
   \vspace{-2\baselineskip} % Remove space before title
@@ -206,12 +208,11 @@ To reduce the potential for overfitting, the classification methods were trained
 `holdout validation', where 80\% of the dataset was used in a five-fold cross-validation 
 configuration \cite{james2013introduction}. The remaining 20\% was kept for a test set. For all methods, 
 the \texttt{scikit-learn} function \texttt{GridSearchCV} was employed to tune metaparameters \cite{scikit-learn}. 
-Table~\ref{tab:metaparameters} shows the values selected for the metaparameter grid. Those giving the best 
+The values selected for the metaparameter grid are shown in Table~\ref{tab:metaparameters} and are typical of those found in the literature \cite{geron2019hands}. 
+Metaparameters giving the best 
 performance were selected to generate accuracy results (the percentage of correctly predicted species) 
-from the test set. The metrics `precision' and `recall' were also calculated, but as 
-these are only relevant if false positives or false negatives (respectively) are of interest, 
-they are not included in this report.
-
+from the test sets. The metrics `precision' and `recall' were calculated but not included here as measures of
+false positives or false negatives are not relevant to this study.
 
 \subsection*{Results and analysis}
 
@@ -227,8 +228,8 @@ they are not included in this report.
   \hline
   baseline, Adeleie species & 43.49\% \\
   \hline
-  \textit{k}NN, all features & 99.24\% (97.06\%-100\%)\\
-  \textit{k}NN, no island &	99.46\% (97.06\%-100\%)\\
+  \textit{k}nn, all features & 99.24\% (97.06\%-100\%)\\
+  \textit{k}nn, no island &	99.46\% (97.06\%-100\%)\\
   \hline
   random forest, all features	& 98.57\% (95.59\%-100\%)\\
   random forest, no body mass & 98.49\% (92.65\%-100\%)\\
@@ -269,8 +270,8 @@ The accuracy of \textit{k}nn obtained using the dataset could be improved by rem
 %   \vspace{-1\baselineskip} % Remove space after title
 %   \label{fig:kmeansvalue}
 % \end{wrapfigure}
-The best improvement was found when \textit{island} was omitted and when \textit{k}=3. It appears that \textit{island} did not provide 
-any additional information and the larger value of \textit{k} implies better generalization has been achieved.
+The best improvement was found when \textit{island} was omitted and when \textit{k}=3 (Table~\ref{tab:results}). It appears that \textit{island} did not provide 
+any additional information and the larger value of \textit{k} (compared to \textit{k}=1 for all features) implies better generalization has been achieved during training.
 
 \textbf{Random forest}  
 When all features are inlcuded in the analysis, the accuracy of random forest was marginally worse 
@@ -286,14 +287,14 @@ may be less influenced by superfluous information in the training data.
   \includegraphics[width=0.48\textwidth]{kmeansmap.png} % Adjust the width as needed
   \vspace{-0.5\baselineskip} % Remove space before title
   \caption{\centering\linespread{0.8}\selectfont \textit{k}-means clusters mapped to species using majority voting. 
-  Mappings are shown by polygon colour (\textit{k}=10, 50 samples coloured).}
+  Mappings are shown by polygon colour (\textit{k}=10, 50 samples included).}
   \vspace{-1\baselineskip} % Remove space after title
   \label{fig:kmeansmap}
 \end{wrapfigure}
 mapping clusters to classes. 
 Figure~\ref{fig:kmeansmap} illustrates such a mapping for two feature dimensions.
-Using the elbow method, the number of clusters (\textit{k}) was recommended to be two, but three was suggested 
-by the silhouette method. Empirically, accuracy improved when \(k \geq 4\),
+Using the elbow method, the number of clusters (\textit{k}) was suggested to be two, but three was identified 
+by the silhouette method. By trial and error, accuracy was found to improve when \(k \geq 4\),
 as otherwise clusters were not reliably formed for all three species.   
 Accuracy was also greatly improved by creating a separate set of clusters for each \textit{sex}.
 
@@ -302,7 +303,7 @@ requires manual identification of suitable pairs of features for SVM classificat
 Given features \textbf{x}, SVM finds a decision boundary that maximizes class separation
 \vspace{-0.8\baselineskip} % remove space before equation
 \begin{equation}
-\mathbf{w}^T \mathbf{x} = b
+\mathbf{w}^T \mathbf{x} = b ,
 \end{equation}
 where \textbf{w} is a weight vector perpendicular to the boundary and \textit{b} is the intercept. 
 SVM training finds \textbf{w} and \textit{b} to specify an optimal hyperplane (and hence the boundary). 
@@ -310,7 +311,7 @@ An application of CVA to the Penguin dataset is given in Figure~\ref{fig:CVA}.
 Figure~\ref{fig:CVA}(a) shows the relationship between \textit{bill depth} and \textit{flipper length}, and
 the SVM decision boundary separates Gentoo from the other two species. 
 Figure~\ref{fig:CVA}(b) plots \textit{bill length} against \textit{bill depth} and shows the SVM boundary to best
-distinguish Adelie from Chinstrap. Accuracy was found to be improved by implementing separate SVM models for each \textit{sex}.
+distinguish Adelie from Chinstrap. Accuracy was improved by implementing separate SVM models for each \textit{sex}.
 
 \begin{figure}[!ht]
     \vspace{-0.5\baselineskip} % Remove space before figure
@@ -342,8 +343,8 @@ distinguish Adelie from Chinstrap. Accuracy was found to be improved by implemen
 
 With careful data preparation, selection of metaparameters and robust application of training and testing methods, 
 \textit{k}nn and random forest both produced high-quality results. 
-\textit{k}-means training does not take advantage of target information and this resulted in comparatively poor accuracy, yet training
-separate clusters for each sex improved performance significantly.
+\textit{k}-means training does not take advantage of target information and this resulted in comparatively poor accuracy, but training
+separate clusters for each sex did improve performance significantly.
 The novel CVA approach needs to be tailored anew to each problem and is not well-suited to high-dimensional data, 
 but it was found to produce results comparable to those of general-purpose classification methods and has the advantage that 
 its internal operations are easy to visualize, understand and explain.
@@ -352,10 +353,11 @@ That CVA makes a series of decisions using chosen feature pairs
 led the author to consider SVMs in place of entropy at random forests nodes - 
 but this has been done \cite{law2003support}!
 
+\vspace{-0.1\baselineskip} % Remove space before figure
 \begin{center}
 \subsection*{Question 2 - Ethical challenges and threats in AI}
 \end{center}
-
+\vspace{0.1\baselineskip} % Remove space before figure
 \subsection*{Racial Bias in Medical Algorithms}
 
 In 2019, a widely used US healthcare algorithm was found to discriminate by prioritising hospital services 

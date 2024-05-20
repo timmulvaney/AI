@@ -47,18 +47,9 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{R package version 0.1.0}
+      \field{note}{[Online]. Available: \url{https://allisonhorst.github.io/palmerpenguins/} [Accessed 27/4/2024]}
       \field{title}{palmerpenguins: Palmer Archipelago (Antarctica) penguin data}
       \field{year}{2020}
-      \verb{doi}
-      \verb 10.5281/zenodo.3960218
-      \endverb
-      \verb{urlraw}
-      \verb https://allisonhorst.github.io/palmerpenguins/
-      \endverb
-      \verb{url}
-      \verb https://allisonhorst.github.io/palmerpenguins/
-      \endverb
     \endentry
     \entry{shapiro1965analysis}{article}{}
       \name{author}{2}{}{%
@@ -113,7 +104,7 @@
            giveni={R\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {W. W. Norton \& Company}%
+        {W.W.Norton \& Company}%
       }
       \strng{namehash}{d4af681498b5fa4cdaa1afd62d16591b}
       \strng{fullhash}{d4af681498b5fa4cdaa1afd62d16591b}
@@ -216,17 +207,11 @@
       \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://github.com/timmulvaney/AI/}}
-      \field{title}{{AI coursework repository}}
+      \field{note}{[Online]. Available: \url{https://github.com/timmulvaney/AI/} [Accessed 10/5/2024]}
+      \field{title}{AI coursework repository}
       \field{year}{2024}
-      \verb{urlraw}
-      \verb https://github.com/timmulvaney/AI
-      \endverb
-      \verb{url}
-      \verb https://github.com/timmulvaney/AI
-      \endverb
     \endentry
-    \entry{python311}{misc}{}
+    \entry{python311}{report}{}
       \name{author}{1}{}{%
         {{hash=c7b5508dc5e59a2846d22617276cc27c}{%
            family={{Python Software Foundation}},
@@ -242,35 +227,32 @@
       \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.python.org/3.11/}}
+      \field{note}{[Online]. Available: \url{https://docs.python.org/3.11/} [Accessed 28/4/2024]}
       \field{title}{Python 3.11 Documentation}
       \field{year}{2022}
     \endentry
-    \entry{scikit-learn}{software}{}
+    \entry{scikit-learn}{report}{}
       \name{author}{1}{}{%
-        {{hash=64288955ec1628b061254b56453e17a4}{%
-           family={{scikit-learn contributors}},
-           familyi={s\bibinitperiod}}}%
+        {{hash=ad88304fe5fc58b16d105ad80836d824}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           prefix={scikit-learn},
+           prefixi={s\bibinithyphendelim l\bibinitperiod}}}%
       }
-      \strng{namehash}{64288955ec1628b061254b56453e17a4}
-      \strng{fullhash}{64288955ec1628b061254b56453e17a4}
-      \strng{bibnamehash}{64288955ec1628b061254b56453e17a4}
-      \strng{authorbibnamehash}{64288955ec1628b061254b56453e17a4}
-      \strng{authornamehash}{64288955ec1628b061254b56453e17a4}
-      \strng{authorfullhash}{64288955ec1628b061254b56453e17a4}
+      \strng{namehash}{ad88304fe5fc58b16d105ad80836d824}
+      \strng{fullhash}{ad88304fe5fc58b16d105ad80836d824}
+      \strng{bibnamehash}{ad88304fe5fc58b16d105ad80836d824}
+      \strng{authorbibnamehash}{ad88304fe5fc58b16d105ad80836d824}
+      \strng{authornamehash}{ad88304fe5fc58b16d105ad80836d824}
+      \strng{authorfullhash}{ad88304fe5fc58b16d105ad80836d824}
       \field{sortinit}{8}
       \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{{scikit-learn: Machine Learning in Python}}
+      \field{note}{[Online]. Available: \url{scikit-learn.org/} [Accessed 27/4/2024]}
+      \field{title}{scikit-learn: Machine Learning in Python}
       \field{version}{1.2.2}
       \field{year}{2023}
-      \verb{urlraw}
-      \verb https://scikit-learn.org
-      \endverb
-      \verb{url}
-      \verb https://scikit-learn.org
-      \endverb
     \endentry
     \entry{bishop2006pattern}{book}{}
       \name{author}{1}{}{%
@@ -390,11 +372,11 @@
       \list{publisher}{1}{%
         {Springer}%
       }
-      \strng{namehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{namehash}{3d8a73eb38e099a1e37f27374e4c9b6d}
       \strng{fullhash}{da61646157a6be769f34984f5cb603b0}
-      \strng{bibnamehash}{f8f737f83d9e451c1afaa13cdc120516}
-      \strng{authorbibnamehash}{f8f737f83d9e451c1afaa13cdc120516}
-      \strng{authornamehash}{f8f737f83d9e451c1afaa13cdc120516}
+      \strng{bibnamehash}{da61646157a6be769f34984f5cb603b0}
+      \strng{authorbibnamehash}{da61646157a6be769f34984f5cb603b0}
+      \strng{authornamehash}{3d8a73eb38e099a1e37f27374e4c9b6d}
       \strng{authorfullhash}{da61646157a6be769f34984f5cb603b0}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -402,6 +384,33 @@
       \field{labeltitlesource}{title}
       \field{title}{An Introduction to Statistical Learning: with Applications in R}
       \field{year}{2013}
+    \endentry
+    \entry{geron2019hands}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e54e6c9ce5d233c7046a00f7b3faa6c0}{%
+           family={G{é}ron},
+           familyi={G\bibinitperiod},
+           given={Aur{é}lien},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Sebastopol, CA, USA}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{fullhash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{bibnamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorbibnamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authornamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorfullhash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems}
+      \field{year}{2019}
     \endentry
     \entry{law2003support}{article}{}
       \name{author}{3}{}{%
@@ -439,7 +448,7 @@
       \field{pages}{71\bibrangedash 76}
       \range{pages}{6}
     \endentry
-    \entry{Jemielity2019}{online}{}
+    \entry{Jemielity2019}{report}{}
       \name{author}{1}{}{%
         {{hash=1a74aa15ceea7b38b6f76499c9e0d351}{%
            family={Jemielity},
@@ -457,7 +466,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[Online]. Available: \url{https://news.uchicago.edu/story/health-care-prediction-algorithm-biased-against-black-patients-study-finds}. [Accessed 27 03 2024]}
+      \field{note}{[Online]. Available: \url{https://news.uchicago.edu/story/health-care-prediction-algorithm-biased-against-black-patients-study-finds}. [Accessed 27/4/2024]}
       \field{title}{Health care prediction algorithm biased against black patients, study finds}
       \field{year}{2019}
     \endentry
@@ -510,11 +519,11 @@
            given={S.},
            giveni={S\bibinitperiod}}}%
       }
-      \strng{namehash}{445b34816f93e959b15aedcf0663a845}
+      \strng{namehash}{347399acd0195ebadb61e905169000e1}
       \strng{fullhash}{5df4387e4c49baac30e770d73aa60c22}
-      \strng{bibnamehash}{445b34816f93e959b15aedcf0663a845}
-      \strng{authorbibnamehash}{445b34816f93e959b15aedcf0663a845}
-      \strng{authornamehash}{445b34816f93e959b15aedcf0663a845}
+      \strng{bibnamehash}{5df4387e4c49baac30e770d73aa60c22}
+      \strng{authorbibnamehash}{5df4387e4c49baac30e770d73aa60c22}
+      \strng{authornamehash}{347399acd0195ebadb61e905169000e1}
       \strng{authorfullhash}{5df4387e4c49baac30e770d73aa60c22}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
@@ -595,7 +604,7 @@
       \field{pages}{17\bibrangedash 26}
       \range{pages}{10}
     \endentry
-    \entry{EuropeanParliament2023}{online}{}
+    \entry{EuropeanParliament2023}{report}{}
       \name{author}{1}{}{%
         {{hash=c25d305ea83de23a244dd39c979ff060}{%
            family={Parliament},
@@ -613,7 +622,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[Online]. Available: \url{https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence}. [Accessed 27 03 2024]}
+      \field{note}{[Online]. Available: \url{https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence}. [Accessed 27/3/2024]}
       \field{title}{EU {AI} Act: first regulation on artificial intelligence}
       \field{year}{2023}
     \endentry
@@ -640,7 +649,7 @@
       \field{volume}{1}
       \field{year}{2021}
     \endentry
-    \entry{Donovan2018}{article}{}
+    \entry{Donovan2018}{report}{}
       \name{author}{4}{}{%
         {{hash=06a75886454e1ed5dd0703921ccc2250}{%
            family={Donovan},
@@ -663,19 +672,17 @@
            given={L.},
            giveni={L\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {Washington}%
-      }
-      \strng{namehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
+      \strng{namehash}{ff46ea043f8a26f76acae47589acb024}
       \strng{fullhash}{c2ac12e076538370873aee9a3b4b08d4}
-      \strng{bibnamehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
-      \strng{authorbibnamehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
-      \strng{authornamehash}{9d102c58180e3f4dc41b0af2c6bb3bd0}
+      \strng{bibnamehash}{c2ac12e076538370873aee9a3b4b08d4}
+      \strng{authorbibnamehash}{c2ac12e076538370873aee9a3b4b08d4}
+      \strng{authornamehash}{ff46ea043f8a26f76acae47589acb024}
       \strng{authorfullhash}{c2ac12e076538370873aee9a3b4b08d4}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{[Online]. Available: \url{https://datasociety.net/library/algorithmic-accountability-a-primer/}. [Accessed 27/3/2024]}
       \field{title}{Algorithmic Accountability: A Primer}
       \field{year}{2018}
     \endentry
@@ -699,8 +706,8 @@
       \strng{authorbibnamehash}{bf94c11828fb70022455c15b0a1bf0ab}
       \strng{authornamehash}{bf94c11828fb70022455c15b0a1bf0ab}
       \strng{authorfullhash}{bf94c11828fb70022455c15b0a1bf0ab}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1st}
@@ -768,11 +775,11 @@
            given={O.},
            giveni={O\bibinitperiod}}}%
       }
-      \strng{namehash}{4da9f2a80f06cd51af45bb54f13b3228}
+      \strng{namehash}{e8b268e3bec5dc3aebcd14b723f84192}
       \strng{fullhash}{77fe0cb5bc0e00f12fee24fbdf3db0bb}
-      \strng{bibnamehash}{4da9f2a80f06cd51af45bb54f13b3228}
-      \strng{authorbibnamehash}{4da9f2a80f06cd51af45bb54f13b3228}
-      \strng{authornamehash}{4da9f2a80f06cd51af45bb54f13b3228}
+      \strng{bibnamehash}{77fe0cb5bc0e00f12fee24fbdf3db0bb}
+      \strng{authorbibnamehash}{77fe0cb5bc0e00f12fee24fbdf3db0bb}
+      \strng{authornamehash}{e8b268e3bec5dc3aebcd14b723f84192}
       \strng{authorfullhash}{77fe0cb5bc0e00f12fee24fbdf3db0bb}
       \field{sortinit}{2}
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
@@ -895,7 +902,7 @@
       \field{title}{Our Final Invention}
       \field{year}{2013}
     \endentry
-    \entry{Atherton2021}{online}{}
+    \entry{Atherton2021}{report}{}
       \name{author}{1}{}{%
         {{hash=ed7994fcfe99b84a9ef9d51fed70289a}{%
            family={Atherton},
@@ -913,7 +920,7 @@
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[Online]. Available: \url{https://www.brookings.edu/articles/loitering-munitions-preview-the-autonomous-future-of-warfare}. [Accessed 30 03 2024]}
+      \field{note}{[Online]. Available: \url{https://www.brookings.edu/articles/loitering-munitions-preview-the-autonomous-future-of-warfare}. [Accessed 30/3/2024]}
       \field{title}{Brookings: Loitering Munitions Preview the Autonomous Future of Warfare}
       \field{year}{2021}
     \endentry
@@ -1002,7 +1009,7 @@
       \field{title}{Life 3.0: Being Human in the Age of Artificial Intelligence}
       \field{year}{2017}
     \endentry
-    \entry{Cihon2019}{article}{}
+    \entry{Cihon2019}{report}{}
       \name{author}{1}{}{%
         {{hash=d046333ff3e5155dba1ae308a606feca}{%
            family={Cihon},
@@ -1010,7 +1017,7 @@
            given={P.},
            giveni={P\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
+      \list{institution}{1}{%
         {Future of Humanity Institute, University of Oxford}%
       }
       \strng{namehash}{d046333ff3e5155dba1ae308a606feca}
@@ -1023,7 +1030,8 @@
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Standards for {AI} Governance: International Standards to Enable Global Coordination in AI Research \& Development}
+      \field{title}{Standards for {AI} Governance: International Standards to Enable Global Coordination in {AI} Research \& Development}
+      \field{type}{techreport}
       \field{year}{2019}
     \endentry
     \entry{Leslie2019}{article}{}
@@ -1046,10 +1054,10 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{CoRR}
       \field{title}{Understanding {A}rtificial {I}ntelligence Ethics and Safety}
-      \field{volume}{abs/1906.05684}
+      \field{volume}{abs 1906.05684}
       \field{year}{2019}
     \endentry
-    \entry{CritchKrueger2020}{misc}{}
+    \entry{CritchKrueger2020}{article}{}
       \name{author}{2}{}{%
         {{hash=41acb8a44d0d33393aebef7e9e489cdc}{%
            family={Critch},
@@ -1068,13 +1076,13 @@
       \strng{authorbibnamehash}{e2e8546ad2b9a6334095c05c2b306f18}
       \strng{authornamehash}{e2e8546ad2b9a6334095c05c2b306f18}
       \strng{authorfullhash}{e2e8546ad2b9a6334095c05c2b306f18}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{CoRR}
+      \field{journaltitle}{Computing Research Repository, Cornell University}
+      \field{note}{[Online]. Available: \url{https://arxiv.org/abs/2006.04948}. [Accessed 30/3/2024]}
       \field{title}{A{I} Research Considerations for Human Existential Safety}
-      \field{volume}{vol. 2006.04948}
       \field{year}{2020}
     \endentry
     \entry{Russell2019}{book}{}
@@ -1101,7 +1109,7 @@
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{1st}
+      \field{edition}{1st edition}
       \field{title}{Human Compatible: Artificial Intelligence and the Problem of Control}
     \endentry
   \enddatalist
