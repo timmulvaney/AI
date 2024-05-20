@@ -35,6 +35,7 @@ The options available are as follows.
  - determine feature importance
  - knn training and testing
  - random forest training and testing
+ - kmeans 
  - perform an unusual and interesting combined visualization and analysis (CVA) that includes SVM training and testing
  - logic regression training and testing
 
