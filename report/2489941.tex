@@ -91,7 +91,7 @@ The cleaned dataset has 338 records: 147 Adelie
 
 \begin{figure}[!ht]
   \vspace{-0.5\baselineskip} % Remove space before figure
-  \begin{minipage}{0.5\textwidth}
+  \begin{minipage}{0.48\textwidth}
     \vspace{0\baselineskip} % Remove space before figure
     \centering
     \includegraphics[width=1\textwidth]{sex.png} % Adjust the width as needed
@@ -100,7 +100,7 @@ The cleaned dataset has 338 records: 147 Adelie
     \vspace{-1\baselineskip} % Remove space after title
     \label{fig:sex}
   \end{minipage}\hfill
-  \begin{minipage}{0.5\textwidth}
+  \begin{minipage}{0.48\textwidth}
     \vspace{0\baselineskip} % Remove space before figure
     \centering
     \includegraphics[width=1\textwidth]{islands.png} % Adjust the width as needed
@@ -137,7 +137,7 @@ but the best candidate feature for doing so is \textit{bill length}.
   \label{fig:pairwise}
 \end{wrapfigure}
 
-Figure~\ref{fig:sex} above shows the normative body masses of the male and female differ for all the species. 
+Figure~\ref{fig:sex} above shows the normative \textit{body mass} of male and female differ for all the species. 
 Differences between the sexes for the other three numerical physical characteristics were also apparent. 
 As `narrower' distributions result if the \textit{sex} of the species is considered 
 rather than just the species itself, including \textit{sex} in analysis is likely to improve species classification. 
@@ -145,8 +145,8 @@ This knowledge was able to improve performance for some AI methods, as discussed
 
 \subsection*{Methodology}
 
-The categorical features in the dataset were encoded to numerical values as this is required for a number of the AI methods. 
-Some AI methods are known to be biased in favour of numerical features 
+The categorical features in the dataset were encoded to numerical values as this form is often needed by AI methods. 
+Some AI methods are also known to be biased in favour of numerical features 
 with smaller standard deviations \cite{hastie2009elements}, but this bias can be reduced by the standardisation 
 of features to zero mean and unity standard deviation. Standardisation statistics were calculated only from 
 training sets, but the standardisation itself was applied to all data, including test sets. 
@@ -250,7 +250,7 @@ false positives or false negatives are not relevant to this study.
 \end{wraptable} 
 
 The \texttt{scikit-learn}  
-pseudo-random procedure was used for selecting validation and test set values and 100 (indices 1 to 100) of these were used 
+pseudo-random procedure was used for generating validation and test set samples and 100 (indices 1 to 100) of these were used 
 both when selecting metaparameters and when deriving accuracy results.
 The results in Table~\ref{tab:results} include a baseline to demonstrate the 
 performance improvements achieved by the AI methods. In classification, the
@@ -275,7 +275,7 @@ any additional information and the larger value of \textit{k} (compared to \text
 
 \textbf{Random forest}  
 When all features are inlcuded in the analysis, the accuracy of random forest was marginally worse 
-than achieved using \textit{k}nn. 
+than that achieved using \textit{k}nn. 
 No performance improvement was found using fewer features, indicating that random forest
 may be less influenced by superfluous information in the training data. 
 
@@ -311,7 +311,7 @@ An application of CVA to the Penguin dataset is given in Figure~\ref{fig:CVA}.
 Figure~\ref{fig:CVA}(a) shows the relationship between \textit{bill depth} and \textit{flipper length}, and
 the SVM decision boundary separates Gentoo from the other two species. 
 Figure~\ref{fig:CVA}(b) plots \textit{bill length} against \textit{bill depth} and shows the SVM boundary to best
-distinguish Adelie from Chinstrap. Accuracy was improved by implementing separate SVM models for each \textit{sex}.
+distinguish Adelie from Chinstrap. Accuracy was improved by implementing separate CVA models for each \textit{sex}.
 
 \begin{figure}[!ht]
     \vspace{-0.5\baselineskip} % Remove space before figure
